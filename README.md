@@ -1,8 +1,9 @@
 <h2 align="center">
   Portfolio Website - v2.0<br/>
-  <a href="https://danyyaldev.vercel.app/" target="_blank">danyyal.tech</a>
+  <a href="https://danyyaldev.vercel.app/" target="_blank">danyyaldev</a>
 </h2>
 
+## Built With
 <center>
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
@@ -18,13 +19,11 @@
     <a href="https://github.com/danyyal/Portfolio/issues">Request Feature</a>
 </h3>
 
-## TL;DR
-
 You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [danyyal](https://github.com/danyyal/Portfolio). Thanks!
 
-## Built With
 
-My personal portfolio <a href="https://danyyaldev.vercel.app/" target="_blank">danyyal.tech</a> which features some of my github projects as well as my resume and technical skills.<br/>
+
+My personal portfolio <a href="https://danyyaldev.vercel.app/" target="_blank">danyyaldev</a> which features some of my github projects as well as my resume and technical skills.<br/>
 
 This project was built using these technologies.
 
