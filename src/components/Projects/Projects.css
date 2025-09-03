@@ -1,0 +1,46 @@
+.section-header {
+    text-align: center;
+    padding-top: 2rem;
+  
+    .project-heading {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 0.6s ease-in-out;
+  
+      .section-title {
+        color: #dcdcdc;
+      }
+  
+      .purple-glow {
+        color: #c77dff;
+        text-shadow: 0 0 10px rgba(199, 125, 255, 0.8),
+                     0 0 20px rgba(199, 125, 255, 0.5);
+      }
+    }
+  
+    .section-subtitle {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #cccccc;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease-in-out;
+      animation-delay: 0.2s;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
