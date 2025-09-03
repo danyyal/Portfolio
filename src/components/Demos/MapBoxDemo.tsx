@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 // import mapboxgl from 'mapbox-gl';
 // import 'mapbox-gl/dist/mapbox-gl.css';
 // import Map from 'react-map-gl';
@@ -6,8 +5,8 @@ import React, { useEffect, useRef } from 'react';
 // mapboxgl.accessToken = 'pk.eyJ1IjoiZGFueXlhbCIsImEiOiJjbWF6MXluZXYwZDQxMmpzaGhmODFseHJiIn0.qZWNaS6U03CBBA7Cm-aGYg';
 
 const MapBoxDemo = () => {
-  const mapContainer = useRef(null);
-  const map = useRef(null);
+  // const mapContainer = useRef(null);
+  // const map = useRef(null);
 
   // useEffect(() => {
   //   if (map.current) return; // Initialize map only once
