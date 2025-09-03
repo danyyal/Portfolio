@@ -1,23 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import GitHubCalendar from "react-github-calendar";
-import { Row, Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { useWindowSize } from "../../utils/customHooks/useWindowSize.ts";
 
 function Github() {
   const currentYear = new Date().getFullYear();
-  const [selectedYear, setSelectedYear] = useState(currentYear);
+  const [selectedYear, setSelectedYear] = useState<any>(currentYear);
   const {width} = useWindowSize();
-  const handleYearChange = (e) => {
+  const handleYearChange = (e:any) => {
     setSelectedYear(e.target.value === 'last' ? 'last':Number(e.target.value));
   };
 
-  const filterContributionsByYear = (contributions) => {
-    return contributions.filter(
-      (day) => new Date(day.date).getFullYear() === selectedYear
-    );
-  };
-
-  console.log({selectedYear})
   return (
     <>
       <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
@@ -133,7 +126,6 @@ function Github() {
         username="danyyal"
         blockSize={15}
         blockMargin={5}
-        color="#c084f5"
         fontSize={12}
         year={selectedYear}
         style={{
