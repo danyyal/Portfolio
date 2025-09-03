@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal, Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { FaExpand, FaTimes } from 'react-icons/fa';
 import MapBoxDemo from './MapBoxDemo'; // Adjust import path as needed
 
 const Demos = () => {
   const [showModal, setShowModal] = useState(false);
-  const [selectedDemo, setSelectedDemo] = useState(null);
+  const [selectedDemo, setSelectedDemo] = useState<any>(null);
 
   const demoData = [
     {
@@ -31,7 +31,7 @@ const Demos = () => {
     }
   ];
 
-  const openModal = (demo) => {
+  const openModal = (demo:any) => {
     setSelectedDemo(demo);
     setShowModal(true);
   };
@@ -124,12 +124,12 @@ const Demos = () => {
                       transition: 'all 0.3s ease'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = '#4a90e2';
-                      e.target.style.color = 'white';
+                      (e.target as any).style.backgroundColor = '#4a90e2';
+                      (e.target as any).style.color = 'white';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'transparent';
-                      e.target.style.color = '#4a90e2';
+                      (e.target as any).style.backgroundColor = 'transparent';
+                      (e.target as any).style.color = '#4a90e2';
                     }}
                   >
                     <FaExpand className="me-2" />
@@ -190,7 +190,7 @@ const Demos = () => {
         </Modal>
       </Container>
 
-      <style jsx>{`
+      <style>{`
         .demo-card:hover .expand-btn {
           opacity: 1 !important;
         }
