@@ -16,7 +16,7 @@ const Home = ()=> {
   <span className="intro-text">Hi, I'm </span>
   <span className="name-highlight">Danyyal Ali 👨‍💻</span>
 </h1>
-<h2 className="sub-greeting">
+<h2 className="text-gray-300">
   Turning ideas into code, <span className="highlight">one line at a time.</span>
 </h2>
           <Type />

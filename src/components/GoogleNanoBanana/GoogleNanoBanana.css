@@ -1,0 +1,9 @@
+.bg-gradient {
+    background: linear-gradient(to bottom right, #4c1d95, #1e3a8a, #312e81);
+    min-height: 100vh;
+  }
+  
+  .icon-yellow {
+    color: #facc15;
+  }
+  

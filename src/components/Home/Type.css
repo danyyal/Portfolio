@@ -10,7 +10,12 @@
     display: inline-block;
     position: relative;
   }
-  
+  @media (max-width: 767px) {
+    .typewriter-container {
+      -webkit-text-fill-color:#5a189a;
+    }
+    
+  }
   .typewriter-container::after {
     content: "|";
     color: #c77dff;

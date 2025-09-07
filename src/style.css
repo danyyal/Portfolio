@@ -176,6 +176,9 @@ button:focus {
   .nav-link {
     padding: 0.7rem 1rem !important;
   }
+  .purple-tech {
+    font-size: 24px;
+  }
 }
 
 .navbar-nav .nav-item {
@@ -306,6 +309,7 @@ button:focus {
 }
 
 .myAvtar {
+  display: flex;
   justify-content: center !important;
   padding-top: 9em !important;
 }
@@ -580,6 +584,9 @@ button:focus {
   .tech-icons {
     margin: 10px !important;
   }
+  .project-heading {
+    font-size: 1.5em !important;
+  }
 }
 
 .tech-icons:hover {
@@ -758,7 +765,7 @@ button:focus {
   }
   
   .home-section {
-    padding-top: 100px !important;
+    padding-top: 20px !important;
     
   }
   .home-header{
@@ -771,6 +778,9 @@ button:focus {
 
 .navbar-nav .nav-item {
   margin-left: 0px;
+}
+.fork-btn {
+  margin-left: 16px !important;
 }
 }
 

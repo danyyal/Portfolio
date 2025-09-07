@@ -67,7 +67,7 @@ const Section = ({ title, items, width }:any) => (
       className="project-heading"
       style={{ marginTop: "40px", marginBottom: "20px" }}
     >
-      <strong className="purple">{title}</strong>
+      <strong className="purple purple-tech">{title}</strong>
     </h3>
     <Row style={width<768? { justifyContent: "space-between", marginLeft: "10px", marginRight: "10px" }: { justifyContent: "center" }}>
       {items.map((tech:any, idx:number) => (

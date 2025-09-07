@@ -13,9 +13,9 @@ function ResumeNew() {
       <Container fluid className="resume-section">
         <Particle />
         <Row style={{ justifyContent: "center", padding:'0px 0px 20px 0px', position: "relative" }}>
-          <Button variant="primary" style={{ maxWidth: "250px" }}>
+          <Button variant="primary" style={{ maxWidth: "250px", display:'flex', justifyContent:'center' }}>
             <a
-              style={{ color: "white", textDecoration: "none" }}
+              style={{ color: "white", textDecoration: "none",display:'flex', alignItems:'center', gap:'12px' }}
               href={pdf}
               download={"Danyyal Ali Mern.pdf"}
             >
