@@ -14,6 +14,7 @@
     "@chakra-ui/react": "^3.26.0",
     "@pdf-viewer/react": "^1.8.4",
     "bootstrap": "^5.3.7",
+    "framer-motion": "^12.23.12",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",
