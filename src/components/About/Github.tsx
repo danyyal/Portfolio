@@ -6,9 +6,11 @@ import { useWindowSize } from "../../utils/customHooks/useWindowSize.ts";
 function Github() {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState<any>(currentYear);
-  const {width} = useWindowSize();
-  const handleYearChange = (e:any) => {
-    setSelectedYear(e.target.value === 'last' ? 'last':Number(e.target.value));
+  const { width } = useWindowSize();
+  const handleYearChange = (e: any) => {
+    setSelectedYear(
+      e.target.value === "last" ? "last" : Number(e.target.value),
+    );
   };
 
   return (
@@ -30,94 +32,120 @@ function Github() {
           </label>
           {width < 768 ? (
             <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}>
-              <input
-                type="radio"
-                value={currentYear - 1}
-                checked={selectedYear === currentYear - 1}
-                onChange={handleYearChange}
-                style={{ accentColor: "#c084f5" }}
-              />
-              <span style={{ fontSize: "14px", color: "white" }}>Previous Year</span>
-            </label>
-          
-            <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}>
-              <input
-                type="radio"
-                value="last"
-                checked={selectedYear === "last"}
-                onChange={handleYearChange}
-                style={{ accentColor: "#c084f5" }}
-              />
-              <span style={{ fontSize: "14px", color: "white" }}>Last Year</span>
-            </label>
-          
-            <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}>
-              <input
-                type="radio"
-                value={currentYear}
-                checked={selectedYear === currentYear}
-                onChange={handleYearChange}
-                style={{ accentColor: "#c084f5" }}
-              />
-              <span style={{ fontSize: "14px", color: "white" }}>Current Year</span>
-            </label>
-          </div>
-          
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  cursor: "pointer",
+                }}
+              >
+                <input
+                  type="radio"
+                  value={currentYear - 1}
+                  checked={selectedYear === currentYear - 1}
+                  onChange={handleYearChange}
+                  style={{ accentColor: "#c084f5" }}
+                />
+                <span style={{ fontSize: "14px", color: "white" }}>
+                  Previous Year
+                </span>
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  cursor: "pointer",
+                }}
+              >
+                <input
+                  type="radio"
+                  value="last"
+                  checked={selectedYear === "last"}
+                  onChange={handleYearChange}
+                  style={{ accentColor: "#c084f5" }}
+                />
+                <span style={{ fontSize: "14px", color: "white" }}>
+                  Last Year
+                </span>
+              </label>
+
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  cursor: "pointer",
+                }}
+              >
+                <input
+                  type="radio"
+                  value={currentYear}
+                  checked={selectedYear === currentYear}
+                  onChange={handleYearChange}
+                  style={{ accentColor: "#c084f5" }}
+                />
+                <span style={{ fontSize: "14px", color: "white" }}>
+                  Current Year
+                </span>
+              </label>
+            </div>
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
-          <button
-            onClick={() =>
-              handleYearChange({ target: { value: currentYear - 1 } })
-            }
-            style={{
-              padding: "8px 12px",
-              borderRadius: "6px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-              marginRight: "10px",
-              backgroundColor:
-                selectedYear === currentYear - 1 ? "#623686" : "#c084f5",
-              color: selectedYear === currentYear - 1 ? "white" : "black",
-              cursor: "pointer",
-            }}
-          >
-            Previous Year
-          </button>
-          <button
-            onClick={() =>
-              handleYearChange({ target: { value: 'last' } })
-            }
-            style={{
-              padding: "8px 12px",
-              borderRadius: "6px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-              marginRight: "10px",
-              backgroundColor:
-                selectedYear ===  'last' ? "#623686" : "#c084f5",
-              color: selectedYear ===  'last' ? "white" : "black",
-              cursor: "pointer",
-            }}
-          >
-            Last Year
-          </button>
-          <button
-            onClick={() => handleYearChange({ target: { value: currentYear } })}
-            style={{
-              padding: "8px 12px",
-              borderRadius: "6px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-              backgroundColor:
-                selectedYear === currentYear ? "#623686" : "#c084f5",
-              color: selectedYear === currentYear ? "white" : "black",
-              cursor: "pointer",
-            }}
-          >
-            Current Year
-          </button>
-          </div>
+              <button
+                onClick={() =>
+                  handleYearChange({ target: { value: currentYear - 1 } })
+                }
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                  marginRight: "10px",
+                  backgroundColor:
+                    selectedYear === currentYear - 1 ? "#623686" : "#c084f5",
+                  color: selectedYear === currentYear - 1 ? "white" : "black",
+                  cursor: "pointer",
+                }}
+              >
+                Previous Year
+              </button>
+              <button
+                onClick={() => handleYearChange({ target: { value: "last" } })}
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                  marginRight: "10px",
+                  backgroundColor:
+                    selectedYear === "last" ? "#623686" : "#c084f5",
+                  color: selectedYear === "last" ? "white" : "black",
+                  cursor: "pointer",
+                }}
+              >
+                Last Year
+              </button>
+              <button
+                onClick={() =>
+                  handleYearChange({ target: { value: currentYear } })
+                }
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                  backgroundColor:
+                    selectedYear === currentYear ? "#623686" : "#c084f5",
+                  color: selectedYear === currentYear ? "white" : "black",
+                  cursor: "pointer",
+                }}
+              >
+                Current Year
+              </button>
+            </div>
           )}
         </Col>
       </Col>

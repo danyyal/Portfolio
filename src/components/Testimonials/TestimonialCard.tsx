@@ -1,9 +1,9 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { Button } from "@mui/material";
 
-function TestimonialCard(props:any) {
+function TestimonialCard(props: any) {
   return (
     <Card className="project-card-view">
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
@@ -12,7 +12,7 @@ function TestimonialCard(props:any) {
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
+        <Button variant="outlined" href={props.ghLink} target="_blank">
           <BsGithub /> &nbsp;
           {props.isBlog ? "Blog" : "GitHub"}
         </Button>
@@ -23,7 +23,7 @@ function TestimonialCard(props:any) {
 
         {!props.isBlog && props.demoLink && (
           <Button
-            variant="primary"
+            variant="outlined"
             href={props.demoLink}
             target="_blank"
             style={{ marginLeft: "10px" }}

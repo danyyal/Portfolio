@@ -61,7 +61,7 @@ import { useWindowSize } from "../../utils/customHooks/useWindowSize.ts";
 // Payments
 import { SiStripe, SiPaypal, SiAdyen } from "react-icons/si";
 
-const Section = ({ title, items, width }:any) => (
+const Section = ({ title, items, width }: any) => (
   <>
     <h3
       className="project-heading"
@@ -69,16 +69,22 @@ const Section = ({ title, items, width }:any) => (
     >
       <strong className="purple purple-tech">{title}</strong>
     </h3>
-    <Row style={width<768? { justifyContent: "space-between", marginLeft: "10px", marginRight: "10px" }: { justifyContent: "center" }}>
-      {items.map((tech:any, idx:number) => (
-        <Col
-          xs={5}
-          md={2}
-          key={idx}
-          className="tech-icons"
-          title={tech.name}
-        >
-          <div className="icon-container" style={{ fontSize: "60px", }}>{tech.icon}</div>
+    <Row
+      style={
+        width < 768
+          ? {
+              justifyContent: "space-between",
+              marginLeft: "10px",
+              marginRight: "10px",
+            }
+          : { justifyContent: "center" }
+      }
+    >
+      {items.map((tech: any, idx: number) => (
+        <Col xs={5} md={2} key={idx} className="tech-icons" title={tech.name}>
+          <div className="icon-container" style={{ fontSize: "60px" }}>
+            {tech.icon}
+          </div>
           <div style={{ fontSize: "16px", marginTop: "12px", color: "#ddd" }}>
             {tech.name}
           </div>
@@ -89,11 +95,11 @@ const Section = ({ title, items, width }:any) => (
 );
 
 function Techstack() {
-  const {width}= useWindowSize()
+  const { width } = useWindowSize();
   return (
     <Container fluid className="techstack-section">
       <Section
-      width={width}
+        width={width}
         title="Languages"
         items={[
           { icon: <DiJavascript1 />, name: "JavaScript" },
@@ -105,7 +111,7 @@ function Techstack() {
       />
 
       <Section
-      width={width}
+        width={width}
         title="Frameworks"
         items={[
           { icon: <DiReact />, name: "React" },
@@ -119,7 +125,7 @@ function Techstack() {
       />
 
       <Section
-      width={width}
+        width={width}
         title="Libraries & UI"
         items={[
           { icon: <DiHtml5 />, name: "HTML5" },
@@ -136,7 +142,7 @@ function Techstack() {
       />
 
       <Section
-      width={width}
+        width={width}
         title="Databases"
         items={[
           { icon: <DiMongodb />, name: "MongoDB" },
@@ -149,7 +155,7 @@ function Techstack() {
       />
 
       <Section
-      width={width}
+        width={width}
         title="DevOps & Tools"
         items={[
           { icon: <DiGit />, name: "Git" },
@@ -175,7 +181,7 @@ function Techstack() {
       />
 
       <Section
-      width={width}
+        width={width}
         title="Payment Integrations"
         items={[
           { icon: <SiStripe />, name: "Stripe" },

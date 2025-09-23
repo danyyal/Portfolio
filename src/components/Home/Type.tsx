@@ -1,5 +1,5 @@
 import Typewriter from "typewriter-effect";
-import './Type.css'
+import "./Type.css";
 function Type() {
   return (
     <div className="typewriter-container">

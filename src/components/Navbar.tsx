@@ -3,7 +3,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
@@ -12,9 +11,9 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
-  AiOutlineEye
+  AiOutlineEye,
 } from "react-icons/ai";
-import {SlSpeech} from "react-icons/sl";
+import { SlSpeech } from "react-icons/sl";
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
@@ -56,7 +55,9 @@ function NavBar() {
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <div className="nav-inner-div"><AiOutlineHome style={{ marginBottom: "2px" }} /> Home</div>
+                <div className="nav-inner-div">
+                  <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+                </div>
               </Nav.Link>
             </Nav.Item>
 
@@ -66,7 +67,9 @@ function NavBar() {
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <div className="nav-inner-div"><AiOutlineUser style={{ marginBottom: "2px" }} /> About</div>
+                <div className="nav-inner-div">
+                  <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                </div>
               </Nav.Link>
             </Nav.Item>
 
@@ -76,10 +79,12 @@ function NavBar() {
                 to="/project"
                 onClick={() => updateExpanded(false)}
               >
-                <div className="nav-inner-div"><AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects</div>
+                <div className="nav-inner-div">
+                  <AiOutlineFundProjectionScreen
+                    style={{ marginBottom: "2px" }}
+                  />{" "}
+                  Projects
+                </div>
               </Nav.Link>
             </Nav.Item>
 
@@ -89,10 +94,11 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <div className="nav-inner-div"><CgFileDocument style={{ marginBottom: "2px" }} /> Resume</div>
+                <div className="nav-inner-div">
+                  <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                </div>
               </Nav.Link>
             </Nav.Item>
-
 
             <Nav.Item>
               <Nav.Link
@@ -100,7 +106,10 @@ function NavBar() {
                 to="/testimonial"
                 onClick={() => updateExpanded(false)}
               >
-                <div className="nav-inner-div"><SlSpeech color="white" style={{ marginBottom: "2px",}}/> Testimonial</div>
+                <div className="nav-inner-div">
+                  <SlSpeech color="white" style={{ marginBottom: "2px" }} />{" "}
+                  Testimonial
+                </div>
               </Nav.Link>
             </Nav.Item>
 
@@ -110,13 +119,11 @@ function NavBar() {
                 to="/demo"
                 onClick={() => updateExpanded(false)}
               >
-                <div className="nav-inner-div"><AiOutlineEye
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Demo</div>
+                <div className="nav-inner-div">
+                  <AiOutlineEye style={{ marginBottom: "2px" }} /> Demo
+                </div>
               </Nav.Link>
             </Nav.Item>
-
             <Nav.Item>
               <Nav.Link
                 href="https://danyyaldevblogs.vercel.app/"
@@ -124,21 +131,27 @@ function NavBar() {
                 rel="noreferrer"
                 disabled
               >
-                <div className="nav-inner-div"                 style={{cursor:'not-allowed', color:'dimgray'}}
-                ><ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </div>
+                <div
+                  className="nav-inner-div"
+                  style={{ cursor: "not-allowed", color: "dimgray" }}
+                >
+                  <ImBlog style={{ marginBottom: "2px" }} /> Blogs
+                </div>
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item className="fork-btn">
-              <Button
+              <Nav.Link
                 href="https://github.com/danyyal/Portfolio"
                 target="_blank"
-                className="fork-btn-inner"
+                rel="noreferrer"
+                disabled
               >
-                <div className="nav-inner-div"><CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} /></div>
-              </Button>
+                <div className="nav-inner-div">
+                  <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
+                  <AiFillStar style={{ fontSize: "1.1em" }} />
+                </div>
+              </Nav.Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

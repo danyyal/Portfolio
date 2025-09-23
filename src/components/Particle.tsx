@@ -1,13 +1,13 @@
 import Particles from "react-tsparticles";
 
-const Particle= ()=> {
+const Particle = () => {
   return (
     <Particles
       id="tsparticles"
       params={{
         particles: {
-          wobble:{
-            enable:true
+          wobble: {
+            enable: true,
           },
           number: {
             value: 300,
@@ -36,8 +36,7 @@ const Particle= ()=> {
           },
           shape: {
             type: "circle",
-        },
-
+          },
         },
         interactivity: {
           events: {
@@ -56,6 +55,6 @@ const Particle= ()=> {
       }}
     />
   );
-}
+};
 
 export default Particle;

@@ -10,23 +10,23 @@ import liftoffleads from "../../Assets/Projects/liftoffleads.png";
 import fridaypos from "../../Assets/Projects/fridaypos.png";
 import tambr from "../../Assets/Projects/tambr.png";
 import portalio from "../../Assets/Projects/portalio.png";
-import './Projects.css'
-const additionalProjects=[
-  'TTS', 'Drone App', 'Divebell'
-]
+import "./Projects.css";
+const additionalProjects = ["TTS", "Drone App", "Divebell"];
 function Projects() {
   return (
     <Container fluid className="project-section">
       <Particle />
       <Container>
-      <div className="section-header">
-  <h1 className="project-heading">
-    <span className="section-title">My Recent</span> <strong className="purple-glow">Works</strong>
-  </h1>
-  <p className="section-subtitle">
-    Here are a few projects I've worked on recently — from creative frontends to robust backends.
-  </p>
-</div>
+        <div className="section-header">
+          <h1 className="project-heading">
+            <span className="section-title">My Recent</span>{" "}
+            <strong className="purple-glow">Works</strong>
+          </h1>
+          <p className="section-subtitle">
+            Here are a few projects I've worked on recently — from creative
+            frontends to robust backends.
+          </p>
+        </div>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
@@ -63,7 +63,6 @@ function Projects() {
             />
           </Col>
 
-
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={spacedventures}
@@ -75,7 +74,6 @@ function Projects() {
               isPrivate={true}
             />
           </Col>
-
 
           <Col md={4} className="project-card">
             <ProjectCard
@@ -138,45 +136,52 @@ function Projects() {
           </Col>
 
           <Row style={{ justifyContent: "center", paddingTop: "30px" }}>
-          <Col md={12}>
-            <h3 className="project-heading" style={{ fontSize: "1.5rem", marginBottom: "20px" }}>
-              Other <strong className="purple">Projects</strong>
-            </h3>
-            <div style={{ 
-              display: "flex", 
-              flexWrap: "wrap", 
-              gap: "15px", 
-              justifyContent: "center" 
-            }}>
-              {additionalProjects.map((project, index) => (
-                <div 
-                  key={index}
-                  style={{
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
-                    borderRadius: "8px",
-                    padding: "12px 20px",
-                    color: "white",
-                    fontSize: "0.95rem",
-                    backdropFilter: "blur(10px)",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.target as any).style.backgroundColor = "rgba(255, 255, 255, 0.15)";
-                    (e.target as any).style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as any).style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-                    (e.target as any).style.transform = "translateY(0px)";
-                  }}
-                >
-                  {project}
-                </div>
-              ))}
-            </div>
-          </Col>
-        </Row>
+            <Col md={12}>
+              <h3
+                className="project-heading"
+                style={{ fontSize: "1.5rem", marginBottom: "20px" }}
+              >
+                Other <strong className="purple">Projects</strong>
+              </h3>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "15px",
+                  justifyContent: "center",
+                }}
+              >
+                {additionalProjects.map((project, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      borderRadius: "8px",
+                      padding: "12px 20px",
+                      color: "white",
+                      fontSize: "0.95rem",
+                      backdropFilter: "blur(10px)",
+                      transition: "all 0.3s ease",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.target as any).style.backgroundColor =
+                        "rgba(255, 255, 255, 0.15)";
+                      (e.target as any).style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as any).style.backgroundColor =
+                        "rgba(255, 255, 255, 0.1)";
+                      (e.target as any).style.transform = "translateY(0px)";
+                    }}
+                  >
+                    {project}
+                  </div>
+                ))}
+              </div>
+            </Col>
+          </Row>
         </Row>
       </Container>
     </Container>

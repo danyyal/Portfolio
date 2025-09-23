@@ -12,6 +12,6 @@ body {
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
 }
 
-#root{
+#root {
   overflow-y: hidden;
 }

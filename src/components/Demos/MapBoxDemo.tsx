@@ -73,8 +73,8 @@ const MapBoxDemo = () => {
     <div
       // ref={mapContainer}
       style={{
-        height: '400px',
-        width: '400px'
+        height: "400px",
+        width: "400px",
       }}
     />
   );

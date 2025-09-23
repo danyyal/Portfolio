@@ -1,4 +1,4 @@
-import { useState, useEffect, type JSX } from 'react';
+import { useState, useEffect, type JSX } from "react";
 import {
   Box,
   Text,
@@ -10,10 +10,10 @@ import {
   IconButton,
   Badge,
   Container,
-} from '@chakra-ui/react';
-import { Progress } from '@chakra-ui/progress'
-import { Wrench, Zap, Clock, Sparkles, Code, Rocket } from 'lucide-react';
-import CoolSparklesCenter from './CoolSparklesCenter';
+} from "@chakra-ui/react";
+import { Progress } from "@chakra-ui/progress";
+import { Wrench, Zap, Clock, Sparkles, Code, Rocket } from "lucide-react";
+import CoolSparklesCenter from "./CoolSparklesCenter";
 
 interface MousePosition {
   x: number;
@@ -61,7 +61,10 @@ const keyframes = `
 `;
 
 export default function UnderDevelopmentPage(): JSX.Element {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState<MousePosition>({
+    x: 0,
+    y: 0,
+  });
   const [clickCount, setClickCount] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const [particles, setParticles] = useState<Particle[]>([]);
@@ -71,27 +74,30 @@ export default function UnderDevelopmentPage(): JSX.Element {
   const Icon = icons[currentIcon];
 
   // Background particles data
-  const backgroundParticles: BackgroundParticle[] = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    delay: Math.random() * 3,
-    duration: 2 + Math.random() * 2
-  }));
+  const backgroundParticles: BackgroundParticle[] = Array.from(
+    { length: 20 },
+    (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3,
+      duration: 2 + Math.random() * 2,
+    }),
+  );
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress(prev => (prev >= 100 ? 0 : prev + Math.random() * 5));
-      setCurrentIcon(prev => (prev + 1) % icons.length);
+      setProgress((prev) => (prev >= 100 ? 0 : prev + Math.random() * 5));
+      setCurrentIcon((prev) => (prev + 1) % icons.length);
     }, 2000);
 
     return () => clearInterval(interval);
@@ -99,13 +105,15 @@ export default function UnderDevelopmentPage(): JSX.Element {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setParticles(prev => 
-        prev.map(p => ({
-          ...p,
-          y: p.y - 2,
-          x: p.x + Math.sin(p.y * 0.01) * 0.5,
-          opacity: p.opacity - 0.02
-        })).filter(p => p.opacity > 0)
+      setParticles((prev) =>
+        prev
+          .map((p) => ({
+            ...p,
+            y: p.y - 2,
+            x: p.x + Math.sin(p.y * 0.01) * 0.5,
+            opacity: p.opacity - 0.02,
+          }))
+          .filter((p) => p.opacity > 0),
       );
     }, 50);
 
@@ -113,8 +121,8 @@ export default function UnderDevelopmentPage(): JSX.Element {
   }, []);
 
   const handleInteraction = (e: any) => {
-    setClickCount(prev => prev + 1);
-    
+    setClickCount((prev) => prev + 1);
+
     // Create particle burst
     const rect = e.currentTarget.getBoundingClientRect();
     const newParticles: Particle[] = Array.from({ length: 8 }, (_, i) => ({
@@ -122,15 +130,15 @@ export default function UnderDevelopmentPage(): JSX.Element {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
       opacity: 1,
-      angle: (i * 45) * Math.PI / 180,
-      speed: Math.random() * 13 + 2
+      angle: (i * 45 * Math.PI) / 180,
+      speed: Math.random() * 13 + 2,
     }));
-    
-    setParticles(prev => [...prev, ...newParticles]);
+
+    setParticles((prev) => [...prev, ...newParticles]);
   };
 
   const handleSpeedUp = () => {
-    setProgress(prev => Math.min(100, prev + 10));
+    setProgress((prev) => Math.min(100, prev + 10));
   };
 
   const handleResetCounter = () => {
@@ -156,8 +164,8 @@ export default function UnderDevelopmentPage(): JSX.Element {
             rgba(16, 185, 129, 0.1) 50%, 
             transparent 70%)`}
         />
-        
-        {backgroundParticles.map(particle => (
+
+        {backgroundParticles.map((particle) => (
           <Box
             key={particle.id}
             position="absolute"
@@ -173,7 +181,7 @@ export default function UnderDevelopmentPage(): JSX.Element {
         ))}
 
         {/* Interactive Particles */}
-        {particles.map(particle => (
+        {particles.map((particle) => (
           <Box
             key={particle.id}
             position="absolute"
@@ -192,7 +200,6 @@ export default function UnderDevelopmentPage(): JSX.Element {
         <Center minH="100vh" zIndex="10" position="relative" p={8}>
           <Container maxW="4xl">
             <VStack gap={8} textAlign="center">
-              
               <Box position="relative">
                 <IconButton
                   aria-label="Development Icon"
@@ -205,17 +212,17 @@ export default function UnderDevelopmentPage(): JSX.Element {
                   animation="bounce 2s infinite"
                   boxShadow={`0 0 ${20 + clickCount * 2}px rgba(139, 92, 246, 0.5)`}
                   _hover={{
-                    transform: 'scale(1.1) rotate(12deg)'
+                    transform: "scale(1.1) rotate(12deg)",
                   }}
                   onClick={handleInteraction}
                 >
-                  <Icon 
-                    color="white" 
-                    style={{ 
-                      fontSize:'64px',
-                      animation: 'spin 3s linear infinite'
-                    }} 
-                  /> 
+                  <Icon
+                    color="white"
+                    style={{
+                      fontSize: "64px",
+                      animation: "spin 3s linear infinite",
+                    }}
+                  />
                 </IconButton>
                 {clickCount > 0 && (
                   <Badge
@@ -247,14 +254,13 @@ export default function UnderDevelopmentPage(): JSX.Element {
               </VStack>
               <CoolSparklesCenter />
 
-
               {/* Progress Section */}
               <VStack gap={1} w="full" maxW="md">
-                <HStack color="gray.300" alignItems={'center'} gap={2}>
+                <HStack color="gray.300" alignItems={"center"} gap={2}>
                   <Clock size={20} />
-                  <Text mb={'0px'}>Development Progress</Text>
+                  <Text mb={"0px"}>Development Progress</Text>
                 </HStack>
-                
+
                 <Box w="full" position="relative">
                   <Progress
                     value={progress}
@@ -262,22 +268,23 @@ export default function UnderDevelopmentPage(): JSX.Element {
                     borderRadius="full"
                     bg="gray.800"
                     sx={{
-                      '& > div': {
-                        background: 'linear-gradient(135deg, #9f7aea 0%, #3182ce 100%)',
-                        position: 'relative',
-                        '&::after': {
+                      "& > div": {
+                        background:
+                          "linear-gradient(135deg, #9f7aea 0%, #3182ce 100%)",
+                        position: "relative",
+                        "&::after": {
                           content: '""',
-                          position: 'absolute',
+                          position: "absolute",
                           inset: 0,
-                          bg: 'whiteAlpha.200',
-                          borderRadius: 'full',
-                          animation: 'pulse 1s infinite'
-                        }
-                      }
+                          bg: "whiteAlpha.200",
+                          borderRadius: "full",
+                          animation: "pulse 1s infinite",
+                        },
+                      },
                     }}
                   />
                 </Box>
-                
+
                 <Text fontSize="sm" color="gray.400">
                   {Math.round(progress)}% Complete
                 </Text>
@@ -294,9 +301,9 @@ export default function UnderDevelopmentPage(): JSX.Element {
                   fontWeight="medium"
                   transition="all 300ms"
                   _hover={{
-                    bg: 'purple.500',
-                    transform: 'scale(1.05)',
-                    boxShadow: 'lg'
+                    bg: "purple.500",
+                    transform: "scale(1.05)",
+                    boxShadow: "lg",
                   }}
                 >
                   Speed Up! ⚡
@@ -311,9 +318,9 @@ export default function UnderDevelopmentPage(): JSX.Element {
                   fontWeight="medium"
                   transition="all 300ms"
                   _hover={{
-                    bg: 'blue.500',
-                    transform: 'scale(1.05)',
-                    boxShadow: 'lg'
+                    bg: "blue.500",
+                    transform: "scale(1.05)",
+                    boxShadow: "lg",
                   }}
                 >
                   Reset Counter 🔄
@@ -334,7 +341,9 @@ export default function UnderDevelopmentPage(): JSX.Element {
                 <Text color="gray.300" lineHeight="relaxed">
                   🚀 Working hard to bring you something incredible.
                   <br />
-                  <Text as="span" color="purple.300">Stay tuned for updates!</Text>
+                  <Text as="span" color="purple.300">
+                    Stay tuned for updates!
+                  </Text>
                 </Text>
               </Box>
             </VStack>

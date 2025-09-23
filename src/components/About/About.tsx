@@ -5,7 +5,7 @@ import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 
-const About = ()=> {
+const About = () => {
   return (
     <Container fluid className="about-section">
       <Particle />
@@ -41,6 +41,6 @@ const About = ()=> {
       </Container>
     </Container>
   );
-}
+};
 
 export default About;

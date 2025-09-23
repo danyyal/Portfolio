@@ -282,7 +282,6 @@ button:focus {
   padding-left: 50px !important;
 }
 
-
 .main-name {
   color: #cd5ff8;
 }
@@ -398,7 +397,7 @@ button:focus {
   padding-right: 15px;
   padding-left: 15px;
 }
-.social-icons > a{
+.social-icons > a {
   display: flex !important;
   justify-content: center;
   align-items: center;
@@ -561,7 +560,6 @@ button:focus {
 }
 
 .tech-icons {
-
   font-size: 4.5em !important;
   margin: 15px !important;
   padding: 10px !important;
@@ -575,8 +573,7 @@ button:focus {
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
 }
-.icon-container{
-
+.icon-container {
   display: flex;
   justify-content: center;
 }
@@ -605,8 +602,7 @@ button:focus {
   background-color: transparent !important;
 }
 
-
-.quote-card-view > .card-body{
+.quote-card-view > .card-body {
   padding: 0 !important;
 }
 
@@ -763,12 +759,11 @@ button:focus {
   .home-about-description {
     padding-top: 0px !important;
   }
-  
+
   .home-section {
     padding-top: 20px !important;
-    
   }
-  .home-header{
+  .home-header {
     padding-top: 0px !important;
   }
   .home-about-description-header {
@@ -776,12 +771,12 @@ button:focus {
     margin-top: 20px;
   }
 
-.navbar-nav .nav-item {
-  margin-left: 0px;
-}
-.fork-btn {
-  margin-left: 16px !important;
-}
+  .navbar-nav .nav-item {
+    margin-left: 0px;
+  }
+  .fork-btn {
+    margin-left: 16px !important;
+  }
 }
 
 .fork-btn {
@@ -805,8 +800,7 @@ button:focus {
   display: none !important;
 }
 
-
-.nav-inner-div{
+.nav-inner-div {
   display: flex;
   align-items: center;
   gap: 12px;

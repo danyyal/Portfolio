@@ -1,10 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
@@ -17,24 +14,27 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with turning ideas into code—and might have built too many things out of sheer curiosity. 😅
+              I fell in love with turning ideas into code—and might have built
+              too many things out of sheer curiosity. 😅
               <br />
-              <br />
-              I thrive in the wild world of{" "}
+              <br />I thrive in the wild world of{" "}
               <i>
                 <b className="purple">React.js, Next.js, and Angular.js</b>
               </i>
               and I’ve wrangled my share of back-end beasts like{" "}
               <i>
-                <b className="purple">Node.js, Nest.js, Python, and Three.js</b> for immersive 3D experiences
+                <b className="purple">Node.js, Nest.js, Python, and Three.js</b>{" "}
+                for immersive 3D experiences
               </i>
               .
               <br />
               <br />
-              On the frontend, I treat every pixel and interaction with surgical care—because that’s where users form their first impressions. It’s not just code; it’s the craft of experience, and I take that seriously.
+              On the frontend, I treat every pixel and interaction with surgical
+              care—because that’s where users form their first impressions. It’s
+              not just code; it’s the craft of experience, and I take that
+              seriously.
               <br />
               <br />
-
               My playground includes{" "}
               <i>
                 <b className="purple">

@@ -7,14 +7,23 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "check-format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+    
   },
   "dependencies": {
     "@chakra-ui/progress": "^2.2.0",
     "@chakra-ui/react": "^3.26.0",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
     "@pdf-viewer/react": "^1.8.4",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "axios": "^1.12.2",
     "bootstrap": "^5.3.7",
     "framer-motion": "^12.23.12",
+    "leva": "^0.10.0",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",
@@ -23,18 +32,23 @@
     "react-icons": "^5.5.0",
     "react-parallax-tilt": "^1.7.305",
     "react-router-dom": "^7.8.1",
+    "react-toastify": "^11.0.5",
     "react-tsparticles": "^2.12.2",
+    "three": "^0.180.0",
+    "three-volume": "^2.0.7",
     "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
+    "@types/three": "^0.180.0",
     "@vitejs/plugin-react": "^5.0.0",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "prettier": "^3.6.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"

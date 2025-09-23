@@ -1,17 +1,17 @@
 import { useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { FiLock } from "react-icons/fi";
 import { MdFullscreen } from "react-icons/md";
 import { Badge } from "react-bootstrap";
+import { Button } from "@mui/material";
 
-function ProjectCards(props:any) {
+function ProjectCards(props: any) {
   const { isPrivate, imgPath, title, description, ghLink, isBlog, demoLink } =
     props;
-  
+
   const [showModal, setShowModal] = useState(false);
 
   const handleImageClick = () => {
@@ -26,47 +26,54 @@ function ProjectCards(props:any) {
     <>
       <Card className="project-card-view">
         <div className="position-relative" style={{ cursor: "pointer" }}>
-          <Card.Img 
-            variant="top" 
-            src={imgPath} 
+          <Card.Img
+            variant="top"
+            src={imgPath}
             height={230}
-            alt="card-img" 
+            alt="card-img"
             onClick={handleImageClick}
-            style={{ transition: "opacity 0.3s ease", maxHeight:'230px' }}
-            onMouseOver={(e) => (e.target as any).style.opacity = "0.8"}
-            onMouseOut={(e) => (e.target as any).style.opacity = "1"}
+            style={{ transition: "opacity 0.3s ease", maxHeight: "230px" }}
+            onMouseOver={(e) => ((e.target as any).style.opacity = "0.8")}
+            onMouseOut={(e) => ((e.target as any).style.opacity = "1")}
           />
-          {imgPath &&  <div 
-            className="position-absolute top-0 end-0 m-2 bg-dark bg-opacity-75 rounded p-1"
-            onClick={handleImageClick}
-            style={{ cursor: "pointer" }}
-          >
-            <MdFullscreen size={20} color="white" />
-          </div> }
+          {imgPath && (
+            <div
+              className="position-absolute top-0 end-0 m-2 bg-dark bg-opacity-75 rounded p-1"
+              onClick={handleImageClick}
+              style={{ cursor: "pointer" }}
+            >
+              <MdFullscreen size={20} color="white" />
+            </div>
+          )}
         </div>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           {isPrivate && (
-              <Badge bg="warning" className="d-flex align-items-center">
-                <FiLock className="me-1" size={12} />
-                Private
-              </Badge>
-            )}
+            <Badge bg="warning" className="d-flex align-items-center">
+              <FiLock className="me-1" size={12} />
+              Private
+            </Badge>
+          )}
           <Card.Text style={{ textAlign: "justify" }}>{description}</Card.Text>
-          <Button style={{display:'inline-flex', alignItems:'center'}} disabled={!Boolean(ghLink?.includes('http'))} variant="primary" href={ghLink} target="_blank">
+          <Button
+            style={{ display: "inline-flex", alignItems: "center" }}
+            disabled={!Boolean(ghLink?.includes("http"))}
+            variant="outlined"
+            href={ghLink}
+            target="_blank"
+          >
             <BsGithub /> &nbsp;
             {isBlog ? "Blog" : "GitHub"}
           </Button>
-          {"\n"}
-          {"\n"}
-
-          {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
-
           {!isBlog && (
             <Button
-            style={{marginLeft: "10px" ,display:'inline-flex', alignItems:'center'}}
+              style={{
+                marginLeft: "10px",
+                display: "inline-flex",
+                alignItems: "center",
+              }}
               disabled={!Boolean(demoLink)}
-              variant={!Boolean(demoLink) ?'secondary' :"primary"}
+              variant={!Boolean(demoLink) ? "contained" : "outlined"}
               href={demoLink}
               target="_blank"
             >
@@ -78,10 +85,10 @@ function ProjectCards(props:any) {
       </Card>
 
       {/* Fullscreen Modal */}
-      <Modal 
-        show={showModal} 
-        onHide={handleCloseModal} 
-        size="xl" 
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        size="xl"
         centered
         className="fullscreen-modal"
       >
@@ -97,14 +104,14 @@ function ProjectCards(props:any) {
           `}</style>
         </Modal.Header>
         <Modal.Body className="p-0">
-          <img 
-            src={imgPath} 
+          <img
+            src={imgPath}
             alt={title}
-            style={{ 
-              width: "100%", 
-              height: "auto", 
-              maxHeight: "80vh", 
-              objectFit: "contain" 
+            style={{
+              width: "100%",
+              height: "auto",
+              maxHeight: "80vh",
+              objectFit: "contain",
             }}
           />
         </Modal.Body>

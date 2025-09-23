@@ -6,28 +6,40 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Resume from "./components/Resume/ResumeNew";
-import {
-  Route,
-  Routes,
-  Navigate
-} from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
-import './App.css'
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UnderDevelopmentPage from "./components/UnderDevelopmentPage/UnderDevelopmentPage";
 import Particle from "./components/Particle";
 import GoogleNanoBanana from "./components/GoogleNanoBanana/GoogleNanoBanana";
 import Footer from "./components/Footer";
+import ViewerMain from "./components/GLTFViewer/ViewerMain";
+import DeepWindowWithMaterialUi from "./components/DeepWindowWithMaterialUi";
 
 type Routes = {
   text: string;
   link: string;
-  component:()=>JSX.Element
+  component: () => JSX.Element;
 };
 
-export const otherRoutes:Routes[]=[
-  {text:'Vryo Image Generator',link:'/vyro-ai',component:()=><GoogleNanoBanana />},
+export const otherRoutes: Routes[] = [
+  {
+    text: "Vryo Image Generator",
+    link: "/vyro-ai",
+    component: () => <GoogleNanoBanana />,
+  },
+  {
+    text: "MaterialUI Examples",
+    link: "/material-ui-examples",
+    component: () => <DeepWindowWithMaterialUi />,
+  },
+  {
+    text: "Three JS Examples",
+    link: "/threejs",
+    component: () => <ViewerMain />,
+  },
 ];
 const App = () => {
   const [load, upadateLoad] = useState(true);
@@ -42,14 +54,18 @@ const App = () => {
 
   return (
     <div className="App" id={load ? "no-scroll" : "scroll"}>
-
       <Preloader load={load} />
-        <Navbar />
-        <Particle/>
-        <ScrollToTop />
-      <div style={{ marginTop: '75px', height: 'calc(100dvh - 75px)', overflowY:'scroll' }}>
+      <Navbar />
+      <Particle />
+      <ScrollToTop />
+      <div
+        style={{
+          marginTop: "75px",
+          height: "calc(100dvh - 75px)",
+          overflowY: "scroll",
+        }}
+      >
         <Routes>
-
           <Route path="/" element={<Home />} />
 
           <Route path="/project" element={<Projects />} />
@@ -58,15 +74,14 @@ const App = () => {
           <Route path="/resume" element={<Resume />} />
           <Route path="/testimonial" element={<Testimonials />} />
           <Route path="*" element={<Navigate to="/" />} />
-          {otherRoutes.map(RouteObj=>
-          <Route path={RouteObj.link} element={RouteObj.component()} />
-            
-          )}
+          {otherRoutes.map((RouteObj) => (
+            <Route path={RouteObj.link} element={RouteObj.component()} />
+          ))}
         </Routes>
-        <Footer/>
+        <Footer />
       </div>
-      </div>
+    </div>
   );
-}
+};
 
 export default App;

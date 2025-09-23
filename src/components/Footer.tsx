@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { otherRoutes } from "../App";
