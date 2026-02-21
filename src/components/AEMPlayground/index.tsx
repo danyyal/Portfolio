@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Col, Card, Tab, Tabs, Badge } from "react-bootstrap";
+import { Container, Row, Col, Card, Badge } from "react-bootstrap";
 import {
   Box,
   TextField,
@@ -15,7 +15,7 @@ import {
   Divider,
 } from "@mui/material";
 import { SiAdobe, SiApache, SiGraphql, SiReact } from "react-icons/si";
-import { VscCode, VscJson } from "react-icons/vsc";
+import { VscCode } from "react-icons/vsc";
 import { MdPlayArrow, MdRefresh } from "react-icons/md";
 import Particle from "../Particle";
 
@@ -568,7 +568,7 @@ const ArchitectureFlow = () => {
         AEM + React Architecture
       </Typography>
       <Stepper orientation="vertical" sx={{ mt: 2 }}>
-        {steps.map((step, index) => (
+        {steps.map((step) => (
           <Step key={step.label} active={true}>
             <StepLabel
               StepIconComponent={() => (

@@ -68,7 +68,7 @@ const StripePayment = ({ onPaymentComplete }: PaymentComponentProps) => {
         Stripe Payment
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid size={12}>
           <TextField
             fullWidth
             label="Card Number"
@@ -77,7 +77,7 @@ const StripePayment = ({ onPaymentComplete }: PaymentComponentProps) => {
             placeholder="1234 5678 9012 3456"
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid size={6}>
           <TextField
             fullWidth
             label="Expiry Date"
@@ -86,7 +86,7 @@ const StripePayment = ({ onPaymentComplete }: PaymentComponentProps) => {
             placeholder="MM/YY"
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid size={6}>
           <TextField
             fullWidth
             label="CVV"
