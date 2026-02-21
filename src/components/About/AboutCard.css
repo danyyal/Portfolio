@@ -1,15 +1,15 @@
 .enhanced-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--about-card-bg);
   border: none;
   border-radius: 15px;
   padding: 30px;
-  color: #ddd;
-  box-shadow: 0 0 20px rgba(199, 125, 255, 0.15);
+  color: var(--about-card-text);
+  box-shadow: 0 0 20px var(--about-card-shadow);
   backdrop-filter: blur(8px);
   transition: 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: 0 0 30px rgba(199, 125, 255, 0.3);
+    box-shadow: 0 0 30px var(--about-card-shadow-hover);
     transform: translateY(-5px);
   }
 }
@@ -19,7 +19,7 @@
   line-height: 1.8;
   text-align: justify;
   margin-bottom: 1.5rem;
-  color: #dcdcdc;
+  color: var(--about-card-text);
 }
 
 .activity-list {
@@ -29,7 +29,7 @@
   .about-activity {
     margin-bottom: 8px;
     font-size: 1rem;
-    color: #b983ff;
+    color: var(--about-activity-color);
 
     svg {
       margin-right: 8px;
@@ -40,7 +40,7 @@
 .quote-text {
   font-style: italic;
   font-size: 1.1rem;
-  color: #c77dff;
+  color: var(--text-purple-light);
   text-shadow: 0 0 10px rgba(199, 125, 255, 0.5);
   margin-top: 20px;
   display: flex;
@@ -50,5 +50,5 @@
 
 .quote-icon {
   font-size: 1.3rem;
-  color: #c77dff;
+  color: var(--text-purple-light);
 }

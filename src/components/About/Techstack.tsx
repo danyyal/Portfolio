@@ -61,6 +61,10 @@ import { useWindowSize } from "../../utils/customHooks/useWindowSize.ts";
 // Payments
 import { SiStripe, SiPaypal, SiAdyen } from "react-icons/si";
 
+// CMS & Headless
+import { SiAdobe, SiApache } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
+
 const Section = ({ title, items, width }: any) => (
   <>
     <h3
@@ -187,6 +191,17 @@ function Techstack() {
           { icon: <SiStripe />, name: "Stripe" },
           { icon: <SiPaypal />, name: "PayPal" },
           { icon: <SiAdyen />, name: "Adyen" },
+        ]}
+      />
+
+      <Section
+        width={width}
+        title="CMS & Headless"
+        items={[
+          { icon: <SiAdobe />, name: "Adobe AEM" },
+          { icon: <SiApache />, name: "Apache Sling" },
+          { icon: <VscCode />, name: "HTL/Sightly" },
+          { icon: <SiGraphql />, name: "AEM GraphQL" },
         ]}
       />
     </Container>

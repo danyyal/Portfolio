@@ -3,7 +3,7 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { otherRoutes } from "../App";
+import { otherRoutes, type RouteConfig } from "../routes";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -19,7 +19,7 @@ function Footer() {
             transition={{ delay: 0.2 }}
             className="d-flex flex-wrap gap-3 justify-content-center"
           >
-            {otherRoutes.map((btn, index) => (
+            {otherRoutes.map((btn: RouteConfig, index: number) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.1 }}

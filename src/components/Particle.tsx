@@ -1,8 +1,16 @@
 import Particles from "react-tsparticles";
+import { useTheme } from "../context/ThemeContext";
 
 const Particle = () => {
+  const { theme } = useTheme();
+
+  const particleColor = theme === "dark" ? "#ffffff" : "#9d4edd";
+  const lineColor =
+    theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(160, 100, 200, 0.15)";
+
   return (
     <Particles
+      key={theme}
       id="tsparticles"
       params={{
         particles: {
@@ -16,9 +24,13 @@ const Particle = () => {
               value_area: 2500,
             },
           },
+          color: {
+            value: particleColor,
+          },
           line_linked: {
             enable: true,
             opacity: 30,
+            color: lineColor,
           },
           move: {
             direction: "right",

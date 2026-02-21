@@ -1,7 +1,142 @@
+@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+/* ===== Theme CSS Variables ===== */
+:root {
+  /* Backgrounds */
+  --bg-primary: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  --bg-section: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.582),
+    rgba(12, 8, 24, 0.904)
+  );
+  --bg-image-gradient: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.678),
+    rgba(12, 10, 22, 0.863)
+  );
+  --bg-navbar: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  --bg-navbar-sticky: #1b1a2ea9;
+  --bg-preloader: #0c0513;
+  --bg-footer: rgb(10, 4, 22);
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-home: linear-gradient(145deg, #0a0a0a, #1f102b);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #d3d3d3;
+  --text-muted: #cccccc;
+  --text-purple: #c770f0;
+  --text-purple-light: #c77dff;
+  --text-purple-dark: #9d4edd;
+
+  /* Cards & Components */
+  --card-shadow: rgba(119, 53, 136, 0.459);
+  --card-shadow-hover: rgba(129, 72, 144, 0.561);
+  --card-border: rgba(200, 137, 230, 0.637);
+  --card-border-hover: rgba(197, 115, 230, 0.883);
+
+  /* Buttons */
+  --btn-primary: #623686;
+  --btn-primary-hover: #6d20c5d7;
+
+  /* Scrollbar */
+  --scrollbar-track: #2d1950;
+  --scrollbar-thumb: rgba(178, 121, 216, 0.959);
+  --scrollbar-thumb-hover: rgba(222, 130, 235, 0.911);
+
+  /* Social Icons */
+  --social-bg: rgba(255, 255, 255, 0.972);
+  --social-before: #68187a;
+  --social-hover: #87209e;
+  --social-shadow: #801f95;
+
+  /* Tag */
+  --tag-bg: rgba(199, 125, 255, 0.1);
+  --tag-border: #9d4edd;
+  --tag-bg-hover: rgba(199, 125, 255, 0.2);
+
+  /* Image wrapper */
+  --image-wrapper-bg: rgba(255, 255, 255, 0.05);
+  --image-wrapper-shadow: rgba(0, 0, 0, 0.3);
+
+  /* AboutCard */
+  --about-card-bg: rgba(255, 255, 255, 0.03);
+  --about-card-shadow: rgba(199, 125, 255, 0.15);
+  --about-card-shadow-hover: rgba(199, 125, 255, 0.3);
+  --about-card-text: #dcdcdc;
+  --about-activity-color: #b983ff;
+
+  /* Resume */
+  --resume-border: #8a49a8;
+  --resume-dot-bg: #fff;
+  --resume-title-bg: #5234795d;
+
+  /* Misc */
+  --particle-color: #ffffff;
+  --particle-line-color: rgba(255, 255, 255, 0.1);
+
+  --section-bg-color: transparent;
+}
+
+/* ===== Light Mode Overrides ===== */
+body.light-mode {
+  --bg-primary: linear-gradient(to left, #ffffff, #ffffff);
+  --bg-section: linear-gradient(to bottom left, #ffffff, #ffffff);
+  --bg-image-gradient: linear-gradient(to bottom left, #ffffff, #ffffff);
+  --bg-navbar: linear-gradient(to left, #ffffff, #ffffff);
+  --bg-navbar-sticky: rgba(255, 255, 255, 0.97);
+  --bg-preloader: #ffffff;
+  --bg-footer: #f8f8fa;
+  --bg-card: rgba(120, 60, 180, 0.04);
+  --bg-home: linear-gradient(145deg, #ffffff, #faf8ff);
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #444466;
+  --text-muted: #555577;
+  --text-purple: #7b2cbf;
+  --text-purple-light: #9d4edd;
+  --text-purple-dark: #5a189a;
+
+  --card-shadow: rgba(160, 100, 200, 0.15);
+  --card-shadow-hover: rgba(160, 100, 200, 0.25);
+  --card-border: rgba(160, 100, 200, 0.3);
+  --card-border-hover: rgba(160, 100, 200, 0.5);
+
+  --btn-primary: #7b2cbf;
+  --btn-primary-hover: #9d4eddd7;
+
+  --scrollbar-track: #e8dff5;
+  --scrollbar-thumb: rgba(160, 100, 200, 0.5);
+  --scrollbar-thumb-hover: rgba(160, 100, 200, 0.7);
+
+  --social-bg: rgba(120, 60, 180, 0.1);
+  --social-before: #9d4edd;
+  --social-hover: #7b2cbf;
+  --social-shadow: rgba(160, 100, 200, 0.3);
+
+  --tag-bg: rgba(120, 60, 180, 0.08);
+  --tag-border: #9d4edd;
+  --tag-bg-hover: rgba(120, 60, 180, 0.15);
+
+  --image-wrapper-bg: rgba(120, 60, 180, 0.05);
+  --image-wrapper-shadow: rgba(120, 60, 180, 0.1);
+
+  --about-card-bg: rgba(120, 60, 180, 0.05);
+  --about-card-shadow: rgba(160, 100, 200, 0.1);
+  --about-card-shadow-hover: rgba(160, 100, 200, 0.2);
+  --about-card-text: #333355;
+  --about-activity-color: #7b2cbf;
+
+  --resume-border: #9d4edd;
+  --resume-dot-bg: #7b2cbf;
+  --resume-title-bg: rgba(120, 60, 180, 0.1);
+
+  --particle-color: #9d4edd;
+  --particle-line-color: rgba(160, 100, 200, 0.15);
+
+  --section-bg-color: #ffffff;
+}
 
 body {
   margin: 0;
@@ -9,7 +144,13 @@ body {
   font-family: "Raleway", serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  background-image: var(--bg-primary) !important;
+  background-color: var(--bg-preloader) !important;
+  color: var(--text-primary);
+  transition:
+    background-image 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 #root {

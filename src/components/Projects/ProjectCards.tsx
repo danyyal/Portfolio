@@ -7,8 +7,10 @@ import { FiLock } from "react-icons/fi";
 import { MdFullscreen } from "react-icons/md";
 import { Badge } from "react-bootstrap";
 import { Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 function ProjectCards(props: any) {
+  const { t } = useTranslation();
   const { isPrivate, imgPath, title, description, ghLink, isBlog, demoLink } =
     props;
 
@@ -51,7 +53,7 @@ function ProjectCards(props: any) {
           {isPrivate && (
             <Badge bg="warning" className="d-flex align-items-center">
               <FiLock className="me-1" size={12} />
-              Private
+              {t("projects.private")}
             </Badge>
           )}
           <Card.Text style={{ textAlign: "justify" }}>{description}</Card.Text>
@@ -63,7 +65,7 @@ function ProjectCards(props: any) {
             target="_blank"
           >
             <BsGithub /> &nbsp;
-            {isBlog ? "Blog" : "GitHub"}
+            {isBlog ? t("projects.blog") : t("projects.github")}
           </Button>
           {!isBlog && (
             <Button
@@ -78,7 +80,7 @@ function ProjectCards(props: any) {
               target="_blank"
             >
               <CgWebsite /> &nbsp;
-              {"Demo"}
+              {t("projects.demo")}
             </Button>
           )}
         </Card.Body>

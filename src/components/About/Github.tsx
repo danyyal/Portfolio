@@ -2,8 +2,10 @@ import { useState } from "react";
 import GitHubCalendar from "react-github-calendar";
 import { Col } from "react-bootstrap";
 import { useWindowSize } from "../../utils/customHooks/useWindowSize.ts";
+import { useTranslation } from "react-i18next";
 
 function Github() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState<any>(currentYear);
   const { width } = useWindowSize();
@@ -16,7 +18,7 @@ function Github() {
   return (
     <>
       <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
-        Days I <strong className="purple">Code</strong>
+        {t("about.daysI")} <strong className="purple">{t("about.code")}</strong>
       </h1>
 
       <Col md={12} style={{ textAlign: "center", marginBottom: "20px" }}>
@@ -28,7 +30,7 @@ function Github() {
               marginRight: "10px",
             }}
           >
-            Select Year:
+            {t("about.selectYear")}
           </label>
           {width < 768 ? (
             <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
@@ -48,7 +50,7 @@ function Github() {
                   style={{ accentColor: "#c084f5" }}
                 />
                 <span style={{ fontSize: "14px", color: "white" }}>
-                  Previous Year
+                  {t("about.previousYear")}
                 </span>
               </label>
 
@@ -68,7 +70,7 @@ function Github() {
                   style={{ accentColor: "#c084f5" }}
                 />
                 <span style={{ fontSize: "14px", color: "white" }}>
-                  Last Year
+                  {t("about.lastYear")}
                 </span>
               </label>
 
@@ -88,7 +90,7 @@ function Github() {
                   style={{ accentColor: "#c084f5" }}
                 />
                 <span style={{ fontSize: "14px", color: "white" }}>
-                  Current Year
+                  {t("about.currentYear")}
                 </span>
               </label>
             </div>
@@ -110,7 +112,7 @@ function Github() {
                   cursor: "pointer",
                 }}
               >
-                Previous Year
+                {t("about.previousYear")}
               </button>
               <button
                 onClick={() => handleYearChange({ target: { value: "last" } })}
@@ -126,7 +128,7 @@ function Github() {
                   cursor: "pointer",
                 }}
               >
-                Last Year
+                {t("about.lastYear")}
               </button>
               <button
                 onClick={() =>
@@ -143,7 +145,7 @@ function Github() {
                   cursor: "pointer",
                 }}
               >
-                Current Year
+                {t("about.currentYear")}
               </button>
             </div>
           )}

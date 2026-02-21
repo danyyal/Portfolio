@@ -1,4 +1,4 @@
-import { useState, useEffect, type JSX } from "react";
+import { useState, useEffect } from "react";
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
@@ -13,34 +13,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UnderDevelopmentPage from "./components/UnderDevelopmentPage/UnderDevelopmentPage";
 import Particle from "./components/Particle";
-import GoogleNanoBanana from "./components/GoogleNanoBanana/GoogleNanoBanana";
 import Footer from "./components/Footer";
-import ViewerMain from "./components/GLTFViewer/ViewerMain";
-import DeepWindowWithMaterialUi from "./components/DeepWindowWithMaterialUi";
-
-type Routes = {
-  text: string;
-  link: string;
-  component: () => JSX.Element;
-};
-
-export const otherRoutes: Routes[] = [
-  {
-    text: "Vryo Image Generator",
-    link: "/vyro-ai",
-    component: () => <GoogleNanoBanana />,
-  },
-  {
-    text: "MaterialUI Examples",
-    link: "/material-ui-examples",
-    component: () => <DeepWindowWithMaterialUi />,
-  },
-  {
-    text: "Three JS Examples",
-    link: "/threejs",
-    component: () => <ViewerMain />,
-  },
-];
+import { otherRoutes } from "./routes";
 const App = () => {
   const [load, upadateLoad] = useState(true);
 
@@ -75,7 +49,11 @@ const App = () => {
           <Route path="/testimonial" element={<Testimonials />} />
           <Route path="*" element={<Navigate to="/" />} />
           {otherRoutes.map((RouteObj) => (
-            <Route path={RouteObj.link} element={RouteObj.component()} />
+            <Route
+              key={RouteObj.link}
+              path={RouteObj.link}
+              element={RouteObj.component()}
+            />
           ))}
         </Routes>
         <Footer />

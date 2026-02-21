@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react(),],
+  plugins: [react(), tailwindcss()],
   optimizeDeps: {
-    include: ['react-pdf']
+    include: ['pdfjs-dist']
   },
   build: {
     commonjsOptions: {
-      include: [/react-pdf/, /node_modules/]
+      include: [/pdfjs-dist/, /node_modules/]
     }
   }
 })
