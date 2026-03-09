@@ -4,6 +4,7 @@ import DeepWindowWithMaterialUi from "./components/DeepWindowWithMaterialUi";
 import ViewerMain from "./components/GLTFViewer/ViewerMain";
 import AEMPlayground from "./components/AEMPlayground";
 import DocumentToCodeTransform from "./components/DocumentToCodeTransform";
+import GridOverlayExample from "./components/GridOverlay/GridOverlayExample";
 
 export type RouteConfig = {
   text: string;
@@ -36,5 +37,10 @@ export const otherRoutes: RouteConfig[] = [
     text: "Document to Code",
     link: "/doc-to-code",
     component: () => <DocumentToCodeTransform />,
+  },
+  {
+    text: "Grid Overlay",
+    link: "/grid-overlay",
+    component: () => <GridOverlayExample />,
   },
 ];
