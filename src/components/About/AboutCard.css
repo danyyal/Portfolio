@@ -41,7 +41,7 @@
   font-style: italic;
   font-size: 1.1rem;
   color: var(--text-purple-light);
-  text-shadow: 0 0 10px rgba(199, 125, 255, 0.5);
+  text-shadow: 0 0 10px var(--accent-glow);
   margin-top: 20px;
   display: flex;
   align-items: center;

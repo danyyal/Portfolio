@@ -1,19 +1,21 @@
 import { useState } from "react";
 import GitHubCalendar from "react-github-calendar";
-import { Col } from "react-bootstrap";
-import { useWindowSize } from "../../utils/customHooks/useWindowSize.ts";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../context/ThemeContext";
+
+type YearOption = number | "last";
 
 function Github() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
-  const [selectedYear, setSelectedYear] = useState<any>(currentYear);
-  const { width } = useWindowSize();
-  const handleYearChange = (e: any) => {
-    setSelectedYear(
-      e.target.value === "last" ? "last" : Number(e.target.value),
-    );
-  };
+  const [selectedYear, setSelectedYear] = useState<YearOption>(currentYear);
+
+  const options: { value: YearOption; label: string }[] = [
+    { value: currentYear - 1, label: t("about.previousYear") },
+    { value: "last", label: t("about.lastYear") },
+    { value: currentYear, label: t("about.currentYear") },
+  ];
 
   return (
     <>
@@ -21,150 +23,29 @@ function Github() {
         {t("about.daysI")} <strong className="purple">{t("about.code")}</strong>
       </h1>
 
-      <Col md={12} style={{ textAlign: "center", marginBottom: "20px" }}>
-        <Col md={12} style={{ textAlign: "center", marginBottom: "20px" }}>
-          <label
-            style={{
-              color: "#c084f5",
-              fontWeight: "bold",
-              marginRight: "10px",
-            }}
+      <div className="year-btn-group" role="group" aria-label="Select year">
+        {options.map((option) => (
+          <button
+            key={String(option.value)}
+            type="button"
+            className={`year-btn ${selectedYear === option.value ? "active" : ""}`}
+            onClick={() => setSelectedYear(option.value)}
           >
-            {t("about.selectYear")}
-          </label>
-          {width < 768 ? (
-            <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-              <label
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  cursor: "pointer",
-                }}
-              >
-                <input
-                  type="radio"
-                  value={currentYear - 1}
-                  checked={selectedYear === currentYear - 1}
-                  onChange={handleYearChange}
-                  style={{ accentColor: "#c084f5" }}
-                />
-                <span style={{ fontSize: "14px", color: "white" }}>
-                  {t("about.previousYear")}
-                </span>
-              </label>
+            {option.label}
+          </button>
+        ))}
+      </div>
 
-              <label
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  cursor: "pointer",
-                }}
-              >
-                <input
-                  type="radio"
-                  value="last"
-                  checked={selectedYear === "last"}
-                  onChange={handleYearChange}
-                  style={{ accentColor: "#c084f5" }}
-                />
-                <span style={{ fontSize: "14px", color: "white" }}>
-                  {t("about.lastYear")}
-                </span>
-              </label>
-
-              <label
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  cursor: "pointer",
-                }}
-              >
-                <input
-                  type="radio"
-                  value={currentYear}
-                  checked={selectedYear === currentYear}
-                  onChange={handleYearChange}
-                  style={{ accentColor: "#c084f5" }}
-                />
-                <span style={{ fontSize: "14px", color: "white" }}>
-                  {t("about.currentYear")}
-                </span>
-              </label>
-            </div>
-          ) : (
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <button
-                onClick={() =>
-                  handleYearChange({ target: { value: currentYear - 1 } })
-                }
-                style={{
-                  padding: "8px 12px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc",
-                  fontSize: "16px",
-                  marginRight: "10px",
-                  backgroundColor:
-                    selectedYear === currentYear - 1 ? "#623686" : "#c084f5",
-                  color: selectedYear === currentYear - 1 ? "white" : "black",
-                  cursor: "pointer",
-                }}
-              >
-                {t("about.previousYear")}
-              </button>
-              <button
-                onClick={() => handleYearChange({ target: { value: "last" } })}
-                style={{
-                  padding: "8px 12px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc",
-                  fontSize: "16px",
-                  marginRight: "10px",
-                  backgroundColor:
-                    selectedYear === "last" ? "#623686" : "#c084f5",
-                  color: selectedYear === "last" ? "white" : "black",
-                  cursor: "pointer",
-                }}
-              >
-                {t("about.lastYear")}
-              </button>
-              <button
-                onClick={() =>
-                  handleYearChange({ target: { value: currentYear } })
-                }
-                style={{
-                  padding: "8px 12px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc",
-                  fontSize: "16px",
-                  backgroundColor:
-                    selectedYear === currentYear ? "#623686" : "#c084f5",
-                  color: selectedYear === currentYear ? "white" : "black",
-                  cursor: "pointer",
-                }}
-              >
-                {t("about.currentYear")}
-              </button>
-            </div>
-          )}
-        </Col>
-      </Col>
-
-      <GitHubCalendar
-        username="danyyal"
-        blockSize={15}
-        blockMargin={5}
-        fontSize={12}
-        year={selectedYear}
-        style={{
-          margin: "0 auto",
-          padding: "10px",
-          borderRadius: "5px",
-          border: "1px solid #ccc",
-        }}
-      />
+      <div className="calendar-wrap">
+        <GitHubCalendar
+          username="danyyal"
+          blockSize={14}
+          blockMargin={5}
+          fontSize={12}
+          year={selectedYear}
+          colorScheme={theme}
+        />
+      </div>
     </>
   );
 }

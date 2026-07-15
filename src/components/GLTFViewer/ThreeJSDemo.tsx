@@ -265,7 +265,7 @@ const ThreeJSPreview: React.FC<ThreeJSPreviewProps> = ({
   );
 
   const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
+    e?.preventDefault();
     const zoomDelta = e.deltaY > 0 ? 0.9 : 1.1;
     setZoom((prev) => Math.max(0.1, Math.min(3, prev * zoomDelta)));
   }, []);

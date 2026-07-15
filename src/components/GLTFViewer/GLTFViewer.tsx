@@ -9,11 +9,34 @@ import {
 } from "@react-three/drei";
 import { useControls } from "leva";
 import { Lights } from "./Lights";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  Component,
+  Suspense,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import Postprocessing from "./Postprocessing";
 import Measurement from "./Measurement";
 
 import { getGeometricalInfo, type GeometricalInfo } from "./utils/utils";
+
+/* The environment map is only supplementary IBL — if it fails to load the
+   scene must stay alive on its Lights instead of crashing the canvas. */
+class EnvErrorBoundary extends Component<
+  { children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
 
 interface GLTFViewerProps {
   url: string;
@@ -475,7 +498,11 @@ const GLTFViewer = ({ url }: GLTFViewerProps) => {
         </mesh>
       </group>
 
-      <Environment preset="city" />
+      <EnvErrorBoundary>
+        <Suspense fallback={null}>
+          <Environment files="/hdr/potsdamer_platz_1k.hdr" />
+        </Suspense>
+      </EnvErrorBoundary>
     </Canvas>
   );
 };

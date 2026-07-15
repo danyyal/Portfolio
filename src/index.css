@@ -1,158 +1,350 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
-/* ===== Theme CSS Variables ===== */
+/* ============================================================
+   AURORA NIGHT — design tokens
+   Deep space-navy base lit by northern-lights accents:
+   electric cyan → violet → pink.
+   ============================================================ */
 :root {
-  /* Backgrounds */
-  --bg-primary: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  /* Typography */
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Fluid type scale */
+  --fs-hero: clamp(2.2rem, 5vw + 0.5rem, 3.6rem);
+  --fs-h1: clamp(1.8rem, 3.5vw + 0.5rem, 2.6rem);
+  --fs-h2: clamp(1.3rem, 2vw + 0.5rem, 1.8rem);
+  --fs-body: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
+
+  /* Radii & shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 24px rgba(56, 189, 248, 0.22);
+
+  /* Aurora accents */
+  --accent: #38bdf8;
+  --accent-2: #a78bfa;
+  --accent-3: #f472b6;
+  --accent-glow: rgba(56, 189, 248, 0.4);
+  --accent-glow-soft: rgba(56, 189, 248, 0.22);
+  --accent-gradient: linear-gradient(
+    120deg,
+    #38bdf8 0%,
+    #a78bfa 55%,
+    #f472b6 100%
+  );
+  --accent-gradient-soft: linear-gradient(
+    120deg,
+    rgba(56, 189, 248, 0.14),
+    rgba(167, 139, 250, 0.1),
+    rgba(244, 114, 182, 0.08)
+  );
+
+  /* Backgrounds — layered aurora mesh over deep navy */
+  --bg-primary: radial-gradient(
+      ellipse 80% 55% at 15% -10%,
+      rgba(56, 189, 248, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 65% 50% at 90% 5%,
+      rgba(167, 139, 250, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 70% 60% at 50% 115%,
+      rgba(244, 114, 182, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #030b16 0%, #081226 55%, #04090f 100%);
   --bg-section: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
+    rgba(6, 14, 28, 0.5),
+    rgba(3, 9, 18, 0.88)
   );
   --bg-image-gradient: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
+    rgba(6, 14, 28, 0.6),
+    rgba(3, 9, 18, 0.85)
   );
-  --bg-navbar: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
-  --bg-navbar-sticky: #1b1a2ea9;
-  --bg-preloader: #0c0513;
-  --bg-footer: rgb(10, 4, 22);
+  --bg-navbar: transparent;
+  --bg-navbar-sticky: rgba(6, 14, 30, 0.72);
+  --bg-preloader: #030b16;
+  --bg-footer: rgba(3, 8, 17, 0.85);
   --bg-card: rgba(255, 255, 255, 0.03);
-  --bg-home: linear-gradient(145deg, #0a0a0a, #1f102b);
+  --bg-home: transparent;
+
+  /* Glass surfaces */
+  --glass-bg: rgba(148, 199, 255, 0.045);
+  --glass-border: rgba(148, 199, 255, 0.12);
+  --glass-blur: 14px;
 
   /* Text */
-  --text-primary: #ffffff;
-  --text-secondary: #d3d3d3;
-  --text-muted: #cccccc;
-  --text-purple: #c770f0;
-  --text-purple-light: #c77dff;
-  --text-purple-dark: #9d4edd;
+  --text-primary: #eaf2ff;
+  --text-secondary: #aebdda;
+  --text-muted: #8494b3;
+  --text-purple: #6ee7f9;
+  --text-purple-light: #a5c8ff;
+  --text-purple-dark: #38bdf8;
 
   /* Cards & Components */
-  --card-shadow: rgba(119, 53, 136, 0.459);
-  --card-shadow-hover: rgba(129, 72, 144, 0.561);
-  --card-border: rgba(200, 137, 230, 0.637);
-  --card-border-hover: rgba(197, 115, 230, 0.883);
+  --card-shadow: rgba(8, 47, 73, 0.35);
+  --card-shadow-hover: rgba(56, 189, 248, 0.3);
+  --card-border: rgba(125, 211, 252, 0.25);
+  --card-border-hover: rgba(125, 211, 252, 0.6);
 
   /* Buttons */
-  --btn-primary: #623686;
-  --btn-primary-hover: #6d20c5d7;
+  --btn-primary: #0ea5e9;
+  --btn-primary-hover: #38bdf8;
 
   /* Scrollbar */
-  --scrollbar-track: #2d1950;
-  --scrollbar-thumb: rgba(178, 121, 216, 0.959);
-  --scrollbar-thumb-hover: rgba(222, 130, 235, 0.911);
+  --scrollbar-track: #081226;
+  --scrollbar-thumb: rgba(56, 189, 248, 0.5);
+  --scrollbar-thumb-hover: rgba(125, 211, 252, 0.8);
 
   /* Social Icons */
-  --social-bg: rgba(255, 255, 255, 0.972);
-  --social-before: #68187a;
-  --social-hover: #87209e;
-  --social-shadow: #801f95;
+  --social-bg: rgba(148, 199, 255, 0.06);
+  --social-before: #38bdf8;
+  --social-hover: #7dd3fc;
+  --social-shadow: rgba(56, 189, 248, 0.5);
 
   /* Tag */
-  --tag-bg: rgba(199, 125, 255, 0.1);
-  --tag-border: #9d4edd;
-  --tag-bg-hover: rgba(199, 125, 255, 0.2);
+  --tag-bg: rgba(56, 189, 248, 0.07);
+  --tag-border: rgba(125, 211, 252, 0.3);
+  --tag-bg-hover: rgba(56, 189, 248, 0.16);
 
   /* Image wrapper */
-  --image-wrapper-bg: rgba(255, 255, 255, 0.05);
-  --image-wrapper-shadow: rgba(0, 0, 0, 0.3);
+  --image-wrapper-bg: rgba(148, 199, 255, 0.04);
+  --image-wrapper-shadow: rgba(0, 0, 0, 0.4);
 
   /* AboutCard */
-  --about-card-bg: rgba(255, 255, 255, 0.03);
-  --about-card-shadow: rgba(199, 125, 255, 0.15);
-  --about-card-shadow-hover: rgba(199, 125, 255, 0.3);
-  --about-card-text: #dcdcdc;
-  --about-activity-color: #b983ff;
+  --about-card-bg: rgba(148, 199, 255, 0.04);
+  --about-card-shadow: rgba(56, 189, 248, 0.1);
+  --about-card-shadow-hover: rgba(56, 189, 248, 0.25);
+  --about-card-text: #cdd9ef;
+  --about-activity-color: #7dd3fc;
 
   /* Resume */
-  --resume-border: #8a49a8;
-  --resume-dot-bg: #fff;
-  --resume-title-bg: #5234795d;
+  --resume-border: #38bdf8;
+  --resume-dot-bg: #eaf2ff;
+  --resume-title-bg: rgba(14, 165, 233, 0.22);
 
   /* Misc */
-  --particle-color: #ffffff;
-  --particle-line-color: rgba(255, 255, 255, 0.1);
+  --particle-color: #9bd8ff;
+  --particle-line-color: rgba(125, 211, 252, 0.1);
+  --section-bg-color: transparent;
+}
+
+/* ============================================================
+   POLAR DAY — light mode
+   Crisp white with glacial cyan → indigo → orchid accents.
+   ============================================================ */
+body.light-mode {
+  --shadow-card: 0 8px 30px rgba(2, 62, 138, 0.08);
+  --shadow-glow: 0 0 24px rgba(14, 165, 233, 0.15);
+
+  --accent: #0ea5e9;
+  --accent-2: #6366f1;
+  --accent-3: #d946ef;
+  --accent-glow: rgba(14, 165, 233, 0.35);
+  --accent-glow-soft: rgba(14, 165, 233, 0.18);
+  --accent-gradient: linear-gradient(
+    120deg,
+    #0ea5e9 0%,
+    #6366f1 55%,
+    #d946ef 100%
+  );
+  --accent-gradient-soft: linear-gradient(
+    120deg,
+    rgba(14, 165, 233, 0.1),
+    rgba(99, 102, 241, 0.07),
+    rgba(217, 70, 239, 0.05)
+  );
+
+  --bg-primary: radial-gradient(
+      ellipse 80% 55% at 15% -10%,
+      rgba(14, 165, 233, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 65% 50% at 90% 5%,
+      rgba(99, 102, 241, 0.08),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #f4f9ff 55%, #ffffff 100%);
+  --bg-section: linear-gradient(
+    to bottom left,
+    rgba(255, 255, 255, 0.6),
+    rgba(244, 249, 255, 0.9)
+  );
+  --bg-image-gradient: linear-gradient(
+    to bottom left,
+    rgba(255, 255, 255, 0.7),
+    rgba(244, 249, 255, 0.9)
+  );
+  --bg-navbar: transparent;
+  --bg-navbar-sticky: rgba(255, 255, 255, 0.78);
+  --bg-preloader: #ffffff;
+  --bg-footer: rgba(247, 251, 255, 0.9);
+  --bg-card: rgba(14, 165, 233, 0.04);
+  --bg-home: transparent;
+
+  --glass-bg: rgba(14, 116, 233, 0.04);
+  --glass-border: rgba(14, 116, 233, 0.14);
+
+  --text-primary: #0f1e35;
+  --text-secondary: #3d5578;
+  --text-muted: #5f7495;
+  --text-purple: #0284c7;
+  --text-purple-light: #4f46e5;
+  --text-purple-dark: #0369a1;
+
+  --card-shadow: rgba(2, 62, 138, 0.1);
+  --card-shadow-hover: rgba(14, 165, 233, 0.2);
+  --card-border: rgba(2, 132, 199, 0.25);
+  --card-border-hover: rgba(2, 132, 199, 0.5);
+
+  --btn-primary: #0284c7;
+  --btn-primary-hover: #0369a1;
+
+  --scrollbar-track: #e4eefa;
+  --scrollbar-thumb: rgba(2, 132, 199, 0.45);
+  --scrollbar-thumb-hover: rgba(2, 132, 199, 0.7);
+
+  --social-bg: rgba(2, 132, 199, 0.07);
+  --social-before: #0284c7;
+  --social-hover: #0369a1;
+  --social-shadow: rgba(14, 165, 233, 0.3);
+
+  --tag-bg: rgba(2, 132, 199, 0.06);
+  --tag-border: rgba(2, 132, 199, 0.28);
+  --tag-bg-hover: rgba(2, 132, 199, 0.13);
+
+  --image-wrapper-bg: rgba(2, 132, 199, 0.04);
+  --image-wrapper-shadow: rgba(2, 62, 138, 0.1);
+
+  --about-card-bg: rgba(2, 132, 199, 0.04);
+  --about-card-shadow: rgba(2, 132, 199, 0.08);
+  --about-card-shadow-hover: rgba(2, 132, 199, 0.18);
+  --about-card-text: #33456b;
+  --about-activity-color: #0284c7;
+
+  --resume-border: #0ea5e9;
+  --resume-dot-bg: #0284c7;
+  --resume-title-bg: rgba(2, 132, 199, 0.1);
+
+  --particle-color: #6366f1;
+  --particle-line-color: rgba(99, 102, 241, 0.14);
 
   --section-bg-color: transparent;
 }
 
-/* ===== Light Mode Overrides ===== */
+/* ===== Base ===== */
+/* Route Bootstrap's own body tokens through the theme so un-layered
+   Bootstrap element rules inherit the right colors. */
+:root,
 body.light-mode {
-  --bg-primary: linear-gradient(to left, #ffffff, #ffffff);
-  --bg-section: linear-gradient(to bottom left, #ffffff, #ffffff);
-  --bg-image-gradient: linear-gradient(to bottom left, #ffffff, #ffffff);
-  --bg-navbar: linear-gradient(to left, #ffffff, #ffffff);
-  --bg-navbar-sticky: rgba(255, 255, 255, 0.97);
-  --bg-preloader: #ffffff;
-  --bg-footer: #f8f8fa;
-  --bg-card: rgba(120, 60, 180, 0.04);
-  --bg-home: linear-gradient(145deg, #ffffff, #faf8ff);
+  --bs-body-color: var(--text-primary);
+  --bs-heading-color: var(--text-primary);
+}
 
-  --text-primary: #1a1a2e;
-  --text-secondary: #444466;
-  --text-muted: #555577;
-  --text-purple: #7b2cbf;
-  --text-purple-light: #9d4edd;
-  --text-purple-dark: #5a189a;
-
-  --card-shadow: rgba(160, 100, 200, 0.15);
-  --card-shadow-hover: rgba(160, 100, 200, 0.25);
-  --card-border: rgba(160, 100, 200, 0.3);
-  --card-border-hover: rgba(160, 100, 200, 0.5);
-
-  --btn-primary: #7b2cbf;
-  --btn-primary-hover: #9d4eddd7;
-
-  --scrollbar-track: #e8dff5;
-  --scrollbar-thumb: rgba(160, 100, 200, 0.5);
-  --scrollbar-thumb-hover: rgba(160, 100, 200, 0.7);
-
-  --social-bg: rgba(120, 60, 180, 0.1);
-  --social-before: #9d4edd;
-  --social-hover: #7b2cbf;
-  --social-shadow: rgba(160, 100, 200, 0.3);
-
-  --tag-bg: rgba(120, 60, 180, 0.08);
-  --tag-border: #9d4edd;
-  --tag-bg-hover: rgba(120, 60, 180, 0.15);
-
-  --image-wrapper-bg: rgba(120, 60, 180, 0.05);
-  --image-wrapper-shadow: rgba(120, 60, 180, 0.1);
-
-  --about-card-bg: rgba(120, 60, 180, 0.05);
-  --about-card-shadow: rgba(160, 100, 200, 0.1);
-  --about-card-shadow-hover: rgba(160, 100, 200, 0.2);
-  --about-card-text: #333355;
-  --about-activity-color: #7b2cbf;
-
-  --resume-border: #9d4edd;
-  --resume-dot-bg: #7b2cbf;
-  --resume-title-bg: rgba(120, 60, 180, 0.1);
-
-  --particle-color: #9d4edd;
-  --particle-line-color: rgba(160, 100, 200, 0.15);
-
-  --section-bg-color: #ffffff;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  user-select: none;
-  font-family: "Raleway", serif !important;
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-body);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: var(--bg-primary) !important;
   background-color: var(--bg-preloader) !important;
+  background-attachment: fixed;
   color: var(--text-primary);
   transition:
-    background-image 0.3s ease,
     background-color 0.3s ease,
     color 0.3s ease;
 }
 
-#root {
-  overflow-y: hidden;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--accent-glow);
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Gradient text helper */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===== shadcn-style UI tokens (Aurora-mapped) ===== */
+:root {
+  --background: #081226;
+  --foreground: #eaf2ff;
+  --card: rgba(148, 199, 255, 0.05);
+  --card-foreground: #eaf2ff;
+  --primary: #38bdf8;
+  --primary-foreground: #04121f;
+  --secondary: rgba(167, 139, 250, 0.22);
+  --secondary-foreground: #dcd6ff;
+  --muted: rgba(148, 199, 255, 0.09);
+  --muted-foreground: #8fa0c0;
+  --destructive: #e5484d;
+  --border: rgba(148, 199, 255, 0.18);
+  --input: rgba(148, 199, 255, 0.18);
+  --ring: #38bdf8;
+}
+
+body.light-mode {
+  --background: #ffffff;
+  --foreground: #0f1e35;
+  --card: #ffffff;
+  --card-foreground: #0f1e35;
+  --primary: #0284c7;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(99, 102, 241, 0.12);
+  --secondary-foreground: #3730a3;
+  --muted: rgba(2, 132, 199, 0.07);
+  --muted-foreground: #5f7495;
+  --destructive: #dc2626;
+  --border: rgba(2, 62, 138, 0.18);
+  --input: rgba(2, 62, 138, 0.22);
+  --ring: #0284c7;
 }

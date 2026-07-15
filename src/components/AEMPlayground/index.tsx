@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Container, Row, Col, Card, Badge } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import {
   Box,
   TextField,
@@ -13,11 +14,50 @@ import {
   Chip,
   Alert,
   Divider,
+  createTheme,
+  ThemeProvider,
 } from "@mui/material";
-import { SiAdobe, SiApache, SiGraphql, SiReact } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
+import {
+  SiAdobe,
+  SiApache,
+  SiGraphql,
+  SiReact,
+  SiFastly,
+} from "react-icons/si";
+import { VscCode, VscJson } from "react-icons/vsc";
 import { MdPlayArrow, MdRefresh } from "react-icons/md";
 import Particle from "../Particle";
+
+const CodeBlock = ({
+  title,
+  code,
+  color = "#9cdcfe",
+}: {
+  title: string;
+  code: string;
+  color?: string;
+}) => (
+  <Paper sx={{ p: 2, bgcolor: "rgba(0,0,0,0.3)", mb: 2, textAlign: "left" }}>
+    <Typography variant="subtitle2" sx={{ color: "#aaa", mb: 1 }}>
+      {title}
+    </Typography>
+    <Box
+      component="pre"
+      sx={{
+        bgcolor: "#1e1e1e",
+        p: 2,
+        borderRadius: 1,
+        overflow: "auto",
+        fontSize: "12px",
+        textAlign: "left",
+        color,
+        m: 0,
+      }}
+    >
+      {code}
+    </Box>
+  </Paper>
+);
 
 // Simulated Content Fragment data
 const sampleContentFragments = {
@@ -62,7 +102,7 @@ const ContentFragmentDemo = () => {
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom sx={{ color: "#c770f0" }}>
+      <Typography variant="h6" gutterBottom sx={{ color: "var(--accent)" }}>
         Content Fragments Demo
       </Typography>
       <Alert severity="info" sx={{ mb: 2 }}>
@@ -127,7 +167,7 @@ const ContentFragmentDemo = () => {
             }
             onClick={simulateFetch}
             disabled={isLoading}
-            sx={{ bgcolor: "#c770f0", "&:hover": { bgcolor: "#a855c7" } }}
+            sx={{ bgcolor: "var(--accent)", "&:hover": { bgcolor: "var(--btn-primary-hover)" } }}
           >
             {isLoading ? "Fetching..." : "Fetch Content Fragment"}
           </Button>
@@ -168,7 +208,7 @@ const ContentFragmentDemo = () => {
                   sx={{
                     p: 2,
                     bgcolor: "rgba(199, 112, 240, 0.1)",
-                    border: "1px solid #c770f0",
+                    border: "1px solid var(--accent)",
                   }}
                 >
                   {selectedFragment === "hero" && (
@@ -188,7 +228,7 @@ const ContentFragmentDemo = () => {
                       <Button
                         variant="outlined"
                         size="small"
-                        sx={{ mt: 1, color: "#c770f0", borderColor: "#c770f0" }}
+                        sx={{ mt: 1, color: "var(--accent)", borderColor: "var(--accent)" }}
                       >
                         {
                           (fetchedData as typeof sampleContentFragments.hero)
@@ -205,7 +245,7 @@ const ContentFragmentDemo = () => {
                             .name
                         }
                       </Typography>
-                      <Typography variant="h4" sx={{ color: "#c770f0" }}>
+                      <Typography variant="h4" sx={{ color: "var(--accent)" }}>
                         {
                           (fetchedData as typeof sampleContentFragments.product)
                             .price
@@ -297,7 +337,7 @@ const ExperienceFragmentDemo = () => {
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom sx={{ color: "#c770f0" }}>
+      <Typography variant="h6" gutterBottom sx={{ color: "var(--accent)" }}>
         Experience Fragments Demo
       </Typography>
       <Alert severity="info" sx={{ mb: 2 }}>
@@ -316,12 +356,12 @@ const ExperienceFragmentDemo = () => {
               variant={activeVariation === v ? "contained" : "outlined"}
               onClick={() => setActiveVariation(v)}
               sx={{
-                bgcolor: activeVariation === v ? "#c770f0" : "transparent",
-                borderColor: "#c770f0",
-                color: activeVariation === v ? "white" : "#c770f0",
+                bgcolor: activeVariation === v ? "var(--accent)" : "transparent",
+                borderColor: "var(--accent)",
+                color: activeVariation === v ? "white" : "var(--accent)",
                 "&:hover": {
                   bgcolor:
-                    activeVariation === v ? "#a855c7" : "rgba(199,112,240,0.1)",
+                    activeVariation === v ? "var(--btn-primary-hover)" : "rgba(199,112,240,0.1)",
                 },
               }}
             >
@@ -362,7 +402,7 @@ const ExperienceFragmentDemo = () => {
             </Typography>
             <Box
               sx={{
-                border: "2px dashed #c770f0",
+                border: "2px dashed var(--accent)",
                 borderRadius: 2,
                 p: 2,
                 display: "flex",
@@ -394,7 +434,7 @@ const ExperienceFragmentDemo = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#c770f0",
+                    color: "var(--accent)",
                     fontSize: "12px",
                   }}
                 >
@@ -432,7 +472,7 @@ const CoreComponentsDemo = () => {
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom sx={{ color: "#c770f0" }}>
+      <Typography variant="h6" gutterBottom sx={{ color: "var(--accent)" }}>
         AEM Core Components + React
       </Typography>
       <Alert severity="info" sx={{ mb: 2 }}>
@@ -493,7 +533,7 @@ const CoreComponentsDemo = () => {
           md={2}
           className="d-flex align-items-center justify-content-center"
         >
-          <Box sx={{ textAlign: "center", color: "#c770f0" }}>
+          <Box sx={{ textAlign: "center", color: "var(--accent)" }}>
             <Typography variant="caption">JSON API</Typography>
             <Box sx={{ fontSize: 30 }}>→</Box>
           </Box>
@@ -506,7 +546,7 @@ const CoreComponentsDemo = () => {
             <Card
               style={{
                 backgroundColor: "rgba(199, 112, 240, 0.1)",
-                border: "1px solid #c770f0",
+                border: "1px solid var(--accent)",
                 padding: "20px",
               }}
             >
@@ -516,7 +556,7 @@ const CoreComponentsDemo = () => {
               <Typography sx={{ color: "#ccc", mb: 2 }}>
                 {editableContent.text}
               </Typography>
-              <Button variant="contained" sx={{ bgcolor: "#c770f0" }}>
+              <Button variant="contained" sx={{ bgcolor: "var(--accent)" }}>
                 {editableContent.buttonLabel}
               </Button>
             </Card>
@@ -527,44 +567,151 @@ const CoreComponentsDemo = () => {
   );
 };
 
+// HTL + Sling Models Demo
+const htlSnippet = `<!-- teaser.html — HTL (Sightly) template -->
+<sly data-sly-use.model="com.lebara.core.models.Teaser" />
+
+<div class="cmp-teaser" data-cmp-is="teaser">
+  <h2 class="cmp-teaser__title">\${model.title}</h2>
+  <p class="cmp-teaser__description">\${model.description @ context='html'}</p>
+
+  <sly data-sly-test="\${model.actions}">
+    <a data-sly-repeat.action="\${model.actions}"
+       class="cmp-teaser__action-link"
+       href="\${action.url}">\${action.text}</a>
+  </sly>
+
+  <sly data-sly-resource="\${'image' @ resourceType='core/wcm/components/image/v3/image'}" />
+</div>`;
+
+const slingModelSnippet = `// Teaser.java — Sling Model with JSON exporter
+@Model(
+    adaptables = SlingHttpServletRequest.class,
+    adapters = { Teaser.class, ComponentExporter.class },
+    resourceType = Teaser.RESOURCE_TYPE,
+    defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
+)
+@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME,
+          extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+public class Teaser implements ComponentExporter {
+
+    static final String RESOURCE_TYPE = "lebara/components/teaser";
+
+    @ValueMapValue
+    private String title;
+
+    @ValueMapValue
+    private String description;
+
+    @ChildResource
+    private List<Action> actions;
+
+    @ScriptVariable
+    private Page currentPage;
+
+    @PostConstruct
+    protected void init() {
+        // resolve inherited content, localization, targeting…
+    }
+
+    @Override
+    public String getExportedType() { return RESOURCE_TYPE; }
+}`;
+
+const modelJsonSnippet = `// GET /content/site/page/jcr:content/teaser.model.json
+{
+  ":type": "lebara/components/teaser",
+  "title": "Roam free in 36 countries",
+  "description": "<p>Stay connected across Europe…</p>",
+  "actions": [
+    { "text": "See plans", "url": "/plans.html" }
+  ],
+  "image": {
+    ":type": "core/wcm/components/image/v3/image",
+    "src": "/content/dam/teaser.jpg"
+  }
+}`;
+
+const HTLSlingDemo = () => (
+  <Box>
+    <Typography variant="h6" gutterBottom sx={{ color: "var(--accent)" }}>
+      HTL Templates &amp; Sling Models
+    </Typography>
+    <Alert severity="info" sx={{ mb: 2 }}>
+      The same Sling Model backs two render paths: HTL renders server-side HTML
+      for classic pages, while the Sling Model Exporter serializes it to JSON
+      (<code>.model.json</code>) for SPAs — one Java class, two channels.
+    </Alert>
+
+    <Row>
+      <Col lg={6}>
+        <CodeBlock title="1. HTL template (server-side render path)" code={htlSnippet} color="#ce9178" />
+        <CodeBlock title="3. JSON export (headless render path)" code={modelJsonSnippet} color="#9cdcfe" />
+      </Col>
+      <Col lg={6}>
+        <CodeBlock title="2. Sling Model (single source of truth)" code={slingModelSnippet} color="#b5cea8" />
+      </Col>
+    </Row>
+
+    <Alert severity="success" icon={<VscJson />}>
+      In the React SPA, AEM's <code>ModelManager</code> fetches the page's
+      <code> .model.json</code> and the <code>MapTo("lebara/components/teaser")</code>{" "}
+      registration renders the matching React component — enabling in-context
+      editing via the SPA Editor.
+    </Alert>
+  </Box>
+);
+
 // Architecture Flow
 const ArchitectureFlow = () => {
   const steps = [
     {
-      label: "AEM Author",
+      label: "AEM Author (AEMaaCS)",
       description:
-        "Content authors create and manage content using AEM's intuitive authoring interface. They work with Content Fragments, Experience Fragments, and page components.",
+        "Authors work in the Touch UI against the author tier. Content lives in the JCR (Apache Jackrabbit Oak) under /content; the Content Fragment editor enforces structured models defined in /conf. Publishing replicates content to the publish tier via Sling Content Distribution.",
+      tech: ["JCR / Oak", "Content Fragment Models", "Sling Content Distribution"],
       icon: <SiAdobe />,
     },
     {
-      label: "Apache Sling",
+      label: "Apache Sling + OSGi",
       description:
-        "Sling is AEM's web framework that handles request processing. It maps URLs to content resources and enables RESTful content delivery.",
+        "Every request is resource-resolved: Sling maps the URL to a JCR resource, then picks a script/servlet by resource type, selector, and extension (e.g. teaser.model.json → Sling Model Exporter). Business logic ships as versioned OSGi bundles deployed via the Felix container.",
+      tech: ["Resource Resolution", "Selectors", "OSGi / Felix"],
       icon: <SiApache />,
     },
     {
-      label: "HTL Templates",
+      label: "HTL + Sling Models",
       description:
-        "HTML Template Language (HTL/Sightly) renders server-side HTML. For headless delivery, Sling Model Exporters convert content to JSON.",
+        "HTL (Sightly) templates render XSS-safe server-side HTML with automatic display context escaping. Sling Models adapt resources to typed Java objects; the Jackson-based Model Exporter serializes the same models to JSON for headless consumers.",
+      tech: ["HTL / Sightly", "Sling Models", "Model Exporter"],
       icon: <VscCode />,
     },
     {
       label: "GraphQL API",
       description:
-        "AEM's GraphQL endpoint exposes Content Fragments as queryable data. React apps fetch exactly the data they need with typed queries.",
+        "Content Fragments are exposed through AEM's GraphQL endpoint with schemas generated from the fragment models. Production traffic uses persisted queries (GET + cacheable at the CDN) instead of ad-hoc POST queries.",
+      tech: ["Persisted Queries", "Schema Generation", "Hypermedia"],
       icon: <SiGraphql />,
+    },
+    {
+      label: "Dispatcher + CDN",
+      description:
+        "The dispatcher module in front of publish caches rendered HTML and JSON, applies filter rules, and invalidates on replication events (stat files). A CDN (Fastly/Akamai) fronts the dispatcher; cache keys respect selectors and query persistence.",
+      tech: ["Cache Invalidation", "Filter Rules", "Edge Caching"],
+      icon: <SiFastly />,
     },
     {
       label: "React SPA",
       description:
-        "The React application consumes AEM content via APIs, renders components, and can optionally integrate with AEM's SPA Editor for in-context editing.",
+        "The SPA consumes .model.json or GraphQL responses. With the AEM SPA Editor SDK, MapTo() binds AEM resource types to React components so authors keep in-context drag-and-drop editing on top of a fully client-rendered app.",
+      tech: ["SPA Editor SDK", "MapTo()", "ModelManager"],
       icon: <SiReact />,
     },
   ];
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom sx={{ color: "#c770f0" }}>
+      <Typography variant="h6" gutterBottom sx={{ color: "var(--accent)" }}>
         AEM + React Architecture
       </Typography>
       <Stepper orientation="vertical" sx={{ mt: 2 }}>
@@ -577,11 +724,11 @@ const ArchitectureFlow = () => {
                     width: 40,
                     height: 40,
                     borderRadius: "50%",
-                    bgcolor: "rgba(199, 112, 240, 0.2)",
+                    bgcolor: "rgba(56, 189, 248, 0.15)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#c770f0",
+                    color: "var(--accent)",
                     fontSize: 20,
                   }}
                 >
@@ -595,6 +742,20 @@ const ArchitectureFlow = () => {
             </StepLabel>
             <StepContent>
               <Typography sx={{ color: "#aaa" }}>{step.description}</Typography>
+              <Box sx={{ display: "flex", gap: 0.5, flexWrap: "wrap", mt: 1 }}>
+                {step.tech.map((tech) => (
+                  <Chip
+                    key={tech}
+                    label={tech}
+                    size="small"
+                    sx={{
+                      bgcolor: "rgba(56, 189, 248, 0.12)",
+                      color: "var(--accent)",
+                      fontSize: "11px",
+                    }}
+                  />
+                ))}
+              </Box>
             </StepContent>
           </Step>
         ))}
@@ -604,8 +765,44 @@ const ArchitectureFlow = () => {
 };
 
 // Main Playground Component
+const tabs = [
+  { id: "architecture", label: "Architecture", component: ArchitectureFlow },
+  { id: "htl-sling", label: "HTL & Sling Models", component: HTLSlingDemo },
+  {
+    id: "content-fragments",
+    label: "Content Fragments",
+    component: ContentFragmentDemo,
+  },
+  {
+    id: "experience-fragments",
+    label: "Experience Fragments",
+    component: ExperienceFragmentDemo,
+  },
+  {
+    id: "core-components",
+    label: "Core Components",
+    component: CoreComponentsDemo,
+  },
+];
+
+/* The demos hardcode dark surfaces, so MUI runs in dark mode here
+   regardless of the site theme. */
+const aemTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: { main: "#38bdf8" },
+    secondary: { main: "#a78bfa" },
+    background: { default: "#081226", paper: "#0d1b33" },
+  },
+  typography: { fontFamily: "Inter, system-ui, sans-serif" },
+  shape: { borderRadius: 8 },
+});
+
 export default function AEMPlayground() {
-  const [activeTab, setActiveTab] = useState("architecture");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeId = searchParams.get("tab") ?? tabs[0].id;
+  const active = tabs.find((tab) => tab.id === activeId) ?? tabs[0];
+  const ActiveDemo = active.component;
 
   return (
     <Container fluid className="project-section" style={{ minHeight: "100vh" }}>
@@ -614,61 +811,44 @@ export default function AEMPlayground() {
         <h1 className="project-heading" style={{ paddingTop: "20px" }}>
           <strong className="purple">AEM</strong> + React Playground
         </h1>
-        <p style={{ color: "#aaa", textAlign: "center", marginBottom: "30px" }}>
-          Interactive demos showing how Adobe Experience Manager integrates with
-          React applications
-        </p>
-
-        <Box
-          sx={{
-            display: "flex",
-            gap: 1,
-            justifyContent: "center",
-            mb: 3,
-            flexWrap: "wrap",
+        <p
+          style={{
+            color: "var(--text-muted)",
+            textAlign: "center",
+            marginBottom: "30px",
           }}
         >
-          <Badge
-            bg={activeTab === "architecture" ? "primary" : "secondary"}
-            style={{ cursor: "pointer", padding: "10px 15px" }}
-            onClick={() => setActiveTab("architecture")}
-          >
-            Architecture
-          </Badge>
-          <Badge
-            bg={activeTab === "content-fragments" ? "primary" : "secondary"}
-            style={{ cursor: "pointer", padding: "10px 15px" }}
-            onClick={() => setActiveTab("content-fragments")}
-          >
-            Content Fragments
-          </Badge>
-          <Badge
-            bg={activeTab === "experience-fragments" ? "primary" : "secondary"}
-            style={{ cursor: "pointer", padding: "10px 15px" }}
-            onClick={() => setActiveTab("experience-fragments")}
-          >
-            Experience Fragments
-          </Badge>
-          <Badge
-            bg={activeTab === "core-components" ? "primary" : "secondary"}
-            style={{ cursor: "pointer", padding: "10px 15px" }}
-            onClick={() => setActiveTab("core-components")}
-          >
-            Core Components
-          </Badge>
-        </Box>
+          How Adobe Experience Manager delivers content to React — from JCR and
+          Sling resource resolution to GraphQL, the dispatcher, and the SPA
+          Editor. Based on production work for Lebara's multi-country platform.
+        </p>
 
-        <Paper sx={{ p: 3, bgcolor: "rgba(0,0,0,0.5)", borderRadius: 2 }}>
-          {activeTab === "architecture" && <ArchitectureFlow />}
-          {activeTab === "content-fragments" && <ContentFragmentDemo />}
-          {activeTab === "experience-fragments" && <ExperienceFragmentDemo />}
-          {activeTab === "core-components" && <CoreComponentsDemo />}
-        </Paper>
+        <div className="year-btn-group" role="tablist" aria-label="AEM demos">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={active.id === tab.id}
+              className={`year-btn ${active.id === tab.id ? "active" : ""}`}
+              onClick={() => setSearchParams({ tab: tab.id })}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <ThemeProvider theme={aemTheme}>
+          <Paper sx={{ p: 3, bgcolor: "rgba(0,0,0,0.5)", borderRadius: 2 }}>
+            <ActiveDemo />
+          </Paper>
+        </ThemeProvider>
 
         <Box sx={{ mt: 4, textAlign: "center" }}>
-          <Typography variant="body2" sx={{ color: "#666" }}>
+          <Typography variant="body2" sx={{ color: "var(--text-muted)" }}>
             This playground simulates AEM-React integration patterns. In
-            production, data comes from actual AEM instances.
+            production, data comes from actual AEM author/publish instances
+            behind a dispatcher.
           </Typography>
         </Box>
       </Container>

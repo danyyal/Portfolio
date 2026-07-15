@@ -1,52 +1,9 @@
 .typewriter-container {
-  font-size: 1.2rem;
+  font-family: var(--font-display);
   font-weight: 600;
-  margin-top: 20px;
-  background: linear-gradient(
-    90deg,
-    var(--text-purple-light),
-    var(--text-purple-dark),
-    var(--text-purple-dark)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glow-text 4s ease-in-out infinite alternate;
-  white-space: nowrap;
-  display: inline-block;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .typewriter-container {
-    -webkit-text-fill-color: var(--text-purple-dark);
-  }
-}
-.typewriter-container::after {
-  content: "|";
-  color: var(--text-purple-light);
-  font-weight: bold;
-  margin-left: 5px;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes glow-text {
-  0% {
-    text-shadow:
-      0 0 10px var(--text-purple-dark),
-      0 0 20px var(--text-purple-dark);
-  }
-  100% {
-    text-shadow:
-      0 0 20px var(--text-purple-light),
-      0 0 30px var(--text-purple);
-  }
+  margin-top: 12px;
+  /* reserve one line so the looping text never shifts layout */
+  min-height: 2.4em;
+  display: block;
+  color: var(--text-purple);
 }

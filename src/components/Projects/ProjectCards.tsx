@@ -5,107 +5,119 @@ import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { FiLock } from "react-icons/fi";
 import { MdFullscreen } from "react-icons/md";
-import { Badge } from "react-bootstrap";
-import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-function ProjectCards(props: any) {
-  const { t } = useTranslation();
-  const { isPrivate, imgPath, title, description, ghLink, isBlog, demoLink } =
-    props;
+interface ProjectCardProps {
+  imgPath: string;
+  title: string;
+  description: string;
+  ghLink?: string;
+  demoLink?: string;
+  isBlog?: boolean;
+  isPrivate?: boolean;
+}
 
+function ProjectCards({
+  imgPath,
+  title,
+  description,
+  ghLink,
+  demoLink,
+  isBlog,
+  isPrivate,
+}: ProjectCardProps) {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
 
-  const handleImageClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  const hasGhLink = Boolean(ghLink?.startsWith("http"));
 
   return (
     <>
       <Card className="project-card-view">
-        <div className="position-relative" style={{ cursor: "pointer" }}>
+        <div
+          className="project-img-wrap"
+          role="button"
+          tabIndex={0}
+          aria-label={`View ${title} fullscreen`}
+          onClick={() => setShowModal(true)}
+          onKeyDown={(e) => e.key === "Enter" && setShowModal(true)}
+        >
           <Card.Img
             variant="top"
             src={imgPath}
-            height={230}
-            alt="card-img"
-            onClick={handleImageClick}
-            style={{ transition: "opacity 0.3s ease", maxHeight: "230px" }}
-            onMouseOver={(e) => ((e.target as any).style.opacity = "0.8")}
-            onMouseOut={(e) => ((e.target as any).style.opacity = "1")}
+            alt={`${title} screenshot`}
+            className="project-img"
+            loading="lazy"
           />
-          {imgPath && (
-            <div
-              className="position-absolute top-0 end-0 m-2 bg-dark bg-opacity-75 rounded p-1"
-              onClick={handleImageClick}
-              style={{ cursor: "pointer" }}
-            >
-              <MdFullscreen size={20} color="white" />
-            </div>
-          )}
+          <div className="project-img-overlay">
+            <MdFullscreen size={28} />
+          </div>
         </div>
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          {isPrivate && (
-            <Badge bg="warning" className="d-flex align-items-center">
-              <FiLock className="me-1" size={12} />
-              {t("projects.private")}
-            </Badge>
-          )}
-          <Card.Text style={{ textAlign: "justify" }}>{description}</Card.Text>
-          <Button
-            style={{ display: "inline-flex", alignItems: "center" }}
-            disabled={!Boolean(ghLink?.includes("http"))}
-            variant="outlined"
-            href={ghLink}
-            target="_blank"
-          >
-            <BsGithub /> &nbsp;
-            {isBlog ? t("projects.blog") : t("projects.github")}
-          </Button>
-          {!isBlog && (
-            <Button
-              style={{
-                marginLeft: "10px",
-                display: "inline-flex",
-                alignItems: "center",
-              }}
-              disabled={!Boolean(demoLink)}
-              variant={!Boolean(demoLink) ? "contained" : "outlined"}
-              href={demoLink}
-              target="_blank"
-            >
-              <CgWebsite /> &nbsp;
-              {t("projects.demo")}
-            </Button>
-          )}
+        <Card.Body className="d-flex flex-column text-start">
+          <div className="project-title-row">
+            <Card.Title className="project-title">{title}</Card.Title>
+            {isPrivate && (
+              <span className="badge-private">
+                <FiLock size={11} />
+                {t("projects.private")}
+              </span>
+            )}
+          </div>
+          <Card.Text className="project-desc">{description}</Card.Text>
+          <div className="project-actions mt-auto">
+            {hasGhLink ? (
+              <a
+                className="card-btn"
+                href={ghLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsGithub />
+                {isBlog ? t("projects.blog") : t("projects.github")}
+              </a>
+            ) : (
+              <span className="card-btn disabled" aria-disabled="true">
+                <BsGithub />
+                {isBlog ? t("projects.blog") : t("projects.github")}
+              </span>
+            )}
+            {!isBlog &&
+              (demoLink ? (
+                <a
+                  className="card-btn card-btn-primary"
+                  href={demoLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <CgWebsite />
+                  {t("projects.demo")}
+                </a>
+              ) : (
+                <span className="card-btn disabled" aria-disabled="true">
+                  <CgWebsite />
+                  {t("projects.demo")}
+                </span>
+              ))}
+          </div>
         </Card.Body>
       </Card>
 
-      {/* Fullscreen Modal */}
       <Modal
         show={showModal}
-        onHide={handleCloseModal}
+        onHide={() => setShowModal(false)}
         size="xl"
         centered
+        fullscreen="sm-down"
         className="fullscreen-modal"
+        backdropClassName="fullscreen-modal-backdrop"
       >
         <Modal.Header closeButton className="border-0 bg-dark text-white">
           <Modal.Title className="d-flex align-items-center">
             <MdFullscreen className="me-2" size={24} />
             {title}
           </Modal.Title>
-          <style>{`
-            .modal-header .btn-close {
-              filter: invert(1) grayscale(100%) brightness(200%);
-            }
-          `}</style>
         </Modal.Header>
-        <Modal.Body className="p-0">
+        <Modal.Body className="p-0 bg-dark d-flex align-items-center justify-content-center">
           <img
             src={imgPath}
             alt={title}
@@ -121,4 +133,5 @@ function ProjectCards(props: any) {
     </>
   );
 }
+
 export default ProjectCards;

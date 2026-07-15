@@ -1,113 +1,103 @@
-import { motion } from "framer-motion";
-import { Container, Row, Col, Nav } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { HiArrowUpRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
-import { otherRoutes, type RouteConfig } from "../routes";
+import { useTranslation } from "react-i18next";
+import { otherRoutes } from "../routes";
+
+const socialLinks = [
+  {
+    href: "https://github.com/danyyal",
+    icon: <AiFillGithub />,
+    label: "GitHub",
+  },
+  {
+    href: "https://www.linkedin.com/in/sheikh-danyyal-ali-08b768193/",
+    icon: <FaLinkedinIn />,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://www.instagram.com/danyyal_ali_yar",
+    icon: <AiFillInstagram />,
+    label: "Instagram",
+  },
+];
+
+const pageLinks = [
+  { to: "/", labelKey: "nav.home" },
+  { to: "/about", labelKey: "nav.about" },
+  { to: "/project", labelKey: "nav.projects" },
+  { to: "/resume", labelKey: "nav.resume" },
+  { to: "/testimonial", labelKey: "nav.testimonial" },
+];
 
 function Footer() {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
 
   return (
-    <Container fluid className="footer bg-dark text-light py-5">
-      {/* Top Row: Buttons */}
-      <Row className="mb-4">
-        <Col className="d-flex justify-content-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="d-flex flex-wrap gap-3 justify-content-center"
-          >
-            {otherRoutes.map((btn: RouteConfig, index: number) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Nav.Link
-                  as={Link}
-                  to={btn.link}
-                  className="px-3 py-2 rounded-pill border border-secondary text-light hover-gradient transition"
+    <Container fluid as="footer" className="footer">
+      <Container>
+        <Row className="gy-4 text-start">
+          <Col md={5}>
+            <p className="brand-name mb-2">
+              danyyal<span className="brand-dot">.dev</span>
+            </p>
+            <p className="footer-tagline">{t("footer.tagline")}</p>
+            <div className="d-flex gap-2 mt-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="footer-social-link"
                 >
-                  {btn.text}
-                </Nav.Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Col>
-      </Row>
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </Col>
 
-      {/* Bottom Row: Trademark + Socials */}
-      <Row className="align-items-center">
-        {/* Left Side */}
-        <Col md="4" className="text-center mb-3 mb-md-0">
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="fw-bold"
-          >
-            Developed by <span className="text-info">Danyyal Ali Yar</span>
-          </motion.h3>
-        </Col>
+          <Col xs={6} md={3}>
+            <p className="footer-heading">{t("footer.pages")}</p>
+            <ul className="footer-link-list">
+              {pageLinks.map((page) => (
+                <li key={page.to}>
+                  <Link to={page.to} className="footer-link">
+                    {t(page.labelKey)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Col>
 
-        {/* Center: Copyright */}
-        <Col md="4" className="text-center mb-3 mb-md-0">
-          <p className="mb-0">© {year}. All rights reserved.</p>
-        </Col>
+          <Col xs={6} md={4}>
+            <p className="footer-heading">{t("footer.playground")}</p>
+            <ul className="footer-link-list">
+              {otherRoutes.map((route) => (
+                <li key={route.link}>
+                  <Link to={route.link} className="footer-link">
+                    {route.text}
+                    <HiArrowUpRight className="footer-link-arrow" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Col>
+        </Row>
 
-        {/* Right Side: Social Links */}
-        <Col md="4" className="text-center">
-          <motion.ul
-            className="list-unstyled d-flex justify-content-center gap-4 fs-3 m-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <motion.li whileHover={{ scale: 1.2 }}>
-              <a
-                href="https://github.com/danyyal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-light hover-gradient"
-              >
-                <AiFillGithub />
-              </a>
-            </motion.li>
-            <motion.li whileHover={{ scale: 1.2 }}>
-              <a
-                href="https://www.linkedin.com/in/sheikh-danyyal-ali-08b768193/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-light hover-gradient"
-              >
-                <FaLinkedinIn />
-              </a>
-            </motion.li>
-            <motion.li whileHover={{ scale: 1.2 }}>
-              <a
-                href="https://www.instagram.com/danyyal_ali_yar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-light hover-gradient"
-              >
-                <AiFillInstagram />
-              </a>
-            </motion.li>
-          </motion.ul>
-        </Col>
-      </Row>
-
-      {/* Small CSS tweaks */}
-      <style>{`
-        .hover-gradient:hover {
-          background: linear-gradient(90deg, #f093fb, #f5576c);
-          color: white !important;
-          border-color: transparent !important;
-          transition: all 0.3s ease-in-out;
-        }
-      `}</style>
+        <div className="footer-bottom">
+          <p className="footer-copy">
+            © {year}{" "}
+            <span className="footer-name gradient-text">Danyyal Ali Yar</span>.{" "}
+            {t("footer.rights")}
+          </p>
+          <p className="footer-copy">React · TypeScript · Vite</p>
+        </div>
+      </Container>
     </Container>
   );
 }

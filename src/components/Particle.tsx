@@ -1,12 +1,18 @@
 import Particles from "react-tsparticles";
 import { useTheme } from "../context/ThemeContext";
 
+const isSmallScreen =
+  typeof window !== "undefined" &&
+  window.matchMedia("(max-width: 767px)").matches;
+
 const Particle = () => {
   const { theme } = useTheme();
 
-  const particleColor = theme === "dark" ? "#ffffff" : "#9d4edd";
+  const particleColor = theme === "dark" ? "#9bd8ff" : "#6366f1";
   const lineColor =
-    theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(160, 100, 200, 0.15)";
+    theme === "dark"
+      ? "rgba(125, 211, 252, 0.12)"
+      : "rgba(99, 102, 241, 0.14)";
 
   return (
     <Particles
@@ -18,7 +24,7 @@ const Particle = () => {
             enable: true,
           },
           number: {
-            value: 300,
+            value: isSmallScreen ? 110 : 300,
             density: {
               enable: true,
               value_area: 2500,
@@ -34,7 +40,7 @@ const Particle = () => {
           },
           move: {
             direction: "right",
-            speed: 0.05,
+            speed: 0.3,
           },
           size: {
             value: 1,
@@ -52,12 +58,22 @@ const Particle = () => {
         },
         interactivity: {
           events: {
+            onhover: {
+              enable: true,
+              mode: "grab",
+            },
             onclick: {
               enable: true,
               mode: "push",
             },
           },
           modes: {
+            grab: {
+              distance: 170,
+              line_linked: {
+                opacity: 0.45,
+              },
+            },
             push: {
               particles_nb: 1,
             },

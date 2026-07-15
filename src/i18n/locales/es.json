@@ -5,13 +5,15 @@
     "projects": "Proyectos",
     "resume": "Currículum",
     "testimonial": "Testimonios",
-    "demo": "Demo",
-    "blogs": "Blogs"
+    "blogs": "Blogs",
+    "playground": "Playground"
   },
   "home": {
     "greeting": "Hola, soy",
     "tagline": "Convirtiendo ideas en código,",
     "taglineHighlight": "una línea a la vez.",
+    "ctaProjects": "Explorar mis proyectos",
+    "ctaResume": "Ver currículum",
     "tag1": "Desarrollador apasionado",
     "tag2": "Solucionador de problemas",
     "tag3": "Experto en MERN Stack",
@@ -40,7 +42,21 @@
     "findMe": "ENCUÉNTRAME EN",
     "connectStart": "No dudes en",
     "connect": "conectarte",
-    "connectEnd": "conmigo"
+    "connectEnd": "conmigo",
+    "available": "Abierto a nuevos proyectos",
+    "craft1Title": "Artesanía frontend",
+    "craft1Desc": "Interfaces pixel-perfect obsesionadas con la interacción.",
+    "craft2Title": "Backend y cloud",
+    "craft2Desc": "APIs, pipelines serverless y sistemas en tiempo real.",
+    "craft3Title": "Web 3D y creativa",
+    "craft3Desc": "Experiencias inmersivas más allá de la página plana.",
+    "featuredHeading": "Trabajo destacado",
+    "viewAll": "Ver todos los proyectos",
+    "contactTitle": "Construyamos algo juntos",
+    "contactSubtitle": "¿Tienes un proyecto en mente o un puesto que cubrir? Mi bandeja siempre está abierta — suelo responder en un día.",
+    "contactCta": "Di hola",
+    "copyEmail": "Copiar correo",
+    "copied": "¡Copiado!"
   },
   "projects": {
     "myRecent": "Mis recientes",
@@ -73,7 +89,7 @@
     "currentRole": "Actualmente trabajo como",
     "roleTitle": "Ingeniero de software senior",
     "at": "en",
-    "company": "Confiz",
+    "company": "CERPRO",
     "degree": "Tengo un título en Ciencias de la Computación de",
     "university": "GCU Lahore",
     "beyondCode": "Más allá de escribir código limpio, esto es lo que disfruto:",
@@ -87,5 +103,15 @@
     "previousYear": "Año anterior",
     "lastYear": "Último año",
     "currentYear": "Año actual"
+  },
+  "footer": {
+    "tagline": "Desarrollador full-stack creando experiencias web rápidas y pulidas — del píxel al pipeline.",
+    "pages": "Páginas",
+    "playground": "Playground",
+    "rights": "Todos los derechos reservados."
+  },
+  "notFound": {
+    "msg": "Esta ruta no existe.",
+    "cta": "Volver al inicio"
   }
 }

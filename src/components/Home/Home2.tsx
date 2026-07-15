@@ -1,115 +1,128 @@
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import {
+  HiOutlineColorSwatch,
+  HiOutlineServer,
+  HiOutlineCube,
+} from "react-icons/hi";
+import Reveal from "../Reveal";
 import { useTranslation } from "react-i18next";
+
+const crafts = [
+  {
+    icon: <HiOutlineColorSwatch />,
+    titleKey: "home.craft1Title",
+    descKey: "home.craft1Desc",
+    tech: ["React", "Next.js", "Angular", "TypeScript", "Fabric.js"],
+  },
+  {
+    icon: <HiOutlineServer />,
+    titleKey: "home.craft2Title",
+    descKey: "home.craft2Desc",
+    tech: ["Node.js", "NestJS", "Python", "AWS", "PostgreSQL", "Socket.IO"],
+  },
+  {
+    icon: <HiOutlineCube />,
+    titleKey: "home.craft3Title",
+    descKey: "home.craft3Desc",
+    tech: ["Three.js", "WebGL", "GLTF", "Canvas"],
+  },
+];
+
+const socials = [
+  {
+    href: "https://github.com/danyyal",
+    icon: <AiFillGithub />,
+    label: "GitHub",
+  },
+  {
+    href: "https://www.linkedin.com/in/sheikh-danyyal-ali-08b768193/",
+    icon: <FaLinkedinIn />,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://www.instagram.com/danyyal_ali_yar",
+    icon: <AiFillInstagram />,
+    label: "Instagram",
+  },
+];
 
 function Home2() {
   const { t } = useTranslation();
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row>
-          <Col md={8} className="home-about-description">
-            <h1 className="home-about-description-header">
-              {t("home.introduce")}{" "}
-              <span className="purple"> {t("home.introducePurple")} </span>{" "}
-              {t("home.introduceSelf")}
-            </h1>
-            <p className="home-about-body">
-              {t("home.introP1")} 😅
-              <br />
-              <br />
-              {t("home.introP2Front")}{" "}
-              <i>
-                <b className="purple">React.js, Next.js, and Angular.js</b>
-              </i>{" "}
-              {t("home.introP2Back")}{" "}
-              <i>
-                <b className="purple">Node.js, Nest.js, Python, and Three.js</b>{" "}
-                {t("home.introP2Immersive")}
-              </i>
-              .
-              <br />
-              <br />
-              {t("home.introP3")}
-              <br />
-              <br />
-              {t("home.introP4Start")}{" "}
-              <i>
-                <b className="purple">
-                  databases (PostgreSQL, MongoDB, Firebase)
-                </b>
-              </i>
-              ,{" "}
-              <i>
-                <b className="purple">payments (Stripe, PayPal)</b>
-              </i>
-              , {t("home.introP4And")}{" "}
-              <i>
-                <b className="purple">Blockchain</b>
-              </i>{" "}
-              {t("home.introP4End")}
-              <br />
-              <br />
-              {t("home.introP5Start")}{" "}
-              <i>
-                <b className="purple">canvas magic (Fabric.js)</b>
-              </i>{" "}
-              {t("home.introP5And")}{" "}
-              <i>
-                <b className="purple">3D web experiences</b>
-              </i>
-              {t("home.introP5End")}
-            </p>
+        <Row className="align-items-center">
+          <Col lg={6} className="home-about-description">
+            <Reveal>
+              <h1 className="home-about-description-header text-start">
+                {t("home.introduce")}{" "}
+                <span className="purple">{t("home.introducePurple")}</span>{" "}
+                {t("home.introduceSelf")}
+              </h1>
+              <p className="home-about-body intro-lead">
+                {t("home.introP1")} 😅
+              </p>
+              <p className="home-about-body">{t("home.introP3")}</p>
+            </Reveal>
           </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+
+          <Col lg={6}>
+            <div className="craft-stack">
+              {crafts.map((craft, index) => (
+                <Reveal key={craft.titleKey} delay={index * 0.12}>
+                  <Tilt
+                    tiltMaxAngleX={5}
+                    tiltMaxAngleY={5}
+                    transitionSpeed={1600}
+                  >
+                    <div className="craft-card">
+                      <div className="craft-icon">{craft.icon}</div>
+                      <div className="craft-body">
+                        <h3 className="craft-title">{t(craft.titleKey)}</h3>
+                        <p className="craft-desc">{t(craft.descKey)}</p>
+                        <div className="craft-tech">
+                          {craft.tech.map((tech) => (
+                            <span className="tech-chip" key={tech}>
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Tilt>
+                </Reveal>
+              ))}
+            </div>
           </Col>
         </Row>
         <Row>
           <Col md={12} className="home-about-social">
-            <h1>{t("home.findMe")}</h1>
-            <p>
-              {t("home.connectStart")}{" "}
-              <span className="purple">{t("home.connect")} </span>
-              {t("home.connectEnd")}
-            </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/danyyal"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/sheikh-danyyal-ali-08b768193/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.instagram.com/danyyal_ali_yar"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillInstagram />
-                </a>
-              </li>
-            </ul>
+            <Reveal>
+              <h1>{t("home.findMe")}</h1>
+              <p>
+                {t("home.connectStart")}{" "}
+                <span className="purple">{t("home.connect")} </span>
+                {t("home.connectEnd")}
+              </p>
+              <ul className="home-about-social-links">
+                {socials.map((social) => (
+                  <li className="social-icons" key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={social.label}
+                      className="icon-colour home-social-icons"
+                    >
+                      {social.icon}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </Col>
         </Row>
       </Container>

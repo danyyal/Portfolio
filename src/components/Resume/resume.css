@@ -1,0 +1,365 @@
+/* ===== Editorial resume page ===== */
+.resume-hero {
+  text-align: left;
+  padding: 40px 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-kicker {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-purple);
+  margin-bottom: 0.75rem;
+}
+
+.resume-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.resume-name .gradient-text {
+  filter: drop-shadow(0 0 22px var(--accent-glow-soft));
+}
+
+.resume-role {
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+}
+
+.resume-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.4rem;
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.contact-chip:hover {
+  color: var(--text-purple);
+  border-color: var(--card-border-hover);
+  transform: translateY(-2px);
+}
+
+.resume-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+/* Stats */
+.resume-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 2.5rem 0 1rem;
+}
+
+.resume-stat {
+  padding: 18px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.resume-stat-value {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.resume-stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Section headings */
+.resume-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  text-align: left;
+  margin: 3.5rem 0 2rem;
+  color: var(--text-primary);
+}
+
+.resume-section-title .accent {
+  color: var(--text-purple);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  text-align: left;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent),
+    var(--accent-2),
+    var(--accent-3),
+    transparent
+  );
+  opacity: 0.55;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 2.4rem 22px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-preloader);
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+  transform: translateX(1px);
+}
+
+.timeline-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-purple);
+  margin-bottom: 6px;
+}
+
+.timeline-period .now-badge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.timeline-card {
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.timeline-card:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateX(4px);
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.timeline-company {
+  font-size: 0.95rem;
+  color: var(--text-purple);
+  font-weight: 500;
+}
+
+.timeline-location {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.timeline-summary {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 10px 0 8px;
+  line-height: 1.65;
+}
+
+.timeline-highlights {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tech-chip {
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-purple);
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  white-space: nowrap;
+}
+
+/* Toolbox */
+.toolbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.toolbox-card {
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.toolbox-card:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.toolbox-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.toolbox-title svg {
+  color: var(--text-purple);
+  font-size: 1.2rem;
+}
+
+.toolbox-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Education */
+.education-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 26px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  text-align: left;
+}
+
+.education-degree {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.education-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.education-gpa {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* PDF section */
+.resume-pdf-note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 767px) {
+  .resume-hero {
+    padding-top: 20px;
+  }
+  .resume-cta-row .btn-accent,
+  .resume-cta-row .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+  .timeline {
+    padding-left: 18px;
+  }
+  .timeline-item {
+    padding-left: 16px;
+  }
+}

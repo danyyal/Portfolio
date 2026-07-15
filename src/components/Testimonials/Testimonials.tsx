@@ -6,52 +6,46 @@ function Testimonials() {
   return (
     <Container fluid className="project-section">
       <Particle />
-      <Container
-        style={{
-          height: `calc(100dvh - 180px)`,
-        }}
-        className="d-flex justify-content-center align-items-center flex-column py-5"
-      >
-        <h2 className="text-white text-center mb-2">Sascha Mueller</h2>
+      <Container className="d-flex justify-content-center align-items-center flex-column py-5">
+        <h2
+          className="text-center mb-2"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Sascha Mueller
+        </h2>
         <p
-          className="text-muted text-center mb-4"
-          style={{
-            fontSize: "1.6rem",
-          }}
+          className="text-center mb-4"
+          style={{ color: "var(--text-secondary)", fontSize: "1.25rem" }}
         >
           CTO and Co-Founder of{" "}
-          <a style={{ color: "white" }} href="https://cerpro.io/en/">
+          <a
+            style={{ color: "var(--text-purple)" }}
+            href="https://cerpro.io/en/"
+            target="_blank"
+            rel="noreferrer"
+          >
             CERPRO
           </a>
         </p>
         <div
           style={{
-            position: "relative",
             width: "100%",
             maxWidth: "800px",
-            aspectRatio: "16 / 9",
             margin: "0 auto",
-            borderRadius: "12px",
+            borderRadius: "var(--radius-md)",
             overflow: "hidden",
-            border: "1px solid #ccc",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+            border: "1px solid var(--glass-border)",
+            boxShadow: "var(--shadow-card)",
           }}
         >
-          <iframe
-            src={`${testimonial}?autoplay=0`}
+          <video
+            src={testimonial}
             title="Video Testimonial"
-            frameBorder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              border: "none",
-            }}
-          ></iframe>
+            controls
+            playsInline
+            preload="metadata"
+            style={{ display: "block", width: "100%", height: "auto" }}
+          />
         </div>
       </Container>
     </Container>

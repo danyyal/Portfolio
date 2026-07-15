@@ -5,13 +5,15 @@
     "projects": "Projects",
     "resume": "Resume",
     "testimonial": "Testimonial",
-    "demo": "Demo",
-    "blogs": "Blogs"
+    "blogs": "Blogs",
+    "playground": "Playground"
   },
   "home": {
     "greeting": "Hi, I'm",
     "tagline": "Turning ideas into code,",
     "taglineHighlight": "one line at a time.",
+    "ctaProjects": "Explore My Work",
+    "ctaResume": "View Resume",
     "tag1": "Passionate Developer",
     "tag2": "Problem Solver",
     "tag3": "MERN Stack Expert",
@@ -40,7 +42,21 @@
     "findMe": "FIND ME ON",
     "connectStart": "Feel free to",
     "connect": "connect",
-    "connectEnd": "with me"
+    "connectEnd": "with me",
+    "available": "Open to new projects",
+    "craft1Title": "Frontend craft",
+    "craft1Desc": "Pixel-perfect, interaction-obsessed interfaces.",
+    "craft2Title": "Backend & cloud",
+    "craft2Desc": "APIs, serverless pipelines, and realtime systems.",
+    "craft3Title": "3D & creative web",
+    "craft3Desc": "Immersive experiences beyond the flat page.",
+    "featuredHeading": "Featured work",
+    "viewAll": "View all projects",
+    "contactTitle": "Let’s build something together",
+    "contactSubtitle": "Have a project in mind or a role to fill? My inbox is always open — I usually reply within a day.",
+    "contactCta": "Say hello",
+    "copyEmail": "Copy email",
+    "copied": "Copied!"
   },
   "projects": {
     "myRecent": "My Recent",
@@ -73,7 +89,7 @@
     "currentRole": "I'm currently working as a",
     "roleTitle": "Senior Software Engineer",
     "at": "at",
-    "company": "Confiz",
+    "company": "CERPRO",
     "degree": "I hold a degree in Computer Science from",
     "university": "GCU Lahore",
     "beyondCode": "Beyond writing clean code, here's what I enjoy:",
@@ -87,5 +103,15 @@
     "previousYear": "Previous Year",
     "lastYear": "Last Year",
     "currentYear": "Current Year"
+  },
+  "footer": {
+    "tagline": "Full-stack developer crafting fast, polished web experiences — from pixel to pipeline.",
+    "pages": "Pages",
+    "playground": "Playground",
+    "rights": "All rights reserved."
+  },
+  "notFound": {
+    "msg": "This route doesn’t exist.",
+    "cta": "Back to home"
   }
 }

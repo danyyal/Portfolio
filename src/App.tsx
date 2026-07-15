@@ -1,28 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Preloader from "./components/Pre";
+import RouteFallback from "./components/RouteFallback";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Resume from "./components/Resume/ResumeNew";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./components/NotFound";
+import BackToTop from "./components/BackToTop";
 import "./style.css";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import UnderDevelopmentPage from "./components/UnderDevelopmentPage/UnderDevelopmentPage";
 import Particle from "./components/Particle";
 import Footer from "./components/Footer";
 import { otherRoutes } from "./routes";
+
 const App = () => {
-  const [load, upadateLoad] = useState(true);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 1200);
-
+    const timer = setTimeout(() => setLoad(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,32 +31,29 @@ const App = () => {
       <Navbar />
       <Particle />
       <ScrollToTop />
-      <div
-        style={{
-          marginTop: "75px",
-          height: "calc(100dvh - 75px)",
-          overflowY: "scroll",
-        }}
-      >
+      <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
-
           <Route path="/project" element={<Projects />} />
-          <Route path="/demo" element={<UnderDevelopmentPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/testimonial" element={<Testimonials />} />
-          <Route path="*" element={<Navigate to="/" />} />
-          {otherRoutes.map((RouteObj) => (
+          {otherRoutes.map(({ link, component: Component }) => (
             <Route
-              key={RouteObj.link}
-              path={RouteObj.link}
-              element={RouteObj.component()}
+              key={link}
+              path={link}
+              element={
+                <Suspense fallback={<RouteFallback />}>
+                  <Component />
+                </Suspense>
+              }
             />
           ))}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-      </div>
+      </main>
+      <BackToTop />
     </div>
   );
 };

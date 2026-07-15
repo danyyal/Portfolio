@@ -1,0 +1,20 @@
+/* Un-layered scoped rules: win the element-level fights that Bootstrap's
+   un-layered reboot would otherwise take from Tailwind's layered utilities. */
+.ui-lab {
+  color: var(--foreground);
+}
+
+.ui-lab section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.ui-lab button {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.ui-lab label {
+  margin-bottom: 0;
+}

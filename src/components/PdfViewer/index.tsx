@@ -1,5 +1,6 @@
-import { Viewer, Worker } from "@react-pdf-viewer/core";
+import { SpecialZoomLevel, Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import workerUrl from "pdfjs-dist/build/pdf.worker.min.js?url";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
@@ -16,19 +17,22 @@ export default function PdfViewer({
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   return (
-    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+    <Worker workerUrl={workerUrl}>
       <div
         style={{
           height,
           width: "100%",
+          maxWidth: "900px",
+          margin: "0 auto",
           borderRadius: "8px",
           overflow: "hidden",
-          border: "1px solid rgba(200, 137, 230, 0.3)",
+          border: "1px solid var(--glass-border)",
         }}
       >
         <Viewer
           fileUrl={fileUrl}
           plugins={[defaultLayoutPluginInstance]}
+          defaultScale={SpecialZoomLevel.PageWidth}
           theme="dark"
         />
       </div>

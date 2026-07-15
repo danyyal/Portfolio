@@ -5,13 +5,15 @@
     "projects": "Projets",
     "resume": "CV",
     "testimonial": "Témoignages",
-    "demo": "Démo",
-    "blogs": "Blogs"
+    "blogs": "Blogs",
+    "playground": "Playground"
   },
   "home": {
     "greeting": "Bonjour, je suis",
     "tagline": "Transformer les idées en code,",
     "taglineHighlight": "une ligne à la fois.",
+    "ctaProjects": "Découvrir mes projets",
+    "ctaResume": "Voir le CV",
     "tag1": "Développeur passionné",
     "tag2": "Résolveur de problèmes",
     "tag3": "Expert MERN Stack",
@@ -40,7 +42,21 @@
     "findMe": "RETROUVEZ-MOI SUR",
     "connectStart": "N'hésitez pas à",
     "connect": "vous connecter",
-    "connectEnd": "avec moi"
+    "connectEnd": "avec moi",
+    "available": "Ouvert à de nouveaux projets",
+    "craft1Title": "Artisanat frontend",
+    "craft1Desc": "Des interfaces pixel-perfect, obsédées par l interaction.",
+    "craft2Title": "Backend & cloud",
+    "craft2Desc": "APIs, pipelines serverless et systèmes temps réel.",
+    "craft3Title": "Web 3D & créatif",
+    "craft3Desc": "Des expériences immersives au-delà de la page plate.",
+    "featuredHeading": "Projets phares",
+    "viewAll": "Voir tous les projets",
+    "contactTitle": "Construisons quelque chose ensemble",
+    "contactSubtitle": "Un projet en tête ou un poste à pourvoir ? Ma boîte mail est toujours ouverte — je réponds généralement sous 24 h.",
+    "contactCta": "Dites bonjour",
+    "copyEmail": "Copier l’e-mail",
+    "copied": "Copié !"
   },
   "projects": {
     "myRecent": "Mes récents",
@@ -73,7 +89,7 @@
     "currentRole": "Je travaille actuellement en tant que",
     "roleTitle": "Ingénieur logiciel senior",
     "at": "chez",
-    "company": "Confiz",
+    "company": "CERPRO",
     "degree": "Je suis diplômé en informatique de",
     "university": "GCU Lahore",
     "beyondCode": "Au-delà du code propre, voici ce que j'apprécie :",
@@ -87,5 +103,15 @@
     "previousYear": "Année précédente",
     "lastYear": "Année dernière",
     "currentYear": "Année en cours"
+  },
+  "footer": {
+    "tagline": "Développeur full-stack créant des expériences web rapides et soignées — du pixel au pipeline.",
+    "pages": "Pages",
+    "playground": "Playground",
+    "rights": "Tous droits réservés."
+  },
+  "notFound": {
+    "msg": "Cette route n’existe pas.",
+    "cta": "Retour à l’accueil"
   }
 }
