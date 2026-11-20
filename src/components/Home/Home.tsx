@@ -33,6 +33,10 @@ const marqueeTech = [
   "Supabase",
   "NestJS",
   "Python",
+  "PyTorch",
+  "YOLO",
+  "PaddleOCR",
+  "OpenVINO",
 ];
 
 const stagger = {

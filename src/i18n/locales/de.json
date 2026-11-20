@@ -14,16 +14,15 @@
     "taglineHighlight": "eine Zeile nach der anderen.",
     "ctaProjects": "Meine Projekte ansehen",
     "ctaResume": "Lebenslauf ansehen",
-    "tag1": "Leidenschaftlicher Entwickler",
-    "tag2": "Problemlöser",
-    "tag3": "MERN Stack Experte",
-    "tag4": "Pixel-perfektes UI",
+    "tag1": "Full-Stack-KI-Entwickler",
+    "tag2": "Computer Vision",
+    "tag3": "3D & Simulation",
+    "tag4": "Pixelgenaue UI",
     "typewriter": [
-      "Softwareentwickler",
-      "MERN Stack Entwickler",
-      "Freiberufler",
-      "Open Source Mitwirkender",
-      "Full-Stack Problemlöser"
+      "Senior Full-Stack AI Engineer",
+      "Computer-Vision-Entwickler",
+      "3D- & Simulationsentwickler",
+      "Full-Stack-Problemlöser"
     ],
     "introduce": "LASSEN SIE MICH",
     "introducePurple": "MICH VORSTELLEN",
@@ -32,7 +31,7 @@
     "introP2Front": "Ich fühle mich in der wilden Welt von",
     "introP2Back": "wohl und habe meinen Anteil an Back-End-Herausforderungen gemeistert wie",
     "introP2Immersive": "für immersive 3D-Erlebnisse",
-    "introP3": "Im Frontend behandle ich jedes Pixel und jede Interaktion mit chirurgischer Sorgfalt — denn dort bilden Nutzer ihren ersten Eindruck. Es ist nicht nur Code; es ist das Handwerk der Erfahrung, und das nehme ich ernst.",
+    "introP3": "Bei Drevise arbeite ich am gesamten Produkt: an der Plattform mit React und NestJS, an der 3D-Modellansicht und den Fertigungssimulationen sowie an den Computer-Vision-Modellen, die technische Zeichnungen lesen. Außerdem verantworte ich die Data Registry, die Python-Anwendung, die jede Zeichnung, jeden Ausschnitt und jedes Label verwaltet, aus denen diese Modelle lernen.",
     "introP4Start": "Mein Spielplatz umfasst",
     "introP4And": "und das gelegentliche",
     "introP4End": "Experiment.",
@@ -49,14 +48,17 @@
     "craft2Title": "Backend & Cloud",
     "craft2Desc": "APIs, Serverless-Pipelines und Echtzeit-Systeme.",
     "craft3Title": "3D & kreatives Web",
-    "craft3Desc": "Immersive Erlebnisse jenseits der flachen Seite.",
+    "craft3Desc": "STEP-Modelle, Fertigungssimulationen und immersives 3D im Browser.",
     "featuredHeading": "Ausgewählte Arbeiten",
     "viewAll": "Alle Projekte ansehen",
     "contactTitle": "Lass uns gemeinsam etwas bauen",
     "contactSubtitle": "Ein Projekt im Kopf oder eine Stelle zu besetzen? Mein Postfach ist immer offen — ich antworte meist innerhalb eines Tages.",
     "contactCta": "Sag Hallo",
     "copyEmail": "E-Mail kopieren",
-    "copied": "Kopiert!"
+    "copied": "Kopiert!",
+    "craft4Title": "KI & Computer Vision",
+    "craft4Desc": "Erkennungs-, OCR- und Layout-Modelle, trainiert und produktiv ausgeliefert.",
+    "contactForm": "Oder schreiben Sie mir eine Nachricht"
   },
   "projects": {
     "myRecent": "Meine neuesten",
@@ -69,14 +71,37 @@
     "blog": "Blog",
     "demo": "Demo",
     "lebaraDesc": "Entwicklung einer Headless-CMS-Architektur durch Integration von Adobe Experience Manager (AEM) mit React. Erstellung benutzerdefinierter AEM Core Components, Implementierung von Content Fragments für strukturierte Headless-Inhaltsauslieferung über GraphQL-APIs und Erstellung von Experience Fragments für wiederverwendbare kanalübergreifende Erlebnisse. Die Lösung betreibt Lebaras Multi-Länder-MVNO-Plattform für Millionen von Nutzern in ganz Europa.",
-    "cerproDesc": "CERPRO ist eine deutsche KI-gestützte SaaS-Plattform, die automatisch Merkmale und Spezifikationen aus technischen Zeichnungen extrahiert, um Qualitätsprüfberichte für Fertigungsunternehmen zu erstellen. Die Lösung richtet sich an KMU-Hersteller in der Metallverarbeitungsindustrie und hilft ihnen, bis zu 70 % der Zeit bei manuellen Qualitätsdokumentationsprozessen einzusparen und gleichzeitig menschliche Fehler zu reduzieren.",
+    "dreviseDesc": "Drevise ist eine deutsche KI-Plattform für Lohnfertiger. Sie liest technische Zeichnungen, extrahiert Maße, Toleranzen und Symbole mit Computer-Vision-Modellen und erstellt daraus Qualitätsprüfberichte. STEP-Modelle öffnen sich in einem 3D-Viewer im Browser, und Fertigungssimulationen schätzen die Laufzeit für Dreh-, Fräs-, Blech- und Rohrteile.",
     "yjsgDesc": "Job Search Genius ist eine KI-gestützte Karriereplattform, die Jobsuchenden umfassende Tools bietet, um maßgeschneiderte Lebensläufe zu erstellen, überzeugende Anschreiben zu verfassen, sich auf Vorstellungsgespräche vorzubereiten und wettbewerbsfähige Gehaltspakete auszuhandeln. Die Plattform analysiert spezifische Stellenangebote und bietet ein komplettes System zur Optimierung der Jobsuche.",
     "spacedventuresDesc": "Spaced Ventures, jetzt bekannt als Mach33, ist ein spezialisiertes Finanzdienstleistungsunternehmen, das sich ausschließlich auf die Raumfahrtindustrie konzentriert und Anlageforschung, Kapitalmarktlösungen und Vermögensverwaltungsdienste anbietet, die auf die Beschleunigung der Raumfahrtkommerzialisierung zugeschnitten sind.",
     "riskcomplyDesc": "RiskComply ist eine Compliance-Management-Plattform für Anbieter und Kunden, die regulatorische Prozesse durch Module für Kundenmanagement, Projektverfolgung, Anbieteraufsicht und Compliance-Berichterstattung optimiert. Das System zentralisiert Kommunikation, Dateiverwaltung und Anforderungsverfolgung.",
     "liftoffleadsDesc": "LiftoffLeads ist ein Lead-Generierungsservice, der speziell für Fotostudios entwickelt wurde. Studiobesitzer können sich über ihr Kundenportal registrieren, um auf Lead-Generierungskampagnen zuzugreifen. Die Plattform verbindet Fotografie-Unternehmen mit potenziellen Kunden.",
     "fridayposDesc": "Friday POS ist ein cloudbasiertes Restaurantmanagementsystem für Mehrstandortbetriebe mit integrierter POS-Funktionalität, Echtzeit-Bestandsmanagement, GPS-Lieferverfolgung, Self-Service-Kiosken und zentralisierten Abläufen. Die Plattform umfasst Küchenanzeigen, automatisierte Bestellungen, mobile Reporting-Apps und QuickBooks/Xero-Integration.",
     "tambrDesc": "Tambr ist eine Business-Management-Plattform, die speziell für Unternehmen entwickelt wurde, die darstellende Künstler betreuen. Es ist ein Online-Buchungssystem mit Tools für einfache Buchung, Kundenmanagement, integrierte Zahlungsabwicklung sowie detaillierte Analysen und Berichte.",
-    "portalioDesc": "Portal.io ist ein leistungsstarkes, branchenspezifisches SaaS-Tool, das AV-, IT- und Sicherheitsintegratoren befähigt, Angebote schneller zu erstellen, komplexe Produktdaten einfach zu verwalten und nahtlose Kundenfreigaben und Zahlungen abzuwickeln."
+    "portalioDesc": "Portal.io ist ein leistungsstarkes, branchenspezifisches SaaS-Tool, das AV-, IT- und Sicherheitsintegratoren befähigt, Angebote schneller zu erstellen, komplexe Produktdaten einfach zu verwalten und nahtlose Kundenfreigaben und Zahlungen abzuwickeln.",
+    "dreviseSummary": "KI-Plattform, die technische Zeichnungen liest und Prüfberichte erstellt.",
+    "lebaraSummary": "Headless-Storefront mit AEM und React für einen Mobilfunkanbieter mit Millionen Kunden in Europa.",
+    "yjsgSummary": "KI-Karriereplattform für Lebensläufe, Anschreiben und Interviewvorbereitung.",
+    "spacedventuresSummary": "Investmentplattform für die Raumfahrtbranche, heute Mach33.",
+    "riskcomplySummary": "Compliance-Management-Plattform zwischen Dienstleistern und Kunden.",
+    "liftoffleadsSummary": "Portal zur Leadgewinnung für Fotostudios.",
+    "fridayposSummary": "Cloud-Kassensystem für Restaurants mit mehreren Standorten.",
+    "tambrSummary": "Buchung und Verwaltung für Unternehmen der darstellenden Künste.",
+    "portalioSummary": "Angebots- und Zahlungswerkzeug für AV-, IT- und Sicherheitsintegratoren.",
+    "aiTitle": "KI",
+    "aiAccent": "Modelle",
+    "aiSubtitle": "Modelle, die ich für das Lesen technischer Zeichnungen trainiert, verglichen und ausgeliefert habe.",
+    "systemsTitle": "Systeme, die ich",
+    "systemsAccent": "betreibe",
+    "systemsSubtitle": "Die Plattformen rund um die Modelle: Daten, 3D und die Produktionspipeline.",
+    "modelDetails": "Details ansehen",
+    "evidenceTitle": "Technische",
+    "evidenceAccent": "Nachweise",
+    "evidenceSubtitle": "Wie einzelne Dinge gebaut sind, mit den Zahlen aus Code und Dokumentation.",
+    "dataregistryDesc": "Data Registry ist die Python-Anwendung, die ich bei Drevise entwickelt habe und betreibe, um alle Trainingsdaten hinter den KI-Modellen zu verwalten. Jede Zeichnungsseite und jeder Trainingsausschnitt wird genau einmal gespeichert, jedes Label liegt in einem einzigen Speicher, und jedes Modellprojekt verweist nur auf die IDs, die es nutzt. Ein Resolver stellt jedes Trainingslayout bei Bedarf zusammen, ohne Dateien zu kopieren, eine Eingangsschleuse prüft neue Daten, bevor sie übernommen werden, und eine Flask-Webanwendung lässt das Team die Daten durchsuchen, filtern und prüfen. Sie umfasst über eine Million Ausschnitte und 50.897 Zeichnungsseiten für 21 Projekte. Die Daten selbst werden über DVC verteilt: Die beiden Pools gehen als wenige große Pakete in den Remote-Speicher, Git verfolgt nur kleine Zeigerdateien, und ein einziger Publish-Befehl packt die Änderungen, lädt sie hoch und prüft den Remote-Stand.",
+    "dataregistrySummary": "Python-Datenplattform hinter den Modellen: eine Million Trainingsausschnitte, jeder nur einmal gespeichert.",
+    "readMore": "Mehr lesen",
+    "showLess": "Weniger anzeigen"
   },
   "about": {
     "knowWho": "Erfahre, wer",
@@ -87,9 +112,9 @@
     "from": "aus",
     "location": "Lahore, Pakistan.",
     "currentRole": "Ich arbeite derzeit als",
-    "roleTitle": "Senior Software Engineer",
+    "roleTitle": "Senior Full-Stack AI Engineer",
     "at": "bei",
-    "company": "CERPRO",
+    "company": "Drevise",
     "degree": "Ich habe einen Abschluss in Informatik von der",
     "university": "GCU Lahore",
     "beyondCode": "Neben sauberem Code schreibe ich gerne:",
@@ -105,7 +130,7 @@
     "currentYear": "Aktuelles Jahr"
   },
   "footer": {
-    "tagline": "Full-Stack-Entwickler für schnelle, ausgefeilte Web-Erlebnisse — vom Pixel bis zur Pipeline.",
+    "tagline": "Full-Stack-KI-Entwickler, der Produkte von Anfang bis Ende baut — von Pixeln über Pipelines bis zu Modellen.",
     "pages": "Seiten",
     "playground": "Playground",
     "rights": "Alle Rechte vorbehalten."
@@ -113,5 +138,15 @@
   "notFound": {
     "msg": "Diese Route existiert nicht.",
     "cta": "Zur Startseite"
+  },
+  "palette": {
+    "placeholder": "Seiten & Aktionen suchen…",
+    "noResults": "Keine Treffer für",
+    "actions": "Aktionen",
+    "toggleTheme": "Theme wechseln"
+  },
+  "mode": {
+    "toMission": "Missionsmodus",
+    "toClassic": "Klassische Ansicht"
   }
 }

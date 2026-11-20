@@ -14,15 +14,14 @@
     "taglineHighlight": "one line at a time.",
     "ctaProjects": "Explore My Work",
     "ctaResume": "View Resume",
-    "tag1": "Passionate Developer",
-    "tag2": "Problem Solver",
-    "tag3": "MERN Stack Expert",
+    "tag1": "Full-Stack AI Engineer",
+    "tag2": "Computer Vision",
+    "tag3": "3D & Simulation",
     "tag4": "Pixel-Perfect UI",
     "typewriter": [
-      "Software Developer",
-      "MERN Stack Developer",
-      "Freelancer",
-      "Open Source Contributor",
+      "Senior Full-Stack AI Engineer",
+      "Computer Vision Engineer",
+      "3D & Simulation Developer",
       "Full-Stack Problem Solver"
     ],
     "introduce": "LET ME",
@@ -32,7 +31,7 @@
     "introP2Front": "I thrive in the wild world of",
     "introP2Back": "and I've wrangled my share of back-end beasts like",
     "introP2Immersive": "for immersive 3D experiences",
-    "introP3": "On the frontend, I treat every pixel and interaction with surgical care—because that's where users form their first impressions. It's not just code; it's the craft of experience, and I take that seriously.",
+    "introP3": "At Drevise I work across the whole product: the React and NestJS platform, 3D model viewing and machining simulations, and the computer-vision models that read engineering drawings. I also own the Data Registry, the Python app that manages every drawing, crop and label those models learn from.",
     "introP4Start": "My playground includes",
     "introP4And": "and the occasional",
     "introP4End": "experiment.",
@@ -49,14 +48,17 @@
     "craft2Title": "Backend & cloud",
     "craft2Desc": "APIs, serverless pipelines, and realtime systems.",
     "craft3Title": "3D & creative web",
-    "craft3Desc": "Immersive experiences beyond the flat page.",
+    "craft3Desc": "STEP models, machining simulations and immersive 3D in the browser.",
     "featuredHeading": "Featured work",
     "viewAll": "View all projects",
     "contactTitle": "Let’s build something together",
     "contactSubtitle": "Have a project in mind or a role to fill? My inbox is always open — I usually reply within a day.",
     "contactCta": "Say hello",
     "copyEmail": "Copy email",
-    "copied": "Copied!"
+    "copied": "Copied!",
+    "craft4Title": "AI & computer vision",
+    "craft4Desc": "Detection, OCR and layout models, trained and shipped to production.",
+    "contactForm": "Or send me a message"
   },
   "projects": {
     "myRecent": "My Recent",
@@ -69,14 +71,37 @@
     "blog": "Blog",
     "demo": "Demo",
     "lebaraDesc": "Built a headless CMS architecture integrating Adobe Experience Manager (AEM) with React. Developed custom AEM Core Components, implemented Content Fragments for structured headless content delivery via GraphQL APIs, and created Experience Fragments for reusable cross-channel experiences. The solution powers Lebara's multi-country MVNO platform serving millions of users across Europe.",
-    "cerproDesc": "CERPRO is a German AI-powered SaaS platform that automatically extracts features and specifications from technical drawings to generate quality inspection reports for manufacturing companies. The solution targets SME manufacturers in the metalworking industry, helping them save up to 70% of time on manual quality documentation processes while reducing human errors.",
+    "dreviseDesc": "Drevise is a German AI platform for contract manufacturers. It reads engineering drawings, extracts dimensions, tolerances and symbols with computer-vision models, and turns them into quality inspection reports. STEP models open in a browser 3D viewer, and machining simulations estimate run time for turned, milled, sheet and tube parts.",
     "yjsgDesc": "Job Search Genius is an AI-powered career platform that provides comprehensive tools for job seekers to create tailored resumes, craft compelling cover letters, prepare for interviews, and negotiate competitive salary packages. The platform analyzes specific jobs offers a complete system designed to streamline the job search process while helping users stand out in competitive markets.",
     "spacedventuresDesc": "Spaced ventures now known as Mach33 is a specialized financial services firm focused exclusively on the space industry, offering investment research, capital markets solutions, and asset management services tailored to accelerate space commercialization. The company positions itself as an alternative asset manager with deep expertise in identifying and capitalizing on opportunities within the rapidly growing space industrialization sector.",
     "riskcomplyDesc": "RiskComply is a vendor-to-client compliance management platform that streamlines regulatory processes through modules for client management, project tracking, vendor oversight, and compliance reporting. The system centralizes communication, file management, and requirement tracking to help businesses manage their compliance obligations and vendor relationships efficiently.",
     "liftoffleadsDesc": "LiftoffLeads is a lead generation service specifically designed for photography studios, where studio owners can register through their client portal to access lead generation campaigns. The platform connects photography businesses with potential customers by converting qualified leads into business clients to help studios grow their client base.",
     "fridayposDesc": "Friday POS is a cloud-based restaurant management system designed for multi-location businesses, offering integrated POS functionality with real-time inventory management, GPS delivery tracking, self-service kiosks, and centralized operations. The platform includes kitchen displays, automated ordering, mobile reporting apps, and QuickBooks/Xero integration, positioning itself as a complete business ecosystem for scalable restaurant chain growth.",
     "tambrDesc": "Tambr is a business management platform specifically designed for companies that serve performing artists. It's an online booking system that provides businesses with many tools, including easy booking, customer management, integrated payment processing, and detailed analytics and reporting. The platform is focused on helping businesses streamline their operations and grow their client base while maintaining strong customer relationships.",
-    "portalioDesc": "Portal.io is a powerful, industry-specific SaaS tool that empowers AV, IT, and security integrators to create proposals faster, manage complex product data easily, and drive seamless client approvals and payments—all backed by live integrations and strong customer support."
+    "portalioDesc": "Portal.io is a powerful, industry-specific SaaS tool that empowers AV, IT, and security integrators to create proposals faster, manage complex product data easily, and drive seamless client approvals and payments—all backed by live integrations and strong customer support.",
+    "dreviseSummary": "AI platform that reads engineering drawings and builds inspection reports.",
+    "lebaraSummary": "Headless AEM + React storefront for a telco serving millions across Europe.",
+    "yjsgSummary": "AI career platform for resumes, cover letters and interview prep.",
+    "spacedventuresSummary": "Investment platform for the space industry, now Mach33.",
+    "riskcomplySummary": "Vendor-to-client compliance management platform.",
+    "liftoffleadsSummary": "Lead generation portal for photography studios.",
+    "fridayposSummary": "Cloud POS for multi-location restaurants.",
+    "tambrSummary": "Booking and business management for performing-arts companies.",
+    "portalioSummary": "Proposal and payment tool for AV, IT and security integrators.",
+    "aiTitle": "AI",
+    "aiAccent": "Models",
+    "aiSubtitle": "Models I have trained, compared and shipped for reading engineering drawings.",
+    "systemsTitle": "Systems I",
+    "systemsAccent": "Run",
+    "systemsSubtitle": "The platforms around the models: data, 3D and the production pipeline.",
+    "modelDetails": "View details",
+    "evidenceTitle": "Engineering",
+    "evidenceAccent": "Evidence",
+    "evidenceSubtitle": "How specific things are built, with the numbers the code and its documentation record.",
+    "dataregistryDesc": "Data Registry is the Python application I built and run at Drevise to manage all training data behind the AI models. Every drawing page and training crop is stored exactly once, every label lives in one store, and each model project only references the ids it uses. A resolver assembles any training layout on demand without copying files, an ingest airlock validates new data before it lands, and a Flask web app lets the team browse, filter and review it. It holds over one million crops and 50,897 drawing pages for 21 projects. The data itself ships through DVC: the two pools travel as a set of large packs to remote storage, git tracks only small pointer files, and one publish command packs what changed, pushes it and verifies the remote.",
+    "dataregistrySummary": "Python data platform behind the models: one million training crops, each stored once.",
+    "readMore": "Read more",
+    "showLess": "Show less"
   },
   "about": {
     "knowWho": "Know Who",
@@ -87,9 +112,9 @@
     "from": "from",
     "location": "Lahore, Pakistan.",
     "currentRole": "I'm currently working as a",
-    "roleTitle": "Senior Software Engineer",
+    "roleTitle": "Senior Full-Stack AI Engineer",
     "at": "at",
-    "company": "CERPRO",
+    "company": "Drevise",
     "degree": "I hold a degree in Computer Science from",
     "university": "GCU Lahore",
     "beyondCode": "Beyond writing clean code, here's what I enjoy:",
@@ -105,7 +130,7 @@
     "currentYear": "Current Year"
   },
   "footer": {
-    "tagline": "Full-stack developer crafting fast, polished web experiences — from pixel to pipeline.",
+    "tagline": "Full-stack AI engineer building products end to end — from pixels to pipelines to models.",
     "pages": "Pages",
     "playground": "Playground",
     "rights": "All rights reserved."
@@ -113,5 +138,15 @@
   "notFound": {
     "msg": "This route doesn’t exist.",
     "cta": "Back to home"
+  },
+  "palette": {
+    "placeholder": "Search pages & actions…",
+    "noResults": "No results for",
+    "actions": "Actions",
+    "toggleTheme": "Toggle theme"
+  },
+  "mode": {
+    "toMission": "Mission mode",
+    "toClassic": "Classic view"
   }
 }

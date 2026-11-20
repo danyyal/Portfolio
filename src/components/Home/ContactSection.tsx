@@ -5,6 +5,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import Reveal from "../Reveal";
+import HubspotForm from "../HubspotForm";
 
 const EMAIL = "danyyal.ali.31@gmail.com";
 
@@ -44,6 +45,8 @@ function ContactSection() {
               {copied ? t("home.copied") : t("home.copyEmail")}
             </button>
           </div>
+          <p className="contact-form-label">{t("home.contactForm")}</p>
+          <HubspotForm />
           <div className="contact-socials">
             <a
               href="https://github.com/danyyal"

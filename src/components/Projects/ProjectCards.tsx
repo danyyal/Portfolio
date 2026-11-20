@@ -28,6 +28,7 @@ function ProjectCards({
 }: ProjectCardProps) {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const hasGhLink = Boolean(ghLink?.startsWith("http"));
 
@@ -63,7 +64,23 @@ function ProjectCards({
               </span>
             )}
           </div>
-          <Card.Text className="project-desc">{description}</Card.Text>
+          <Card.Text
+            className={`project-desc ${expanded ? "is-open" : ""}`}
+            id={`desc-${title}`}
+          >
+            {description}
+          </Card.Text>
+          {description.length > 260 && (
+            <button
+              type="button"
+              className="project-more"
+              aria-expanded={expanded}
+              aria-controls={`desc-${title}`}
+              onClick={() => setExpanded((open) => !open)}
+            >
+              {expanded ? t("projects.showLess") : t("projects.readMore")}
+            </button>
+          )}
           <div className="project-actions mt-auto">
             {hasGhLink ? (
               <a

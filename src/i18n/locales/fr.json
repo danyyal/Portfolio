@@ -14,16 +14,15 @@
     "taglineHighlight": "une ligne à la fois.",
     "ctaProjects": "Découvrir mes projets",
     "ctaResume": "Voir le CV",
-    "tag1": "Développeur passionné",
-    "tag2": "Résolveur de problèmes",
-    "tag3": "Expert MERN Stack",
-    "tag4": "UI pixel-parfait",
+    "tag1": "Ingénieur IA full-stack",
+    "tag2": "Vision par ordinateur",
+    "tag3": "3D et simulation",
+    "tag4": "UI au pixel près",
     "typewriter": [
-      "Développeur logiciel",
-      "Développeur MERN Stack",
-      "Freelance",
-      "Contributeur Open Source",
-      "Résolveur de problèmes Full-Stack"
+      "Senior Full-Stack AI Engineer",
+      "Ingénieur en vision par ordinateur",
+      "Développeur 3D et simulation",
+      "Solutionneur full-stack"
     ],
     "introduce": "LAISSEZ-MOI",
     "introducePurple": "ME PRÉSENTER",
@@ -32,7 +31,7 @@
     "introP2Front": "Je m'épanouis dans le monde sauvage de",
     "introP2Back": "et j'ai dompté ma part de défis back-end comme",
     "introP2Immersive": "pour des expériences 3D immersives",
-    "introP3": "En frontend, je traite chaque pixel et interaction avec un soin chirurgical — car c'est là que les utilisateurs forment leur première impression. Ce n'est pas juste du code ; c'est l'art de l'expérience, et je prends cela au sérieux.",
+    "introP3": "Chez Drevise, je travaille sur l'ensemble du produit : la plateforme React et NestJS, la visualisation de modèles 3D et les simulations d'usinage, ainsi que les modèles de vision par ordinateur qui lisent les plans techniques. Je suis aussi responsable du Data Registry, l'application Python qui gère chaque plan, chaque extrait et chaque étiquette dont ces modèles apprennent.",
     "introP4Start": "Mon terrain de jeu comprend",
     "introP4And": "et l'occasionnel",
     "introP4End": "expérience.",
@@ -49,14 +48,17 @@
     "craft2Title": "Backend & cloud",
     "craft2Desc": "APIs, pipelines serverless et systèmes temps réel.",
     "craft3Title": "Web 3D & créatif",
-    "craft3Desc": "Des expériences immersives au-delà de la page plate.",
+    "craft3Desc": "Modèles STEP, simulations d'usinage et 3D immersive dans le navigateur.",
     "featuredHeading": "Projets phares",
     "viewAll": "Voir tous les projets",
     "contactTitle": "Construisons quelque chose ensemble",
     "contactSubtitle": "Un projet en tête ou un poste à pourvoir ? Ma boîte mail est toujours ouverte — je réponds généralement sous 24 h.",
     "contactCta": "Dites bonjour",
     "copyEmail": "Copier l’e-mail",
-    "copied": "Copié !"
+    "copied": "Copié !",
+    "craft4Title": "IA et vision par ordinateur",
+    "craft4Desc": "Modèles de détection, d'OCR et de mise en page, entraînés et mis en production.",
+    "contactForm": "Ou envoyez-moi un message"
   },
   "projects": {
     "myRecent": "Mes récents",
@@ -69,14 +71,37 @@
     "blog": "Blog",
     "demo": "Démo",
     "lebaraDesc": "Construction d'une architecture CMS headless intégrant Adobe Experience Manager (AEM) avec React. Développement de composants AEM Core personnalisés, implémentation de Content Fragments pour la livraison de contenu headless structuré via des API GraphQL, et création d'Experience Fragments pour des expériences cross-canal réutilisables. La solution alimente la plateforme MVNO multi-pays de Lebara servant des millions d'utilisateurs à travers l'Europe.",
-    "cerproDesc": "CERPRO est une plateforme SaaS allemande alimentée par l'IA qui extrait automatiquement les caractéristiques et spécifications des dessins techniques pour générer des rapports d'inspection qualité pour les entreprises manufacturières. La solution cible les PME de l'industrie métallurgique, les aidant à économiser jusqu'à 70 % du temps sur les processus de documentation qualité manuels.",
+    "dreviseDesc": "Drevise est une plateforme d'IA allemande pour les sous-traitants industriels. Elle lit les plans techniques, en extrait les cotes, les tolérances et les symboles grâce à des modèles de vision par ordinateur, et les transforme en rapports de contrôle qualité. Les modèles STEP s'ouvrent dans une visionneuse 3D dans le navigateur, et des simulations d'usinage estiment le temps de cycle des pièces tournées, fraisées, en tôle et en tube.",
     "yjsgDesc": "Job Search Genius est une plateforme de carrière alimentée par l'IA qui fournit des outils complets aux chercheurs d'emploi pour créer des CV sur mesure, rédiger des lettres de motivation convaincantes, se préparer aux entretiens et négocier des packages salariaux compétitifs. La plateforme analyse des offres d'emploi spécifiques et offre un système complet pour optimiser la recherche d'emploi.",
     "spacedventuresDesc": "Spaced Ventures, désormais connu sous le nom de Mach33, est une société de services financiers spécialisée exclusivement dans l'industrie spatiale, offrant de la recherche en investissement, des solutions de marchés de capitaux et des services de gestion d'actifs adaptés pour accélérer la commercialisation spatiale.",
     "riskcomplyDesc": "RiskComply est une plateforme de gestion de conformité fournisseur-client qui rationalise les processus réglementaires grâce à des modules de gestion des clients, de suivi de projets, de supervision des fournisseurs et de rapports de conformité. Le système centralise la communication, la gestion des fichiers et le suivi des exigences.",
     "liftoffleadsDesc": "LiftoffLeads est un service de génération de leads spécialement conçu pour les studios de photographie, où les propriétaires peuvent s'inscrire via leur portail client pour accéder aux campagnes de génération de leads. La plateforme connecte les entreprises de photographie avec des clients potentiels.",
     "fridayposDesc": "Friday POS est un système de gestion de restaurant basé sur le cloud conçu pour les entreprises multi-sites, offrant une fonctionnalité POS intégrée avec gestion des stocks en temps réel, suivi GPS des livraisons, bornes libre-service et opérations centralisées. La plateforme comprend des écrans de cuisine, des commandes automatisées, des applications de reporting mobile et l'intégration QuickBooks/Xero.",
     "tambrDesc": "Tambr est une plateforme de gestion d'entreprise spécialement conçue pour les entreprises au service des artistes de spectacle. C'est un système de réservation en ligne offrant des outils de réservation facile, de gestion client, de traitement de paiement intégré, ainsi que des analyses et rapports détaillés.",
-    "portalioDesc": "Portal.io est un outil SaaS puissant et spécifique à l'industrie qui permet aux intégrateurs AV, IT et sécurité de créer des propositions plus rapidement, de gérer facilement des données produit complexes et de piloter des approbations et paiements clients sans friction."
+    "portalioDesc": "Portal.io est un outil SaaS puissant et spécifique à l'industrie qui permet aux intégrateurs AV, IT et sécurité de créer des propositions plus rapidement, de gérer facilement des données produit complexes et de piloter des approbations et paiements clients sans friction.",
+    "dreviseSummary": "Plateforme d'IA qui lit les plans techniques et produit des rapports de contrôle.",
+    "lebaraSummary": "Boutique headless AEM + React pour un opérateur télécom servant des millions de clients en Europe.",
+    "yjsgSummary": "Plateforme carrière IA pour CV, lettres de motivation et préparation aux entretiens.",
+    "spacedventuresSummary": "Plateforme d'investissement pour l'industrie spatiale, aujourd'hui Mach33.",
+    "riskcomplySummary": "Plateforme de gestion de la conformité entre prestataires et clients.",
+    "liftoffleadsSummary": "Portail de génération de prospects pour studios photo.",
+    "fridayposSummary": "Caisse cloud pour restaurants multi-sites.",
+    "tambrSummary": "Réservation et gestion pour les entreprises des arts du spectacle.",
+    "portalioSummary": "Outil de devis et de paiement pour intégrateurs AV, IT et sécurité.",
+    "aiTitle": "Modèles",
+    "aiAccent": "d'IA",
+    "aiSubtitle": "Les modèles que j'ai entraînés, comparés et mis en production pour lire des plans techniques.",
+    "systemsTitle": "Systèmes que je",
+    "systemsAccent": "gère",
+    "systemsSubtitle": "Les plateformes autour des modèles : données, 3D et pipeline de production.",
+    "modelDetails": "Voir les détails",
+    "evidenceTitle": "Preuves",
+    "evidenceAccent": "d'ingénierie",
+    "evidenceSubtitle": "Comment certaines choses sont construites, avec les chiffres consignés dans le code et sa documentation.",
+    "dataregistryDesc": "Data Registry est l'application Python que j'ai conçue et que j'exploite chez Drevise pour gérer toutes les données d'entraînement des modèles d'IA. Chaque page de plan et chaque extrait d'entraînement est stocké une seule fois, chaque étiquette se trouve dans un seul magasin, et chaque projet de modèle ne fait que référencer les identifiants qu'il utilise. Un résolveur assemble à la demande n'importe quelle structure d'entraînement sans copier de fichiers, un sas d'entrée valide les nouvelles données avant leur intégration, et une application web Flask permet à l'équipe de les parcourir, les filtrer et les vérifier. Elle contient plus d'un million d'extraits et 50 897 pages de plans pour 21 projets. Les données elles-mêmes sont distribuées via DVC : les deux pools partent vers le stockage distant sous forme de gros paquets, git ne suit que de petits fichiers pointeurs, et une seule commande de publication empaquette ce qui a changé, l'envoie et vérifie le dépôt distant.",
+    "dataregistrySummary": "Plateforme de données Python derrière les modèles : un million d'extraits d'entraînement, chacun stocké une seule fois.",
+    "readMore": "Lire la suite",
+    "showLess": "Réduire"
   },
   "about": {
     "knowWho": "Découvrez qui",
@@ -87,9 +112,9 @@
     "from": "de",
     "location": "Lahore, Pakistan.",
     "currentRole": "Je travaille actuellement en tant que",
-    "roleTitle": "Ingénieur logiciel senior",
+    "roleTitle": "Senior Full-Stack AI Engineer",
     "at": "chez",
-    "company": "CERPRO",
+    "company": "Drevise",
     "degree": "Je suis diplômé en informatique de",
     "university": "GCU Lahore",
     "beyondCode": "Au-delà du code propre, voici ce que j'apprécie :",
@@ -105,7 +130,7 @@
     "currentYear": "Année en cours"
   },
   "footer": {
-    "tagline": "Développeur full-stack créant des expériences web rapides et soignées — du pixel au pipeline.",
+    "tagline": "Ingénieur IA full-stack qui construit des produits de bout en bout — des pixels aux pipelines jusqu'aux modèles.",
     "pages": "Pages",
     "playground": "Playground",
     "rights": "Tous droits réservés."
@@ -113,5 +138,15 @@
   "notFound": {
     "msg": "Cette route n’existe pas.",
     "cta": "Retour à l’accueil"
+  },
+  "palette": {
+    "placeholder": "Rechercher pages et actions…",
+    "noResults": "Aucun résultat pour",
+    "actions": "Actions",
+    "toggleTheme": "Changer de thème"
+  },
+  "mode": {
+    "toMission": "Mode mission",
+    "toClassic": "Vue classique"
   }
 }

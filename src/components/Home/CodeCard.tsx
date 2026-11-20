@@ -23,15 +23,16 @@ function CodeCard() {
             <span className="tok-op">=</span> {"{"}
             {"\n"}
             {"  "}role<span className="tok-op">:</span>{" "}
-            <span className="tok-str">"Senior Software Engineer"</span>,{"\n"}
+            <span className="tok-str">"Senior Full-Stack AI Engineer"</span>,
+            {"\n"}
             {"  "}currentlyAt<span className="tok-op">:</span>{" "}
-            <span className="tok-str">"CERPRO"</span>,{"\n"}
+            <span className="tok-str">"Drevise"</span>,{"\n"}
             {"  "}stack<span className="tok-op">:</span> [
             <span className="tok-str">"React"</span>,{" "}
-            <span className="tok-str">"Node"</span>,{" "}
+            <span className="tok-str">"Python"</span>,{" "}
             <span className="tok-str">"Three.js"</span>],{"\n"}
             {"  "}loves<span className="tok-op">:</span>{" "}
-            <span className="tok-str">"pixel-perfect UIs"</span>,{"\n"}
+            <span className="tok-str">"models that ship"</span>,{"\n"}
             {"  "}coffee<span className="tok-op">:</span>{" "}
             <span className="tok-kw">Infinity</span>,{"\n"}
             {"  "}openToWork<span className="tok-op">:</span>{" "}

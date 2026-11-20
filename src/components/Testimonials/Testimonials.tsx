@@ -1,12 +1,14 @@
 import { Container } from "react-bootstrap";
 import Particle from "../Particle";
 import testimonial from "../../Assets/client-testimonial.mp4";
+import dreviseLogo from "../../Assets/drevise-logo.png";
 
 function Testimonials() {
   return (
     <Container fluid className="project-section">
       <Particle />
       <Container className="d-flex justify-content-center align-items-center flex-column py-5">
+        <img src={dreviseLogo} alt="Drevise" className="company-logo-badge" />
         <h2
           className="text-center mb-2"
           style={{ color: "var(--text-primary)" }}
@@ -20,11 +22,11 @@ function Testimonials() {
           CTO and Co-Founder of{" "}
           <a
             style={{ color: "var(--text-purple)" }}
-            href="https://cerpro.io/en/"
+            href="https://drevise.com"
             target="_blank"
             rel="noreferrer"
           >
-            CERPRO
+            Drevise
           </a>
         </p>
         <div

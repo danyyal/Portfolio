@@ -28,20 +28,20 @@ describe("App routing", () => {
     expect(screen.getByText("Danyyal Ali")).toBeInTheDocument();
   });
 
-  it("renders the projects page on /project", () => {
+  it("renders the projects page on /project", async () => {
     renderApp("/project");
-    expect(screen.getByText(/my recent/i)).toBeInTheDocument();
-    expect(screen.getByText("CERPRO")).toBeInTheDocument();
+    expect(await screen.findByText(/my recent/i)).toBeInTheDocument();
+    expect(screen.getByText("Drevise")).toBeInTheDocument();
   });
 
-  it("renders the testimonial page on /testimonial", () => {
+  it("renders the testimonial page on /testimonial", async () => {
     renderApp("/testimonial");
-    expect(screen.getByText("Sascha Mueller")).toBeInTheDocument();
+    expect(await screen.findByText("Sascha Mueller")).toBeInTheDocument();
   });
 
-  it("renders the 404 page for unknown routes", () => {
+  it("renders the 404 page for unknown routes", async () => {
     renderApp("/this/route/does-not-exist");
-    expect(screen.getByText("404")).toBeInTheDocument();
+    expect(await screen.findByText("404")).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /back to home/i }),
     ).toHaveAttribute("href", "/");

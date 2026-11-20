@@ -1,11 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
-import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 import {
   HiOutlineColorSwatch,
   HiOutlineServer,
   HiOutlineCube,
+  HiOutlineChip,
 } from "react-icons/hi";
 import Reveal from "../Reveal";
 import { useTranslation } from "react-i18next";
@@ -21,31 +20,19 @@ const crafts = [
     icon: <HiOutlineServer />,
     titleKey: "home.craft2Title",
     descKey: "home.craft2Desc",
-    tech: ["Node.js", "NestJS", "Python", "AWS", "PostgreSQL", "Socket.IO"],
+    tech: ["Node.js", "NestJS", "Python", "AWS", "PostgreSQL"],
   },
   {
     icon: <HiOutlineCube />,
     titleKey: "home.craft3Title",
     descKey: "home.craft3Desc",
-    tech: ["Three.js", "WebGL", "GLTF", "Canvas"],
-  },
-];
-
-const socials = [
-  {
-    href: "https://github.com/danyyal",
-    icon: <AiFillGithub />,
-    label: "GitHub",
+    tech: ["Three.js", "WebGL", "STEP", "WebAssembly"],
   },
   {
-    href: "https://www.linkedin.com/in/sheikh-danyyal-ali-08b768193/",
-    icon: <FaLinkedinIn />,
-    label: "LinkedIn",
-  },
-  {
-    href: "https://www.instagram.com/danyyal_ali_yar",
-    icon: <AiFillInstagram />,
-    label: "Instagram",
+    icon: <HiOutlineChip />,
+    titleKey: "home.craft4Title",
+    descKey: "home.craft4Desc",
+    tech: ["PyTorch", "YOLO", "PaddleOCR", "LayoutLM", "OpenVINO"],
   },
 ];
 
@@ -96,33 +83,6 @@ function Home2() {
                 </Reveal>
               ))}
             </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={12} className="home-about-social">
-            <Reveal>
-              <h1>{t("home.findMe")}</h1>
-              <p>
-                {t("home.connectStart")}{" "}
-                <span className="purple">{t("home.connect")} </span>
-                {t("home.connectEnd")}
-              </p>
-              <ul className="home-about-social-links">
-                {socials.map((social) => (
-                  <li className="social-icons" key={social.label}>
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={social.label}
-                      className="icon-colour home-social-icons"
-                    >
-                      {social.icon}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
           </Col>
         </Row>
       </Container>

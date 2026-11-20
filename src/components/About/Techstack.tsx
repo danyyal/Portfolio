@@ -61,6 +61,21 @@ import {
   SiClockify,
 } from "react-icons/si";
 
+// AI / ML and 3D
+import {
+  SiPytorch,
+  SiOpencv,
+  SiOnnx,
+  SiPaddlepaddle,
+  SiHuggingface,
+  SiDvc,
+  SiThreedotjs,
+  SiWebassembly,
+  SiFlask,
+  SiTerraform,
+} from "react-icons/si";
+import { TbBoxModel2, TbCube3dSphere, TbTextScan2 } from "react-icons/tb";
+
 // Payments
 import { SiStripe, SiPaypal, SiAdyen } from "react-icons/si";
 
@@ -82,6 +97,29 @@ const stack: { title: string; items: Tech[] }[] = [
     ],
   },
   {
+    title: "AI & Computer Vision",
+    items: [
+      { icon: <SiPytorch />, name: "PyTorch" },
+      { icon: <TbBoxModel2 />, name: "YOLO" },
+      { icon: <TbTextScan2 />, name: "DBNet++ / CRAFT" },
+      { icon: <SiPaddlepaddle />, name: "PaddleOCR" },
+      { icon: <SiHuggingface />, name: "LayoutLM" },
+      { icon: <TbBoxModel2 />, name: "RF-DETR" },
+      { icon: <SiOnnx />, name: "ONNX / OpenVINO" },
+      { icon: <SiOpencv />, name: "OpenCV" },
+      { icon: <SiDvc />, name: "DVC" },
+    ],
+  },
+  {
+    title: "3D & Simulation",
+    items: [
+      { icon: <SiThreedotjs />, name: "Three.js" },
+      { icon: <TbCube3dSphere />, name: "React Three Fiber" },
+      { icon: <SiWebassembly />, name: "WebAssembly" },
+      { icon: <TbCube3dSphere />, name: "OpenCascade" },
+    ],
+  },
+  {
     title: "Frameworks",
     items: [
       { icon: <DiReact />, name: "React" },
@@ -91,6 +129,7 @@ const stack: { title: string; items: Tech[] }[] = [
       { icon: <SiExpress />, name: "Express" },
       { icon: <SiDotnet />, name: ".NET" },
       { icon: <SiAngular />, name: "Angular" },
+      { icon: <SiFlask />, name: "Flask" },
     ],
   },
   {
@@ -127,6 +166,7 @@ const stack: { title: string; items: Tech[] }[] = [
       { icon: <DiGit />, name: "Git" },
       { icon: <DiNpm />, name: "NPM" },
       { icon: <SiDocker />, name: "Docker" },
+      { icon: <SiTerraform />, name: "Terraform" },
       { icon: <SiPostman />, name: "Postman" },
       { icon: <SiFigma />, name: "Figma" },
       { icon: <SiSlack />, name: "Slack" },

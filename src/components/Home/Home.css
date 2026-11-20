@@ -753,8 +753,8 @@ body.light-mode .code-card {
 .contact-section {
   position: relative;
   z-index: 1;
-  padding: 4.5rem 1rem 4rem;
-  margin-top: 2rem;
+  padding: 1rem 1rem 4rem;
+  margin-top: 0;
 }
 
 .contact-inner {
@@ -800,7 +800,9 @@ body.light-mode .code-card {
 .avail-pill-link {
   text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .avail-pill-link:hover {
@@ -815,4 +817,23 @@ body.light-mode .code-card {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* HubSpot contact form */
+.contact-form-label {
+  margin: 2rem 0 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.hubspot-form {
+  /* reserves room so the page does not jump when the form arrives */
+  min-height: 420px;
+  margin: 0 auto 1.6rem;
+  padding: 18px 16px 6px;
+  border-radius: var(--radius-md, 14px);
+  background: #ffffff;
+  text-align: left;
 }

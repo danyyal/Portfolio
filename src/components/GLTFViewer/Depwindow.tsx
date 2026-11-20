@@ -42,7 +42,7 @@ export const DepWindow: React.FC<DepWindowProps> = ({
     );
 
     if (externalWindow) {
-      externalWindow.document.title = "CERPRO Cloud";
+      externalWindow.document.title = "Drevise Cloud";
       externalWindow.document.body.appendChild(containerEl);
       copyStyles(document, externalWindow.document);
       externalWindow.addEventListener("beforeunload", () => {

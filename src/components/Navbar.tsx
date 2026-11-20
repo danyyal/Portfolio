@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "../Assets/logo.png";
+import logo from "../Assets/logo.webp";
 import { Link, NavLink } from "react-router-dom";
 import { CgFileDocument } from "react-icons/cg";
 import {
@@ -15,6 +15,11 @@ import {
 import { otherRoutes } from "../routes";
 import { SlSpeech } from "react-icons/sl";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
+import { HiOutlineSearch } from "react-icons/hi";
+import { IoRocketOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { useMode } from "../context/ModeContext";
+import { OPEN_PALETTE_EVENT } from "./paletteEvent";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../context/ThemeContext";
 
@@ -42,6 +47,8 @@ function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
+  const { setMode } = useMode();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY >= 20);
@@ -112,6 +119,33 @@ function NavBar() {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
+
+            <Nav.Item className="ms-2 d-none d-xl-flex align-items-center">
+              <button
+                type="button"
+                className="kbd-hint-btn"
+                aria-label="Open command palette"
+                onClick={() =>
+                  window.dispatchEvent(new CustomEvent(OPEN_PALETTE_EVENT))
+                }
+              >
+                <HiOutlineSearch /> ⌘K
+              </button>
+            </Nav.Item>
+
+            <Nav.Item className="ms-2 d-flex align-items-center">
+              <button
+                type="button"
+                className="mode-switch-btn"
+                onClick={() => {
+                  setExpand(false);
+                  setMode("mission");
+                  navigate("/");
+                }}
+              >
+                <IoRocketOutline /> {t("mode.toMission")}
+              </button>
+            </Nav.Item>
 
             <Nav.Item className="ms-2 d-flex align-items-center">
               <button

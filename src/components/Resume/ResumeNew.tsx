@@ -12,8 +12,10 @@ import {
   HiOutlineLightningBolt,
   HiOutlineDatabase,
   HiOutlineCloud,
+  HiOutlineChip,
 } from "react-icons/hi";
 import { useWindowSize } from "../../utils/customHooks/useWindowSize";
+import { career, profile } from "../../data/profile";
 import "./resume.css";
 
 const PdfViewer = lazy(() => import("../PdfViewer"));
@@ -44,81 +46,28 @@ const contacts = [
 const stats = [
   { value: "6+", label: "Years of experience" },
   { value: "25+", label: "Projects delivered" },
-  { value: "3.5", label: "GPA — BSc CS" },
-];
-
-type TimelineEntry = {
-  period: string;
-  isCurrent?: boolean;
-  role: string;
-  company: string;
-  location: string;
-  summary: string;
-  highlights: string[];
-  tech: string[];
-};
-
-const career: TimelineEntry[] = [
-  {
-    period: "10/2023 — Present",
-    isCurrent: true,
-    role: "Senior Software Engineer",
-    company: "CERPRO",
-    location: "Remote — Germany",
-    summary:
-      "AI-based quotation software for contract manufacturers, from 3D drawing previews to serverless pipelines.",
-    highlights: [
-      "Shipped GLTF 3D previews with Three.js, boosting engagement with technical drawings",
-      "Built and deployed AWS Lambda functions powering serverless document pipelines",
-      "Expanded into Python for backend and automation work",
-    ],
-    tech: ["React", "Three.js", "AWS Lambda", "Python", "PostgreSQL", "NestJS"],
-  },
-  {
-    period: "04/2025 — 04/2026",
-    role: "Senior Software Engineer",
-    company: "Confiz (× Lebara)",
-    location: "Lahore, Pakistan",
-    summary:
-      "Drove digital innovation for Lebara, a global telco serving millions of users across Europe.",
-    highlights: [
-      "Migrated the React front end to Next.js, cutting page load times",
-      "Raised performance and scalability through code optimization and best practices",
-      "Guarded code quality through structured code reviews",
-    ],
-    tech: ["Next.js", "React", "TypeScript", "AEM", "GraphQL", "Storybook"],
-  },
-  {
-    period: "12/2023 — 04/2025",
-    role: "Senior Software Engineer",
-    company: "i2c Inc.",
-    location: "Lahore, Pakistan",
-    summary:
-      "Fintech platform work on card-management products used by global banking clients.",
-    highlights: [
-      "Pioneered integration of advanced tooling, speeding up project delivery",
-      "Mentored junior developers through rigorous code reviews",
-      "Restructured legacy code for cleaner, faster applications",
-    ],
-    tech: ["React", "TypeScript", "Redux", "REST APIs", "MySQL"],
-  },
-  {
-    period: "04/2020 — 12/2023",
-    role: "Software Engineer",
-    company: "Techverx",
-    location: "Lahore, Pakistan",
-    summary:
-      "Full-stack delivery across client products — compliance platforms, lead-gen portals, space-industry fintech, and drone control apps.",
-    highlights: [
-      "Delivered RiskComply, Liftoff Leads, Spaced Ventures, a drone app, and TTS end-to-end",
-      "Optimized application performance, materially reducing load times",
-      "Built lasting client relationships through communication and reliability",
-    ],
-    tech: ["React", "Node.js", "MongoDB", "Socket.IO", "Stripe", "Firebase"],
-  },
+  { value: "49", label: "Model weights in production" },
+  { value: "1M+", label: "Training crops managed" },
 ];
 
 const toolbox = [
+  {
+    title: "AI & computer vision",
+    icon: <HiOutlineChip />,
+    items: [
+      "PyTorch",
+      "YOLO",
+      "DBNet++",
+      "CRAFT",
+      "PaddleOCR",
+      "LayoutLM",
+      "RF-DETR",
+      "LightGBM",
+      "OpenVINO",
+      "ONNX",
+      "DVC",
+    ],
+  },
   {
     title: "Frontend",
     icon: <HiOutlineCode />,
@@ -131,6 +80,7 @@ const toolbox = [
       "TanStack Query",
       "Tailwind CSS",
       "Three.js",
+      "WebAssembly",
       "Storybook",
       "Fabric.js",
     ],
@@ -143,6 +93,7 @@ const toolbox = [
       "NestJS",
       "Express",
       "Python",
+      "Flask",
       "GraphQL",
       "REST APIs",
       "AWS Lambda",
@@ -169,7 +120,15 @@ const toolbox = [
   {
     title: "Cloud & Tooling",
     icon: <HiOutlineCloud />,
-    items: ["AWS", "Docker", "Vercel", "CI/CD", "Git", "Jira"],
+    items: [
+      "AWS",
+      "Step Functions",
+      "Terraform",
+      "Docker",
+      "Vercel",
+      "CI/CD",
+      "Git",
+    ],
   },
 ];
 
@@ -188,8 +147,8 @@ function ResumeNew() {
               Danyyal <span className="gradient-text">Ali Yar</span>
             </h1>
             <p className="resume-role">
-              Senior Software Engineer — full-stack development from
-              pixel-perfect frontends to serverless backends.
+              {profile.role} — web platforms, 3D simulations and the
+              computer-vision models behind them.
             </p>
 
             <div className="resume-contact-row">
@@ -198,7 +157,9 @@ function ResumeNew() {
                   key={contact.label}
                   className="contact-chip"
                   href={contact.href}
-                  target={contact.href.startsWith("http") ? "_blank" : undefined}
+                  target={
+                    contact.href.startsWith("http") ? "_blank" : undefined
+                  }
                   rel="noreferrer"
                 >
                   {contact.icon} {contact.label}
@@ -240,7 +201,10 @@ function ResumeNew() {
         </h2>
         <div className="timeline">
           {career.map((entry, index) => (
-            <Reveal key={`${entry.company}-${entry.period}`} delay={index * 0.05}>
+            <Reveal
+              key={`${entry.company}-${entry.period}`}
+              delay={index * 0.05}
+            >
               <div className="timeline-item">
                 <div className="timeline-period">
                   {entry.period}
@@ -280,9 +244,7 @@ function ResumeNew() {
         <Reveal>
           <div className="education-card">
             <div>
-              <p className="education-degree">
-                Bachelor's in Computer Science
-              </p>
+              <p className="education-degree">Bachelor's in Computer Science</p>
               <p className="education-meta mb-0">
                 GCU Lahore, Pakistan · 2017 — 2021
               </p>

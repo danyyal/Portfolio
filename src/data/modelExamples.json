@@ -1,0 +1,129 @@
+{
+  "dbnetpp": {
+    "width": 1100,
+    "height": 1100,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "One 1600 px tile of a gear drawing (the section view), as the detector receives it",
+    "heatCaption": "Text probability map from the detector's raw output",
+    "outputCaption": "Text boxes after thresholding, contour fitting and unclipping (score ≥ 0.6)",
+    "found": "27 text boxes (scores 0.66–0.92). Checked against the PDF's own text layer, not hand-made ground truth: 32 of the 32 text-layer words in this tile have their centre inside a detected box, and 2 boxes hold no text-layer word, both on the symbol cell of a tolerance frame, which is not text.",
+    "weights": "det_dbnetpp"
+  },
+  "dbnet-char": {
+    "width": 1000,
+    "height": 324,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "Text crop \"Rz 10\" cut from a gear drawing (the box the page detector found)",
+    "heatCaption": "Character probability map (the model's first output channel)",
+    "outputCaption": "One box per connected blob of the heatmap",
+    "found": "4 character boxes for a string of 4 characters. Across the 25 text crops the page detector found in the same tile, the box count matched the character count on 19. Too few boxes on the rest: \"Rz 16\" (3 of 4), \"Ø25 k5\" (4 of 5), \"Ø20 h6\" (4 of 5), \"DIN509-E0,8x0,3\" (4 of 15), \"DIN509-E0,8x0,3\" (5 of 15), \"0,014\" (4 of 5).",
+    "weights": "dbnet_char"
+  },
+  "paddleocr": {
+    "width": 1000,
+    "height": 480,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "A vertical diameter dimension cut from a gear drawing (the page detector's box), turned upright",
+    "heatCaption": "Class probability per time step for the 12 strongest classes, under the 320×48 input",
+    "outputCaption": "CTC-decoded text with its mean character confidence",
+    "found": "Read \"ø25 k5\" with confidence 1.000. The PDF text layer has \"25 k5\" at this place; the diameter sign is drawn as lines there, not text.",
+    "weights": "rec_general"
+  },
+  "layoutlm": {
+    "width": 1100,
+    "height": 337,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "Infoblock of a gear drawing; the words and their boxes are read from the PDF text layer",
+    "heatCaption": "Per word: probability of belonging to any field (1 − P(outside)), from the logits",
+    "outputCaption": "Words tagged as a field, boxed and named with the tag confidence",
+    "found": "10 fields decoded from 71 words: scale = 2:1; drawingSheetSize = A3; drawingNumber = Q181169 000 00; materialSpecifications = 1.1191 (C45E); legalDisclaimer = Schutzvermerk nach DIN ISO 16016 beachten; designedBy = N.Brandt; title = Stirnrad; date = 07.08.2018; drawnBy = N.Brandt; tolerances = Algmeintoleranzen: DINISO 2768-1M / | DIN ISO 2768-2K | DIN ISO 1302.",
+    "weights": "layoutlm_infoblock_field_detections"
+  },
+  "symbols-5class": {
+    "width": 1100,
+    "height": 1100,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "One 1600 px tile of a gear drawing on a white canvas, as the symbol detector receives it",
+    "heatCaption": "Highest class score at each grid location of the raw detection head",
+    "outputCaption": "Rotated boxes kept at score ≥ 0.60, with class and score",
+    "found": "4 boxes kept (2 GD&T, 2 roughness); 2 more scored between 0.25 and 0.60 and were dropped. By eye, both tolerance frames and both roughness symbols in this tile are boxed and no symbol is left out; the top-right frame is clipped by the tile edge, and the two dropped candidates are slivers of a roughness symbol cut by the left edge.",
+    "weights": "yolo_obb_v3_5class"
+  },
+  "symbols-nano": {
+    "width": 640,
+    "height": 640,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "A 640 px window of a gear drawing, the size this detector works at",
+    "heatCaption": "Scores of the model's raw candidates, painted at their centres",
+    "outputCaption": "Rotated boxes kept at score ≥ 0.30, with class and score",
+    "found": "2 boxes (1 GD&T, 1 roughness; scores 0.92, 0.91). By eye, the window holds one roughness symbol and one tolerance frame and both are boxed; the boxed datum letter A is not one of the classes.",
+    "weights": "property_detector"
+  },
+  "drawing-seg": {
+    "width": 1100,
+    "height": 778,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "A gear drawing, the whole A3 sheet (the model sees it letterboxed to 640 px)",
+    "heatCaption": "Mask activation of the best anchor: its coefficients times the prototype masks",
+    "outputCaption": "Decoded drawing-area polygon and confidence",
+    "found": "1 drawing area at confidence 0.99. The mask follows the frame and steps around the infoblock, so only the views, dimensions and tables are inside.",
+    "weights": "yolo_drawing_seg"
+  },
+  "logo": {
+    "width": 1100,
+    "height": 373,
+    "inputCaption": "Infoblock of the synthetic drawing with an invented logo, title in regular weight",
+    "heatCaption": "Logo score at each grid location of the raw detection head",
+    "outputCaption": "Logo boxes kept at score ≥ 0.70",
+    "found": "1 box around the invented mark and company name (0.87), nothing else. The title is set in regular weight here; with a heavy bold title the detector also fired on the title text (0.86), a false positive worth knowing about.",
+    "weights": "infoblock_logo_detection"
+  },
+  "gdt-cells": {
+    "width": 1000,
+    "height": 557,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "A tolerance frame of a gear drawing (the box the symbol detector found), with the white border the pipeline adds",
+    "heatCaption": "Highest cell-class score at each grid location of the raw detection head",
+    "outputCaption": "Cell boxes kept at score ≥ 0.80",
+    "found": "3 cells, scores 0.97, 0.96, 0.96. By eye, the frame has three cells (symbol, 0,05, datum letter A) and each got one box.",
+    "weights": "gdt_ocr_wrapper/cell_detection"
+  },
+  "edge-tolerance": {
+    "width": 1000,
+    "height": 497,
+    "inputCaption": "3× crop around an edge value, digits erased by the character model as in the pipeline",
+    "heatCaption": "L-symbol score at each grid location of the raw detection head",
+    "outputCaption": "L-symbol boxes kept at score ≥ 0.50",
+    "found": "1 L symbol at confidence 0.92.",
+    "weights": "edge-tolerance-L-detector"
+  },
+  "views": {
+    "width": 1100,
+    "height": 778,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "A gear drawing, the whole A3 sheet (the model sees it resized to 640×640)",
+    "heatCaption": "View score at each grid location of the raw detection head",
+    "outputCaption": "View boxes kept at score ≥ 0.30, after merging contained boxes",
+    "found": "3 view boxes (scores 0.88, 0.86, 0.85). By eye, they are the end view of the toothed wheel, the section A-A with its dimensions and the small 3D view; the gear-data table and the infoblock are left out. The end-view box cuts through the two-line note under it.",
+    "weights": "view_detection"
+  },
+  "rfdetr": {
+    "width": 1100,
+    "height": 778,
+    "inputCaption": "The whole A3 page (the model sees it resized to 2544×2544)",
+    "heatCaption": "Mask probability of the confident queries, from the raw mask logits",
+    "outputCaption": "Instance masks kept at score ≥ 0.6, one colour per view",
+    "found": "3 instance masks (scores 0.97, 0.96, 0.95); 3 of the 3 drawn views (section, end view, detail) are covered. 1 weaker candidate (0.49) fell below the 0.60 cut-off and is not drawn.",
+    "weights": "rfdetr-seg-2xlarge (OpenVINO export)"
+  },
+  "note-blocks": {
+    "width": 1000,
+    "height": 549,
+    "note": "Run on the gear drawing the product uses as its public demo. The model and its weights are the real ones.",
+    "inputCaption": "Two note areas of a gear drawing; text lines and their boxes come from the PDF text layer",
+    "heatCaption": "Pairwise same-note probability from the gradient-boosted model, lines × lines",
+    "outputCaption": "Text lines coloured by the group they were assigned to (grey = alone)",
+    "found": "9 text lines, 22 candidate pairs scored; 2 groups, 0 lines left alone. The wrapped two-line note (lines 1–2) was joined, which is right. The seven infoblock lines (3–9) were joined into one block; they are seven separate statements stacked without spacing, so read as single notes that is over-merged.",
+    "weights": "note_block_grouper"
+  }
+}

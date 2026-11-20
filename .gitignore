@@ -56,3 +56,5 @@ minio/data
 
 #claude
 .claude
+# saved raw model outputs for the example images
+tools/model-examples/work/

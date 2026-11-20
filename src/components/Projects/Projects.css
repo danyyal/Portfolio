@@ -68,9 +68,7 @@
 .project-card-view:hover {
   transform: translateY(-6px) !important;
   border-color: var(--card-border-hover) !important;
-  box-shadow:
-    var(--shadow-card),
-    var(--shadow-glow) !important;
+  box-shadow: var(--shadow-card), var(--shadow-glow) !important;
 }
 
 .project-img-wrap {
@@ -251,4 +249,184 @@
 
 .fullscreen-modal-backdrop.show {
   opacity: 0.92;
+}
+
+/* ---------- AI models + systems ---------- */
+.ai-section {
+  margin-top: 4.5rem;
+}
+
+.model-grid,
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.model-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.model-card:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.model-task {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-purple);
+}
+
+.model-name {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.model-detail {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.model-readout {
+  margin: auto 0 0;
+  padding-top: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  color: var(--accent-3);
+}
+
+.system-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 12px;
+  margin: 20px 0;
+  padding: 18px 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.system-stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.system-stats dt {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.system-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.company-logo-badge {
+  height: 34px;
+  width: auto;
+  margin-bottom: 22px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-sizing: content-box;
+}
+
+/* a model card that opens its detail sheet */
+button.model-card {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button.model-card > span {
+  display: block;
+}
+
+button.model-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.model-more {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-purple);
+}
+
+.model-more svg {
+  transition: transform 0.2s ease;
+}
+
+button.model-card:hover .model-more svg {
+  transform: translateX(4px);
+}
+
+button.model-card .model-readout {
+  margin-top: 14px;
+  padding-top: 0;
+}
+
+/* long descriptions open in place */
+.project-desc.is-open {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.project-more {
+  align-self: flex-start;
+  margin: 6px 0 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-purple);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.project-more:hover,
+.project-more:focus-visible {
+  text-decoration: underline;
+  outline: none;
 }

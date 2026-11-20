@@ -5,21 +5,21 @@ import "./index.css";
 import "./i18n";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { ChakraProvider, createSystem, defaultConfig } from "@chakra-ui/react";
 
-// Chakra's global preflight fights Bootstrap and Tailwind resets; the
-// components it styles don't need it.
-const chakraSystem = createSystem(defaultConfig, { preflight: false });
 import { ThemeProvider } from "./context/ThemeContext";
+import { ModeProvider } from "./context/ModeContext";
+import { startVitals } from "./components/ModelDetail/VitalsPanel";
+
+startVitals();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
-        <ChakraProvider value={chakraSystem}>
+      <ModeProvider>
+        <BrowserRouter>
           <App />
-        </ChakraProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ModeProvider>
     </ThemeProvider>
   </StrictMode>,
 );

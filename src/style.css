@@ -467,7 +467,7 @@ button:focus {
 
 .home-about-section {
   position: relative;
-  padding-bottom: 70px !important;
+  padding-bottom: 16px !important;
 }
 
 .home-about-description {
@@ -1093,4 +1093,178 @@ body.light-mode .notfound-terminal {
 .back-to-top:hover {
   box-shadow: var(--shadow-glow);
   border-color: var(--card-border-hover);
+}
+
+/* --------- */
+/* Command palette */
+/* --------- */
+.palette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(2, 6, 14, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  padding: 14vh 16px 16px;
+}
+
+.palette-panel {
+  width: 100%;
+  max-width: 560px;
+  height: fit-content;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--bg-navbar-sticky);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+  overflow: hidden;
+}
+
+.palette-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-muted);
+}
+
+.palette-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: var(--font-body);
+}
+
+.palette-input::placeholder {
+  color: var(--text-muted);
+}
+
+.palette-kbd {
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-family: var(--font-display);
+}
+
+.palette-list {
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.palette-section {
+  padding: 10px 10px 4px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.palette-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 10px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.palette-item.active {
+  background: var(--tag-bg-hover);
+  color: var(--text-primary);
+}
+
+.palette-item-icon {
+  display: flex;
+  color: var(--text-purple);
+  font-size: 1.05rem;
+}
+
+.palette-empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* navbar ⌘K hint */
+.kbd-hint-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.kbd-hint-btn:hover {
+  color: var(--text-purple);
+  border-color: var(--card-border-hover);
+}
+
+/* ---------- mode switch ---------- */
+.mode-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: var(--accent-gradient-soft);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mode-switch-btn:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.mode-switch-btn svg {
+  color: var(--accent);
+}
+
+.mission-boot {
+  min-height: 100vh;
+  background: #02030a;
+}
+
+/* Tailwind's `collapse` utility (visibility: collapse) shares a class name with
+   Bootstrap's collapsible navbar; keep the navbar visible whichever is generated. */
+.navbar-collapse.collapse,
+.navbar-collapse.collapsing {
+  visibility: visible;
 }
